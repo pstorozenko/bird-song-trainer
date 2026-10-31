@@ -10,12 +10,16 @@ export const ICON = {
   back: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>',
 };
 
+/** Also the display order of the habitat filter chips. */
 export const HABITAT_PL: Record<string, string> = {
+  city: 'miasto',
   forest: 'las',
   meadow: 'łąka',
   park: 'park',
   wetland: 'mokradła',
 };
+
+export const TYPE_PL: Record<string, string> = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot' };
 
 /** Round play/stop button for one clip. Wire it up once per container with bindPlayButtons(). */
 export function playButton(src: string, label: string, extraClass = ''): string {

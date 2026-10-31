@@ -16,7 +16,9 @@ uv run scripts/build_data.py --all
 ```
 Downloads are cached in `.cache/` (git-ignored), so re-runs only fetch what's missing. `--refresh` re-fetches and re-processes everything.
 
-Rules: Polish song recordings only, quality A (falling back to B), **no ND licences** (clips are trimmed and re-encoded). Each clip is the loudest 12 s window, loudness-normalised, as AAC `.m4a`, ~125 KB.
+Each species in `data/species.json` has `types` (`["song"]` by default, `["call"]`, or both; with both, the clip budget is split, e.g. 1 song + 1 call). The order of the file is the **unlock order** in the quiz: the first 6 enabled species are where a new learner starts (currently distinct city birds).
+
+Rules: Polish recordings only, quality A (falling back to B), **no ND licences** (clips are trimmed and re-encoded). Each clip is the loudest 12 s window, loudness-normalised, as AAC `.m4a`, ~125 KB.
 
 ### Overriding picks
 After listening, create `data/overrides.json`:

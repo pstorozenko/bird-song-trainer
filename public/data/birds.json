@@ -1,7 +1,331 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-31T12:50:31Z",
+  "generatedAt": "2026-10-31T13:06:52Z",
   "species": [
+    {
+      "id": "corvus-cornix",
+      "namePl": "Wrona siwa",
+      "nameEn": "Hooded Crow",
+      "nameLatin": "Corvus cornix",
+      "family": "Corvidae",
+      "habitat": [
+        "city",
+        "meadow"
+      ],
+      "similarTo": [
+        "corvus-frugilegus",
+        "corvus-corax",
+        "coloeus-monedula"
+      ],
+      "note": "Ochrypłe, powtarzane „krra krra” — najczęstszy krukowaty w mieście.",
+      "image": {
+        "src": "img/corvus-cornix.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hooded_crow_(Corvus_cornix_cornix)_Kemeri.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc522501",
+          "src": "audio/corvus-cornix-xc522501.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 31,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/522501",
+          "country": "Poland",
+          "location": "Zatoka Gdańska",
+          "date": "2020-01-26"
+        },
+        {
+          "id": "xc536193",
+          "src": "audio/corvus-cornix-xc536193.m4a",
+          "type": "call",
+          "durationSec": 11.0,
+          "sourceLengthSec": 10,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/536193",
+          "country": "Poland",
+          "location": "Tychy (near  Kobiór), pszczyński, śląskie",
+          "date": "2020-03-19"
+        }
+      ]
+    },
+    {
+      "id": "pica-pica",
+      "namePl": "Sroka",
+      "nameEn": "Eurasian Magpie",
+      "nameLatin": "Pica pica",
+      "family": "Corvidae",
+      "habitat": [
+        "city",
+        "park"
+      ],
+      "similarTo": [
+        "corvus-cornix"
+      ],
+      "note": "Suche, terkoczące „czak-czak-czak” jak grzechotka.",
+      "image": {
+        "src": "img/pica-pica.webp",
+        "author": "Alexis Lours",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_magpie_2024_03_03_02.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc545632",
+          "src": "audio/pica-pica-xc545632.m4a",
+          "type": "call",
+          "durationSec": 8.3,
+          "sourceLengthSec": 8,
+          "quality": "A",
+          "recordist": "Sławomir Karpicki-Ignatowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/545632",
+          "country": "Poland",
+          "location": "Poznań, Poznań, wielkopolskie",
+          "date": "2020-04-12"
+        },
+        {
+          "id": "xc1025967",
+          "src": "audio/pica-pica-xc1025967.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 60,
+          "quality": "A",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1025967",
+          "country": "Poland",
+          "location": "Gmina Przemęt (near  Perkowo), Wolsztyn County, Greater Poland Voivodeship",
+          "date": "2025-08-03"
+        }
+      ]
+    },
+    {
+      "id": "anas-platyrhynchos",
+      "namePl": "Krzyżówka",
+      "nameEn": "Mallard",
+      "nameLatin": "Anas platyrhynchos",
+      "family": "Anatidae",
+      "habitat": [
+        "city",
+        "wetland"
+      ],
+      "similarTo": [
+        "anser-anser"
+      ],
+      "note": "Klasyczne „kwa-kwa-kwa”; głośno kwacze samica, kaczor cicho pochrapuje.",
+      "image": {
+        "src": "img/anas-platyrhynchos.webp",
+        "author": "Richard Bartz",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc541821",
+          "src": "audio/anas-platyrhynchos-xc541821.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 20,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/541821",
+          "country": "Poland",
+          "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
+          "date": "2020-04-03"
+        },
+        {
+          "id": "xc598281",
+          "src": "audio/anas-platyrhynchos-xc598281.m4a",
+          "type": "call",
+          "durationSec": 11.5,
+          "sourceLengthSec": 11,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/598281",
+          "country": "Poland",
+          "location": "Miszkowice (near  Bukówka), Kamienna Góra County, Lower Silesian Voivodeship",
+          "date": "2020-10-10"
+        }
+      ]
+    },
+    {
+      "id": "columba-livia",
+      "namePl": "Gołąb miejski",
+      "nameEn": "Feral Pigeon",
+      "nameLatin": "Columba livia",
+      "family": "Columbidae",
+      "habitat": [
+        "city"
+      ],
+      "similarTo": [
+        "columba-palumbus"
+      ],
+      "note": "Bulgoczące, gardłowe „gruu-gruu” na parapetach i dachach.",
+      "image": {
+        "src": "img/columba-livia.webp",
+        "author": "william_stephens",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columba_livia_(Rock_Dove,_wild),_Duncansby_Head,_Caithness,_Scotland_1.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc462611",
+          "src": "audio/columba-livia-xc462611.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 38,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462611",
+          "country": "Poland",
+          "location": "Gmina Hańsk (near  Wojciechów), włodawski, lubelskie",
+          "date": "2019-03-20"
+        },
+        {
+          "id": "xc121680",
+          "src": "audio/columba-livia-xc121680.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 45,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/121680",
+          "country": "Poland",
+          "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
+          "date": "2013-02-16"
+        }
+      ]
+    },
+    {
+      "id": "passer-domesticus",
+      "namePl": "Wróbel",
+      "nameEn": "House Sparrow",
+      "nameLatin": "Passer domesticus",
+      "family": "Passeridae",
+      "habitat": [
+        "city"
+      ],
+      "similarTo": [
+        "passer-montanus"
+      ],
+      "note": "Ciągłe, monotonne ćwierkanie „ćwir ćwir” z krzewów i zakamarków budynków.",
+      "image": {
+        "src": "img/passer-domesticus.webp",
+        "author": "Rhododendrites",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:House_sparrow_male_in_Prospect_Park_(53532).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc559610",
+          "src": "audio/passer-domesticus-xc559610.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 28,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/559610",
+          "country": "Poland",
+          "location": "Białowieża Forest",
+          "date": "2020-05-17"
+        },
+        {
+          "id": "xc634437",
+          "src": "audio/passer-domesticus-xc634437.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 15,
+          "quality": "A",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/634437",
+          "country": "Poland",
+          "location": "Iskierka (near  Kęty), Powiat oświęcimski, Małopolskie",
+          "date": "2021-03-30"
+        }
+      ]
+    },
+    {
+      "id": "chroicocephalus-ridibundus",
+      "namePl": "Śmieszka",
+      "nameEn": "Black-headed Gull",
+      "nameLatin": "Chroicocephalus ridibundus",
+      "family": "Laridae",
+      "habitat": [
+        "city",
+        "wetland"
+      ],
+      "similarTo": [
+        "larus-argentatus"
+      ],
+      "note": "Skrzeczące, „śmiejące się” „krrie-ar” nad jeziorami i w mieście.",
+      "image": {
+        "src": "img/chroicocephalus-ridibundus.webp",
+        "author": "Hans Hillewaert",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chroicocephalus_ridibundus_(summer).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc591451",
+          "src": "audio/chroicocephalus-ridibundus-xc591451.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591451",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
+        },
+        {
+          "id": "xc1144933",
+          "src": "audio/chroicocephalus-ridibundus-xc1144933.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1144933",
+          "country": "Poland",
+          "location": "Gmina Stegna (near  Gdańsk), Gdańsk, Pomeranian Voivodeship",
+          "date": "2024-09-21"
+        }
+      ]
+    },
     {
       "id": "parus-major",
       "namePl": "Sikora bogatka",
@@ -10,7 +334,8 @@
       "family": "Paridae",
       "habitat": [
         "forest",
-        "park"
+        "park",
+        "city"
       ],
       "similarTo": [
         "cyanistes-caeruleus"
@@ -53,6 +378,919 @@
           "country": "Poland",
           "location": "Gmina Iłowo-Osada (near  Iłowo-Osada), Działdowo County, Warmian-Masurian Voivodeship",
           "date": "2013-12-27"
+        }
+      ]
+    },
+    {
+      "id": "turdus-merula",
+      "namePl": "Kos",
+      "nameEn": "Common Blackbird",
+      "nameLatin": "Turdus merula",
+      "family": "Turdidae",
+      "habitat": [
+        "forest",
+        "park",
+        "city"
+      ],
+      "similarTo": [
+        "turdus-philomelos"
+      ],
+      "note": "Niski, fletowy, niespieszny śpiew; frazy bez powtórzeń.",
+      "image": {
+        "src": "img/turdus-merula.webp",
+        "author": "Dion Art",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9_%D0%B4%D1%80%D0%BE%D0%B7%D0%B4_(Turdus_merula,_mas),_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BB%D0%B5%D1%81.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc879871",
+          "src": "audio/turdus-merula-xc879871.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Łukasz Bożycki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/879871",
+          "country": "Poland",
+          "location": "Podkowa Leśna, Grodzisk Mazowiecki County, Masovian Voivodeship",
+          "date": "2024-03-07"
+        },
+        {
+          "id": "xc127998",
+          "src": "audio/turdus-merula-xc127998.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 51,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/127998",
+          "country": "Poland",
+          "location": "Ostrów Lubelski (near  Gmina Ostrów Lubelski), Lubartów County, Lublin Voivodeship",
+          "date": "2013-03-30"
+        }
+      ]
+    },
+    {
+      "id": "coloeus-monedula",
+      "namePl": "Kawka",
+      "nameEn": "Western Jackdaw",
+      "nameLatin": "Coloeus monedula",
+      "family": "Corvidae",
+      "habitat": [
+        "city",
+        "park"
+      ],
+      "similarTo": [
+        "corvus-frugilegus",
+        "corvus-cornix"
+      ],
+      "note": "Krótkie, metaliczne „kia” lub „czak”, często w stadach z gawronami.",
+      "image": {
+        "src": "img/coloeus-monedula.webp",
+        "author": "hedera.baltica from Wrocław, Poland",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nordic_jackdaw_(52563242448).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc623278",
+          "src": "audio/coloeus-monedula-xc623278.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 20,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/623278",
+          "country": "Poland",
+          "location": "Middle Vistula, Łomianki, Warsaw",
+          "date": "2021-02-21"
+        },
+        {
+          "id": "xc630212",
+          "src": "audio/coloeus-monedula-xc630212.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 15,
+          "quality": "A",
+          "recordist": "Jacek Betleja",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/630212",
+          "country": "Poland",
+          "location": "Chorzów, Chorzów, Śląskie",
+          "date": "2021-03-19"
+        }
+      ]
+    },
+    {
+      "id": "sturnus-vulgaris",
+      "namePl": "Szpak",
+      "nameEn": "Common Starling",
+      "nameLatin": "Sturnus vulgaris",
+      "family": "Sturnidae",
+      "habitat": [
+        "city",
+        "meadow"
+      ],
+      "similarTo": [],
+      "note": "Gwiżdżąca, trzeszcząca mieszanka — świetnie naśladuje inne ptaki i dźwięki.",
+      "image": {
+        "src": "img/sturnus-vulgaris.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Common_starling_(Sturnus_vulgaris)_breeding_male_Marken.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc327880",
+          "src": "audio/sturnus-vulgaris-xc327880.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 22,
+          "quality": "A",
+          "recordist": "Patrik Åberg",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/327880",
+          "country": "Poland",
+          "location": "Bialowieza",
+          "date": "2016-05-09"
+        },
+        {
+          "id": "xc129217",
+          "src": "audio/sturnus-vulgaris-xc129217.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 62,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/129217",
+          "country": "Poland",
+          "location": "Łomianki (near  Gmina Łomianki), Warsaw West County, Masovian Voivodeship",
+          "date": "2013-04-11"
+        }
+      ]
+    },
+    {
+      "id": "corvus-frugilegus",
+      "namePl": "Gawron",
+      "nameEn": "Rook",
+      "nameLatin": "Corvus frugilegus",
+      "family": "Corvidae",
+      "habitat": [
+        "city",
+        "meadow"
+      ],
+      "similarTo": [
+        "corvus-cornix",
+        "coloeus-monedula"
+      ],
+      "note": "Niższe, bardziej chrapliwe „gaa” niż wrona; zimą wielkie stada w miastach.",
+      "image": {
+        "src": "img/corvus-frugilegus.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rook_(Corvus_frugilegus)_Heligan.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc153799",
+          "src": "audio/corvus-frugilegus-xc153799.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 49,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/153799",
+          "country": "Poland",
+          "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
+          "date": "2013-11-03"
+        },
+        {
+          "id": "xc113543",
+          "src": "audio/corvus-frugilegus-xc113543.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 82,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113543",
+          "country": "Poland",
+          "location": "Nieporęt (near  Rynia), Legionowo County, Mazowieckie",
+          "date": "2012-11-26"
+        }
+      ]
+    },
+    {
+      "id": "corvus-corax",
+      "namePl": "Kruk",
+      "nameEn": "Northern Raven",
+      "nameLatin": "Corvus corax",
+      "family": "Corvidae",
+      "habitat": [
+        "city",
+        "forest"
+      ],
+      "similarTo": [
+        "corvus-cornix"
+      ],
+      "note": "Głębokie, dźwięczne „kro-kro” i metaliczne „klong”, słychać z daleka.",
+      "image": {
+        "src": "img/corvus-corax.webp",
+        "author": "Frank Schulenburg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corvus_corax_clarionensis,_Point_Reyes_National_Seashore.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc627736",
+          "src": "audio/corvus-corax-xc627736.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/627736",
+          "country": "Poland",
+          "location": "Gmina Leoncin (near  Leoncin), nowodworski, mazowieckie",
+          "date": "2021-03-09"
+        },
+        {
+          "id": "xc1099362",
+          "src": "audio/corvus-corax-xc1099362.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 17,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1099362",
+          "country": "Poland",
+          "location": "Karlow, Stolowe Mts. National Park, kłodzki, Województwo dolnośląskie",
+          "date": "2025-11-29"
+        }
+      ]
+    },
+    {
+      "id": "apus-apus",
+      "namePl": "Jerzyk",
+      "nameEn": "Common Swift",
+      "nameLatin": "Apus apus",
+      "family": "Apodidae",
+      "habitat": [
+        "city"
+      ],
+      "similarTo": [
+        "hirundo-rustica",
+        "delichon-urbicum"
+      ],
+      "note": "Przenikliwe, piskliwe „srii-srii” stad pędzących nad dachami latem.",
+      "image": {
+        "src": "img/apus-apus.webp",
+        "author": "Alexis Lours",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Common_Swift_2025_07_18_02_(cropped).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc559392",
+          "src": "audio/apus-apus-xc559392.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 40,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/559392",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Białowieża), Hajnówka County, Podlaskie Voivodeship",
+          "date": "2020-05-17"
+        },
+        {
+          "id": "xc559377",
+          "src": "audio/apus-apus-xc559377.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 12,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/559377",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Białowieża), Hajnówka County, Podlaskie Voivodeship",
+          "date": "2020-05-17"
+        }
+      ]
+    },
+    {
+      "id": "hirundo-rustica",
+      "namePl": "Dymówka",
+      "nameEn": "Barn Swallow",
+      "nameLatin": "Hirundo rustica",
+      "family": "Hirundinidae",
+      "habitat": [
+        "city",
+        "meadow"
+      ],
+      "similarTo": [
+        "apus-apus",
+        "delichon-urbicum"
+      ],
+      "note": "Szybki, świergotliwy szczebiot zakończony charakterystycznym terkotem; „wit-wit” w locie.",
+      "image": {
+        "src": "img/hirundo-rustica.webp",
+        "author": "Andreas Trepte",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rauchschwalbe_Hirundo_rustica.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc559606",
+          "src": "audio/hirundo-rustica-xc559606.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 31,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/559606",
+          "country": "Poland",
+          "location": "Białowieża Forest",
+          "date": "2020-05-17"
+        },
+        {
+          "id": "xc1029079",
+          "src": "audio/hirundo-rustica-xc1029079.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 36,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1029079",
+          "country": "Poland",
+          "location": "Odra river near  Glogow, Głogów County, Lower Silesian Voivodeship",
+          "date": "2025-08-14"
+        }
+      ]
+    },
+    {
+      "id": "delichon-urbicum",
+      "namePl": "Oknówka",
+      "nameEn": "Common House Martin",
+      "nameLatin": "Delichon urbicum",
+      "family": "Hirundinidae",
+      "habitat": [
+        "city"
+      ],
+      "similarTo": [
+        "hirundo-rustica",
+        "apus-apus"
+      ],
+      "note": "Suche, krótkie „prrt” i cichy, szemrzący szczebiot spod okapów, gdzie lepi gliniane gniazda.",
+      "image": {
+        "src": "img/delichon-urbicum.webp",
+        "author": "Andreas Trepte",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mehlschwalbe_Delichon_urbicum.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc483659",
+          "src": "audio/delichon-urbicum-xc483659.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 57,
+          "quality": "B",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/483659",
+          "country": "Poland",
+          "location": "Leszno, Leszno, wielkopolskie",
+          "date": "2019-06-27"
+        },
+        {
+          "id": "xc344098",
+          "src": "audio/delichon-urbicum-xc344098.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 22,
+          "quality": "B",
+          "recordist": "Tero Linjama",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/344098",
+          "country": "Poland",
+          "location": "Białowieża, Podlaskie Voivodeship",
+          "date": "2011-05-21"
+        }
+      ]
+    },
+    {
+      "id": "spinus-spinus",
+      "namePl": "Czyż",
+      "nameEn": "Eurasian Siskin",
+      "nameLatin": "Spinus spinus",
+      "family": "Fringillidae",
+      "habitat": [
+        "forest",
+        "park",
+        "city"
+      ],
+      "similarTo": [],
+      "note": "Szczebiotliwy, świszczący śpiew z nosowym „dżijee”; zimą stadka na olszach i brzozach.",
+      "image": {
+        "src": "img/spinus-spinus.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_siskin_(Spinus_spinus)_male_Biebrzanski.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc462615",
+          "src": "audio/spinus-spinus-xc462615.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 87,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462615",
+          "country": "Poland",
+          "location": "Gmina Hańsk (near  Wojciechów), włodawski, lubelskie",
+          "date": "2019-03-20"
+        },
+        {
+          "id": "xc121690",
+          "src": "audio/spinus-spinus-xc121690.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 38,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/121690",
+          "country": "Poland",
+          "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
+          "date": "2013-02-16"
+        }
+      ]
+    },
+    {
+      "id": "alcedo-atthis",
+      "namePl": "Zimorodek",
+      "nameEn": "Common Kingfisher",
+      "nameLatin": "Alcedo atthis",
+      "family": "Alcedinidae",
+      "habitat": [
+        "wetland",
+        "city"
+      ],
+      "similarTo": [],
+      "note": "Ostry, przenikliwy gwizd „tiiit” w szybkim, niskim locie nad wodą — także nad Łyną w Olsztynie.",
+      "image": {
+        "src": "img/alcedo-atthis.webp",
+        "author": "Tony Wood",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alcedo_atthis_-England-8_(cropped).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc591055",
+          "src": "audio/alcedo-atthis-xc591055.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 21,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591055",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
+        },
+        {
+          "id": "xc598253",
+          "src": "audio/alcedo-atthis-xc598253.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 14,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/598253",
+          "country": "Poland",
+          "location": "Miszkowice (near  Bukówka), Kamienna Góra County, Lower Silesian Voivodeship",
+          "date": "2020-10-09"
+        }
+      ]
+    },
+    {
+      "id": "ciconia-ciconia",
+      "namePl": "Bocian biały",
+      "nameEn": "White Stork",
+      "nameLatin": "Ciconia ciconia",
+      "family": "Ciconiidae",
+      "habitat": [
+        "meadow",
+        "wetland"
+      ],
+      "similarTo": [
+        "grus-grus",
+        "ardea-cinerea"
+      ],
+      "note": "Dorosłe prawie nie mają głosu — zamiast tego klekoczą dziobem, odchylając głowę na grzbiet. Warmia i Mazury to bocianie zagłębie.",
+      "image": {
+        "src": "img/ciconia-ciconia.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_Bia%C5%82owieza.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc340921",
+          "src": "audio/ciconia-ciconia-xc340921.m4a",
+          "type": "bill clapping",
+          "durationSec": 12.0,
+          "sourceLengthSec": 17,
+          "quality": "A",
+          "recordist": "Tero Linjama",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/340921",
+          "country": "Poland",
+          "location": "Gmina Wizna (near  Wizna), łomżyński, podlaskie",
+          "date": "2011-05-23"
+        },
+        {
+          "id": "xc181349",
+          "src": "audio/ciconia-ciconia-xc181349.m4a",
+          "type": "bill clapping",
+          "durationSec": 12.0,
+          "sourceLengthSec": 54,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/181349",
+          "country": "Poland",
+          "location": "Gmina Rząśnik (near  Wincentowo), Wyszków County, Masovian Voivodeship",
+          "date": "2014-06-07"
+        }
+      ]
+    },
+    {
+      "id": "grus-grus",
+      "namePl": "Żuraw",
+      "nameEn": "Common Crane",
+      "nameLatin": "Grus grus",
+      "family": "Gruidae",
+      "habitat": [
+        "wetland",
+        "meadow"
+      ],
+      "similarTo": [
+        "ardea-cinerea"
+      ],
+      "note": "Donośne, trąbiące klangory par i stad.",
+      "image": {
+        "src": "img/grus-grus.webp",
+        "author": "Andreas Trepte",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Common_crane_grus_grus.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc754499",
+          "src": "audio/grus-grus-xc754499.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 31,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/754499",
+          "country": "Poland",
+          "location": "Poleski NP, Gmina Urszulin, Włodawa County, Lublin Voivodeship",
+          "date": "2022-09-17"
+        },
+        {
+          "id": "xc548679",
+          "src": "audio/grus-grus-xc548679.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 31,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/548679",
+          "country": "Poland",
+          "location": "Ostrołęka County, Masovian Voivodeship",
+          "date": "2020-04-19"
+        }
+      ]
+    },
+    {
+      "id": "cygnus-olor",
+      "namePl": "Łabędź niemy",
+      "nameEn": "Mute Swan",
+      "nameLatin": "Cygnus olor",
+      "family": "Anatidae",
+      "habitat": [
+        "wetland",
+        "city"
+      ],
+      "similarTo": [
+        "anser-anser"
+      ],
+      "note": "Rzadko się odzywa: syczy i parska, ale w locie słychać rytmiczny, „śpiewający” szum skrzydeł.",
+      "image": {
+        "src": "img/cygnus-olor.webp",
+        "author": "Sanchezn",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CygneVaires.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc527486",
+          "src": "audio/cygnus-olor-xc527486.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 61,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/527486",
+          "country": "Poland",
+          "location": "Zegrze Reservoir, legionowski, mazowieckie",
+          "date": "2020-02-12"
+        },
+        {
+          "id": "xc1052052",
+          "src": "audio/cygnus-olor-xc1052052.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "B",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1052052",
+          "country": "Poland",
+          "location": "Gmina Oświęcim (near  Grojec), Oświęcim County, Lesser Poland Voivodeship",
+          "date": "2025-11-02"
+        }
+      ]
+    },
+    {
+      "id": "anser-anser",
+      "namePl": "Gęś gęgawa",
+      "nameEn": "Greylag Goose",
+      "nameLatin": "Anser anser",
+      "family": "Anatidae",
+      "habitat": [
+        "wetland",
+        "meadow"
+      ],
+      "similarTo": [
+        "cygnus-olor",
+        "anas-platyrhynchos"
+      ],
+      "note": "Głośne, „podwórkowe” gęganie „ga-ga-gang”, zwłaszcza w locie w kluczu.",
+      "image": {
+        "src": "img/anser-anser.webp",
+        "author": "Diliff",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Greylag_Goose_-_St_James%27s_Park,_London_-_Nov_2006.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc549740",
+          "src": "audio/anser-anser-xc549740.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/549740",
+          "country": "Poland",
+          "location": "Masovian Voivodeship",
+          "date": "2020-04-23"
+        },
+        {
+          "id": "xc617055",
+          "src": "audio/anser-anser-xc617055.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/617055",
+          "country": "Poland",
+          "location": "Gmina Somianka (near  Somianka-Parcele), Powiat wyszkowski, Mazowieckie",
+          "date": "2021-01-24"
+        }
+      ]
+    },
+    {
+      "id": "podiceps-cristatus",
+      "namePl": "Perkoz dwuczuby",
+      "nameEn": "Great Crested Grebe",
+      "nameLatin": "Podiceps cristatus",
+      "family": "Podicipedidae",
+      "habitat": [
+        "wetland"
+      ],
+      "similarTo": [],
+      "note": "Chrapliwe, gardłowe „kroo-kroo” i terkoty z trzcin na jeziorach.",
+      "image": {
+        "src": "img/podiceps-cristatus.webp",
+        "author": "JJ Harrison",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Podiceps_cristatus_2_-_Lake_Dulverton.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc592110",
+          "src": "audio/podiceps-cristatus-xc592110.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/592110",
+          "country": "Poland",
+          "location": "Serwy Lake, Gmina Płaska, Powiat augustowski, Podlaskie",
+          "date": "2018-04-07"
+        },
+        {
+          "id": "xc1104142",
+          "src": "audio/podiceps-cristatus-xc1104142.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 27,
+          "quality": "B",
+          "recordist": "Radek Grochowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1104142",
+          "country": "Poland",
+          "location": "Gmina Kurzętnik (near  Tomaszewo), Nowe Miasto County, Warmian-Masurian Voivodeship",
+          "date": "2026-04-10"
+        }
+      ]
+    },
+    {
+      "id": "ardea-cinerea",
+      "namePl": "Czapla siwa",
+      "nameEn": "Grey Heron",
+      "nameLatin": "Ardea cinerea",
+      "family": "Ardeidae",
+      "habitat": [
+        "wetland",
+        "meadow"
+      ],
+      "similarTo": [
+        "grus-grus"
+      ],
+      "note": "Szorstkie, donośne „fraank”, zwykle przy zrywaniu się do lotu.",
+      "image": {
+        "src": "img/ardea-cinerea.webp",
+        "author": "Giacomo Cimino",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Il_pescatore_solitario.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc113456",
+          "src": "audio/ardea-cinerea-xc113456.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 37,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113456",
+          "country": "Poland",
+          "location": "Raszyn (near  Falenty), Pruszków County, Mazowieckie",
+          "date": "2012-11-25"
+        },
+        {
+          "id": "xc668169",
+          "src": "audio/ardea-cinerea-xc668169.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 38,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/668169",
+          "country": "Poland",
+          "location": "Gmina Krzywiń (near  Krzywiń), Powiat kościański, Wielkopolskie",
+          "date": "2021-08-11"
+        }
+      ]
+    },
+    {
+      "id": "phalacrocorax-carbo",
+      "namePl": "Kormoran",
+      "nameEn": "Great Cormorant",
+      "nameLatin": "Phalacrocorax carbo",
+      "family": "Phalacrocoracidae",
+      "habitat": [
+        "wetland"
+      ],
+      "similarTo": [],
+      "note": "Niskie, gardłowe chrząkanie i rechot — głównie w koloniach lęgowych.",
+      "image": {
+        "src": "img/phalacrocorax-carbo.webp",
+        "author": "MPF",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2021-05-05_Phalacrocorax_carbo_carbo,_Killingworth_Lake,_Northumberland_1-1.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc448581",
+          "src": "audio/phalacrocorax-carbo-xc448581.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 27,
+          "quality": "A",
+          "recordist": "Krzysztof Jankowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/448581",
+          "country": "Poland",
+          "location": "Olsztyn, Olsztyn, warmińsko-mazurskie",
+          "date": "2018-11-11"
+        },
+        {
+          "id": "xc738996",
+          "src": "audio/phalacrocorax-carbo-xc738996.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 58,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/738996",
+          "country": "Poland",
+          "location": "Krynica Morska, Nowy Dwór Gdański County, Pomeranian Voivodeship",
+          "date": "2022-07-20"
         }
       ]
     },
@@ -215,60 +1453,6 @@
           "country": "Poland",
           "location": "Gmina Gołdap, gołdapski, Warmińsko-Mazurskie",
           "date": "2020-06-01"
-        }
-      ]
-    },
-    {
-      "id": "turdus-merula",
-      "namePl": "Kos",
-      "nameEn": "Common Blackbird",
-      "nameLatin": "Turdus merula",
-      "family": "Turdidae",
-      "habitat": [
-        "forest",
-        "park"
-      ],
-      "similarTo": [
-        "turdus-philomelos"
-      ],
-      "note": "Niski, fletowy, niespieszny śpiew; frazy bez powtórzeń.",
-      "image": {
-        "src": "img/turdus-merula.webp",
-        "author": "Dion Art",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9_%D0%B4%D1%80%D0%BE%D0%B7%D0%B4_(Turdus_merula,_mas),_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BB%D0%B5%D1%81.jpg"
-      },
-      "recordings": [
-        {
-          "id": "xc879871",
-          "src": "audio/turdus-merula-xc879871.m4a",
-          "type": "song",
-          "durationSec": 12.0,
-          "sourceLengthSec": 33,
-          "quality": "A",
-          "recordist": "Łukasz Bożycki",
-          "license": "CC BY-NC-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-          "sourceUrl": "https://xeno-canto.org/879871",
-          "country": "Poland",
-          "location": "Podkowa Leśna, Grodzisk Mazowiecki County, Masovian Voivodeship",
-          "date": "2024-03-07"
-        },
-        {
-          "id": "xc127998",
-          "src": "audio/turdus-merula-xc127998.m4a",
-          "type": "song",
-          "durationSec": 12.0,
-          "sourceLengthSec": 51,
-          "quality": "A",
-          "recordist": "Jarek Matusiak",
-          "license": "CC BY-NC-SA 3.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
-          "sourceUrl": "https://xeno-canto.org/127998",
-          "country": "Poland",
-          "location": "Ostrów Lubelski (near  Gmina Ostrów Lubelski), Lubartów County, Lublin Voivodeship",
-          "date": "2013-03-30"
         }
       ]
     },
@@ -806,9 +1990,12 @@
       "family": "Columbidae",
       "habitat": [
         "forest",
-        "park"
+        "park",
+        "city"
       ],
-      "similarTo": [],
+      "similarTo": [
+        "columba-livia"
+      ],
       "note": "Pięciosylabowe, gruchające „hu-huu-hu, hu-hu”.",
       "image": {
         "src": "img/columba-palumbus.webp",
@@ -847,6 +2034,59 @@
           "country": "Poland",
           "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
           "date": "2013-04-17"
+        }
+      ]
+    },
+    {
+      "id": "pyrrhula-pyrrhula",
+      "namePl": "Gil",
+      "nameEn": "Eurasian Bullfinch",
+      "nameLatin": "Pyrrhula pyrrhula",
+      "family": "Fringillidae",
+      "habitat": [
+        "forest",
+        "park",
+        "city"
+      ],
+      "similarTo": [],
+      "note": "Miękkie, smutne gwizdy „dju”.",
+      "image": {
+        "src": "img/pyrrhula-pyrrhula.webp",
+        "author": "Francis Franklin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bullfinch_male.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc113712",
+          "src": "audio/pyrrhula-pyrrhula-xc113712.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113712",
+          "country": "Poland",
+          "location": "Forest near Fatten (Las w pobliżu Tuczna)",
+          "date": "2010-05-03"
+        },
+        {
+          "id": "xc129200",
+          "src": "audio/pyrrhula-pyrrhula-xc129200.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 22,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/129200",
+          "country": "Poland",
+          "location": "Łomianki (near  Łomianki Dolne), Warsaw West County, Masovian Voivodeship",
+          "date": "2013-04-11"
         }
       ]
     },
@@ -1053,6 +2293,166 @@
           "country": "Poland",
           "location": "Gmina Wyry (near  Gostyn), Mikołów County, Silesian Voivodeship",
           "date": "2014-07-01"
+        }
+      ]
+    },
+    {
+      "id": "larus-argentatus",
+      "namePl": "Mewa srebrzysta",
+      "nameEn": "European Herring Gull",
+      "nameLatin": "Larus argentatus",
+      "family": "Laridae",
+      "habitat": [
+        "city",
+        "wetland"
+      ],
+      "similarTo": [
+        "chroicocephalus-ridibundus"
+      ],
+      "note": "Głośne, nadmorskie „kiau-kiau-kiau” i zawodzący śmiech.",
+      "image": {
+        "src": "img/larus-argentatus.webp",
+        "author": "Rhododendrites",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:European_herring_gull_vocalizing_(00170).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc840012",
+          "src": "audio/larus-argentatus-xc840012.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 22,
+          "quality": "B",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/840012",
+          "country": "Poland",
+          "location": "Gmina Władysławowo (near  Władysławowo), Powiat pucki, Pomorskie",
+          "date": "2023-06-25"
+        },
+        {
+          "id": "xc795350",
+          "src": "audio/larus-argentatus-xc795350.m4a",
+          "type": "call",
+          "durationSec": 12.5,
+          "sourceLengthSec": 14,
+          "quality": "B",
+          "recordist": "Sławomir Karpicki-Ignatowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/795350",
+          "country": "Poland",
+          "location": "Hel, Powiat pucki, Pomorskie",
+          "date": "2023-04-19"
+        }
+      ]
+    },
+    {
+      "id": "passer-montanus",
+      "namePl": "Mazurek",
+      "nameEn": "Eurasian Tree Sparrow",
+      "nameLatin": "Passer montanus",
+      "family": "Passeridae",
+      "habitat": [
+        "city",
+        "meadow"
+      ],
+      "similarTo": [
+        "passer-domesticus"
+      ],
+      "note": "Podobny do wróbla, ale wyższe, bardziej metaliczne „cik” i „tet-tet” w locie.",
+      "image": {
+        "src": "img/passer-montanus.webp",
+        "author": "Laitche",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tree_Sparrow_August_2007_Osaka_Japan.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc1104910",
+          "src": "audio/passer-montanus-xc1104910.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 34,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1104910",
+          "country": "Poland",
+          "location": "South Park (near  Głogów), Dolnośląskie Voivodeship",
+          "date": "2026-04-29"
+        },
+        {
+          "id": "xc665124",
+          "src": "audio/passer-montanus-xc665124.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 17,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/665124",
+          "country": "Poland",
+          "location": "Gmina Narewka (near  Siemianówka), Powiat hajnowski, Podlaskie",
+          "date": "2021-07-19"
+        }
+      ]
+    },
+    {
+      "id": "bombycilla-garrulus",
+      "namePl": "Jemiołuszka",
+      "nameEn": "Bohemian Waxwing",
+      "nameLatin": "Bombycilla garrulus",
+      "family": "Bombycillidae",
+      "habitat": [
+        "city",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Zimowy gość; delikatny, dzwoneczkowy tryl „sirrrr” ze stada na jarzębinie.",
+      "image": {
+        "src": "img/bombycilla-garrulus.webp",
+        "author": "Tatiana Bulyonkova from Novosibirsk, Russia",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bombycilla_garrulus,_Novosibirsk_1.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc113537",
+          "src": "audio/bombycilla-garrulus-xc113537.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 36,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113537",
+          "country": "Poland",
+          "location": "Nieporęt (near  Białobrzegi), Legionowo County, Mazowieckie",
+          "date": "2012-11-26"
+        },
+        {
+          "id": "xc113540",
+          "src": "audio/bombycilla-garrulus-xc113540.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sourceLengthSec": 14,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113540",
+          "country": "Poland",
+          "location": "Nieporęt (near  Białobrzegi), Legionowo County, Mazowieckie",
+          "date": "2012-11-26"
         }
       ]
     }

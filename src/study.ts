@@ -2,7 +2,7 @@
 import { asset } from './data';
 import { activeIds, isLearned, isStruggling, MAX_BOX, speciesProgress } from './progress';
 import { getProgress } from './storage';
-import { bindPlayButtons, esc, fold, HABITAT_PL, ICON, playButton, recordingCredit } from './ui';
+import { bindPlayButtons, esc, fold, HABITAT_PL, ICON, playButton, recordingCredit, TYPE_PL } from './ui';
 import type { BirdsData, Species } from './types';
 
 type Cleanup = () => void;
@@ -13,7 +13,6 @@ const filter = { query: '', habitat: '' };
 const STRUGGLING = '!struggling';
 let listScrollY = 0;
 
-const TYPE_PL: Record<string, string> = { song: 'śpiew', call: 'głos' };
 
 function matches(sp: Species): boolean {
   if (filter.habitat === STRUGGLING) {

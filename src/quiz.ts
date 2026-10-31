@@ -4,7 +4,7 @@ import { asset } from './data';
 import { activeIds, isLearned, isNew, lockedIds, maybeUnlock, recordAnswer, weightOf } from './progress';
 import { QuestionPicker, type Answer, type Question } from './quizEngine';
 import { exportProgress, getProgress, readProgressFile, replaceProgress, requestPersistence, resetProgress, saveProgress } from './storage';
-import { esc, ICON, recordingCredit } from './ui';
+import { esc, ICON, recordingCredit, TYPE_PL } from './ui';
 import type { BirdsData, Species } from './types';
 
 const ROUND_LENGTH = 10;
@@ -148,7 +148,7 @@ function questionView(s: Session): string {
         }</p>
         <p class="reveal-name"><strong>${esc(q.species.namePl)}</strong> · <i>${esc(q.species.nameLatin)}</i></p>
         <p class="reveal-note">${esc(q.species.note)}</p>
-        <p class="credit">Nagranie: ${recordingCredit(q.recording)}</p>
+        <p class="credit">Nagranie (${esc(TYPE_PL[q.recording.type] ?? q.recording.type)}): ${recordingCredit(q.recording)}</p>
         ${
           s.justUnlocked
             ? `<p class="reveal-unlock">Nowy ptak w quizie: <a href="#/study/${esc(s.justUnlocked.id)}">${esc(s.justUnlocked.namePl)}</a></p>`
@@ -166,7 +166,7 @@ function questionView(s: Session): string {
     <div class="listen">
       <button class="listen-btn" type="button" data-action="replay" aria-pressed="${playing}"
         aria-label="${playing ? 'Zatrzymaj nagranie' : 'Odtwórz nagranie'}">${playing ? ICON.stop : ICON.play}</button>
-      <p class="listen-hint">${answer ? 'Posłuchaj jeszcze raz' : 'Kto tak śpiewa?'}</p>
+      <p class="listen-hint">${answer ? 'Posłuchaj jeszcze raz' : q.recording.type === 'song' ? 'Kto tak śpiewa?' : 'Czyj to głos?'}</p>
     </div>
     <div class="choices" role="group" aria-label="Odpowiedzi">
       ${q.choices.map((c, i) => choiceView(c, i, answer)).join('')}

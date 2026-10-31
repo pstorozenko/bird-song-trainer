@@ -43,6 +43,7 @@ XC_API = "https://xeno-canto.org/api/3/recordings"
 UA = "BirdSongTrainer/0.1 (personal learning project; data build script)"
 
 RECORDINGS_PER_SPECIES = 2
+META_KEYS = ("id", "namePl", "nameEn", "nameLatin", "family", "habitat", "similarTo", "note")
 COUNTRY = "poland"
 MAX_SOURCE_SEC = 90  # prefer short source recordings (less to sift through)
 MIN_SOURCE_SEC = 8   # too short to hold more than one phrase
@@ -139,14 +140,17 @@ class Http:
 
 # ---------------------------------------------------------------- xeno-canto
 
-def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool) -> list[dict]:
+def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool, rtype: str = "song") -> list[dict]:
     gen, spec = sp["nameLatin"].split()[:2]
-    query = f"gen:{gen} sp:{spec} cnt:{COUNTRY} type:song q:{quality}"
+    type_q = f'"{rtype}"' if " " in rtype else rtype  # e.g. type:"bill clapping"
+    query = f"gen:{gen} sp:{spec} cnt:{COUNTRY} type:{type_q} q:{quality}"
+    # songs keep the original cache names so existing picks stay stable
+    tag = "" if rtype == "song" else f"{rtype.replace(' ', '_')}-"
     recs: list[dict] = []
     page = 1
     while True:
         data = http.json_cached(
-            f"xc-{sp['id']}-{quality}-p{page}.json",
+            f"xc-{sp['id']}-{tag}{quality}-p{page}.json",
             XC_API,
             {"query": query, "key": key, "per_page": 500, "page": page},
             refresh,
@@ -160,8 +164,8 @@ def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool) -
     return recs
 
 
-def pick_recordings(recs: list[dict], n: int, overrides: dict) -> list[dict]:
-    exclude = {x.removeprefix("xc") for x in overrides.get("exclude", [])}
+def pick_recordings(recs: list[dict], n: int, overrides: dict, skip: set[str] = frozenset()) -> list[dict]:
+    exclude = {x.removeprefix("xc") for x in overrides.get("exclude", [])} | set(skip)
     pins = [x.removeprefix("xc") for x in overrides.get("pin", [])]
     by_id = {r["id"]: r for r in recs}
 
@@ -180,7 +184,7 @@ def pick_recordings(recs: list[dict], n: int, overrides: dict) -> list[dict]:
             abs(length - 30),                 # ~30 s sources are a sweet spot
         )
 
-    chosen: list[dict] = [by_id[p] for p in pins if p in by_id][:n]
+    chosen: list[dict] = [by_id[p] for p in pins if p in by_id and p not in exclude][:n]
     recordists = {r["rec"] for r in chosen}
     ranked = sorted(usable, key=score)
     # first pass: distinct recordists; second pass: fill up
@@ -307,7 +311,7 @@ def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dic
 
     return {
         "src": f"img/{dest.name}",
-        "author": strip_html(meta.get("Artist", {}).get("value", "")) or "unknown",
+        "author": overrides.get("imageAuthor") or strip_html(meta.get("Artist", {}).get("value", "")) or "unknown",
         "license": lic,
         "licenseUrl": meta.get("LicenseUrl", {}).get("value", ""),
         "sourceUrl": ii["descriptionurl"],
@@ -332,16 +336,33 @@ def fetch_image(http: Http, sp: dict, refresh: bool, overrides: dict, previous: 
 
 def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict, previous: dict | None) -> dict:
     log(f"• {sp['namePl']} ({sp['nameLatin']})")
-    recs = xc_candidates(http, key, sp, "A", refresh)
-    chosen = pick_recordings(recs, RECORDINGS_PER_SPECIES, overrides)
-    if len(chosen) < RECORDINGS_PER_SPECIES:
-        recs += xc_candidates(http, key, sp, "B", refresh)
-        chosen = pick_recordings(recs, RECORDINGS_PER_SPECIES, overrides)
-    if len(chosen) < RECORDINGS_PER_SPECIES:
-        log(f"  ! only {len(chosen)} usable Polish recordings")
+    types = sp.get("types") or ["song"]
+    n = RECORDINGS_PER_SPECIES
+    # split the clip budget across types, e.g. 2 clips over [call, song] -> 1 + 1
+    quotas = [n // len(types) + (1 if i < n % len(types) else 0) for i in range(len(types))]
+    pools: dict[str, list[dict]] = {}
+    chosen: list[tuple[str, dict]] = []
+
+    def take(rtype: str, k: int) -> None:
+        if k <= 0:
+            return
+        taken = {r["id"] for _, r in chosen}
+        pools.setdefault(rtype, xc_candidates(http, key, sp, "A", refresh, rtype))
+        picked = pick_recordings(pools[rtype], k, overrides, taken)
+        if len(picked) < k:
+            pools[rtype] += xc_candidates(http, key, sp, "B", refresh, rtype)
+            picked = pick_recordings(pools[rtype], k, overrides, taken)
+        chosen.extend((rtype, r) for r in picked)
+
+    for rtype, k in zip(types, quotas):
+        take(rtype, k)
+    for rtype in types:  # top up from any type if one came up short
+        take(rtype, n - len(chosen))
+    if len(chosen) < n:
+        log(f"  ! only {len(chosen)} usable Polish recordings ({'/'.join(types)})")
 
     recordings = []
-    for r in chosen:
+    for rtype, r in chosen:
         ext = Path(r.get("file-name") or "x.mp3").suffix or ".mp3"
         raw = http.download(r["file"], CACHE / "xc" / f"{r['id']}{ext}")
         dest = PUBLIC / "audio" / f"{sp['id']}-xc{r['id']}.m4a"
@@ -349,7 +370,7 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
         recordings.append({
             "id": f"xc{r['id']}",
             "src": f"audio/{dest.name}",
-            "type": "song",
+            "type": rtype,
             "durationSec": dur,
             "sourceLengthSec": parse_len(r.get("length", "0:00")),
             "quality": r.get("q"),
@@ -361,13 +382,13 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
             "location": r.get("loc"),
             "date": r.get("date"),
         })
-        log(f"  ♪ XC{r['id']} q:{r.get('q')} {r.get('length')} {license_name(r['lic'])} — {r['rec']} ({r.get('loc')})")
+        log(f"  ♪ {rtype} XC{r['id']} q:{r.get('q')} {r.get('length')} {license_name(r['lic'])} — {r['rec']} ({r.get('loc')})")
 
     image = fetch_image(http, sp, refresh, overrides, previous)
     if image:
         log(f"  ▣ {image['license']} — {image['author']}")
 
-    out = {k: sp[k] for k in ("id", "namePl", "nameEn", "nameLatin", "family", "habitat", "similarTo", "note")}
+    out = {k: sp[k] for k in META_KEYS}
     out["image"] = image
     out["recordings"] = recordings
     return out
@@ -413,6 +434,7 @@ def main() -> int:
 
     http = Http(args.wiki_delay, os.environ.get("WIKIMEDIA_CONTACT", "").strip())
     previous = {s["id"]: s for s in json.loads(OUT_JSON.read_text())["species"]} if OUT_JSON.exists() else {}
+    seed_by_id = {s["id"]: s for s in seed}
     built = {
         sp["id"]: build_species(http, key, sp, args.refresh, overrides_all.get(sp["id"], {}), previous.get(sp["id"]))
         for sp in selected
@@ -422,7 +444,10 @@ def main() -> int:
     if args.only:
         for sid, s in previous.items():
             built.setdefault(sid, s)
-    seed_by_id = {s["id"]: s for s in seed}
+    # Metadata always comes from the seed file, so edits there apply without re-fetching.
+    for sid, s in built.items():
+        if sid in seed_by_id:
+            s.update({k: seed_by_id[sid][k] for k in META_KEYS})
     species = [built[s["id"]] for s in seed if s["id"] in built]  # seed order
 
     # Keep similarTo pointing only at species that are actually in the build.
