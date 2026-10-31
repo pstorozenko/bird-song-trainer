@@ -1180,3 +1180,185 @@ a {
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* ================= desktop / wide screens ================= */
+/* Phones keep the layout above unchanged; from 900 px the tab bar becomes a top header and views use the width. */
+
+.tabbar .brand {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --tabbar-h: 64px;
+    --desk-max: 1040px;
+  }
+
+  .tabbar {
+    inset: 0 0 auto 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: var(--tabbar-h);
+    padding: 0 max(24px, calc((100vw - var(--desk-max)) / 2));
+    border-top: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tabbar .brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .tabbar a[data-tab] {
+    flex-direction: row;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+  }
+
+  .tabbar a[data-tab] svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .tabbar a[data-tab]:hover {
+    color: var(--text);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+
+  .tabbar a[aria-current='page'] {
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+
+  #view {
+    max-width: var(--desk-max);
+    padding-top: calc(var(--tabbar-h) + 20px);
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .view-title {
+    font-size: 2rem;
+  }
+
+  .toast {
+    bottom: 24px;
+  }
+
+  /* ---- study list: card grid ---- */
+
+  .list-header {
+    top: var(--tabbar-h);
+    margin: 0 -24px;
+    padding: 4px 24px 12px;
+  }
+
+  .search input {
+    max-width: 520px;
+  }
+
+  .chips {
+    flex-wrap: wrap;
+    overflow: visible;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  #view[data-view='list'] .rows {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    background: none;
+    border: none;
+    overflow: visible;
+  }
+
+  #view[data-view='list'] .row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.15s;
+  }
+
+  #view[data-view='list'] .row:hover {
+    border-color: var(--accent);
+  }
+
+  /* ---- detail: photo beside the text ---- */
+
+  .detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 40px;
+    align-items: start;
+    margin: 0;
+  }
+
+  .back-link {
+    grid-column: 1 / -1;
+    padding-left: 0;
+  }
+
+  .detail-photo {
+    position: sticky;
+    top: calc(var(--tabbar-h) + 20px);
+    border-radius: var(--radius);
+  }
+
+  .detail-body {
+    padding: 0;
+  }
+
+  /* ---- quiz: answers in one row, feedback below them (not overlapping) ---- */
+
+  #view[data-view='quiz'] {
+    max-width: 960px;
+  }
+
+  #view[data-view='quiz'] .view-title,
+  .quiz-intro,
+  .stats,
+  .stats-hint,
+  .manage,
+  .summary {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .choices {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .choice:not(:disabled):hover {
+    border-color: var(--accent);
+  }
+
+  .reveal {
+    position: static;
+    max-width: 620px;
+    margin: 20px auto 0;
+  }
+
+  /* ---- info: comfortable reading width ---- */
+
+  #view[data-view='info'] {
+    max-width: 760px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #view[data-view='list'] .rows {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

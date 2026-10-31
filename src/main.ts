@@ -9,7 +9,7 @@ import { esc } from './ui';
 import type { BirdsData } from './types';
 
 const view = document.getElementById('view')!;
-const tabs = [...document.querySelectorAll<HTMLAnchorElement>('.tabbar a')];
+const tabs = [...document.querySelectorAll<HTMLAnchorElement>('.tabbar a[data-tab]')];
 let cleanup: () => void = () => {};
 let lastTab = '';
 
@@ -32,6 +32,9 @@ function render(data: BirdsData) {
     if (a.dataset.tab === route.tab) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
   }
+
+  // Lets the desktop layout give each view its own width/arrangement.
+  view.dataset.view = route.tab === 'study' ? (route.id ? 'detail' : 'list') : route.tab;
 
   if (route.tab === 'quiz') cleanup = renderQuiz(view, data);
   else if (route.tab === 'info') cleanup = renderInfo(view, data);
