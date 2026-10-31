@@ -34,3 +34,13 @@ for (const ev of ['play', 'pause', 'ended'] as const) {
     listeners.forEach((cb) => cb(playing));
   });
 }
+
+/** Warm the cache for a clip we'll need soon (next quiz question). */
+const preloader = new Audio();
+preloader.preload = 'auto';
+preloader.muted = true;
+export function preloadClip(src: string): void {
+  if (preloader.src === src) return;
+  preloader.src = src;
+  preloader.load();
+}
