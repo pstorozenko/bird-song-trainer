@@ -14,6 +14,7 @@ content/            hand-edited inputs
 scripts/
   build_data.py     content/ -> public/ (Xeno-canto + Wikimedia + ffmpeg), run on the dev machine
   make_icons.py     renders public/icons/icon.svg to PNG icons
+  review/           local clip-review tool (bun run review), never deployed
 public/             served as-is
   data/birds.json   generated
   audio/, img/      generated (committed: rebuilding needs the API key and ~130 MB of downloads)
@@ -42,15 +43,21 @@ Downloads are cached in `.cache/` (git-ignored), so re-runs only fetch what's mi
 
 Each species has `types`: any Xeno-canto sound type, e.g. `["song"]` (default), `["call"]`, `["call", "song"]` (1 clip each) or `["bill clapping"]`. Rules: Polish recordings only, quality A (falling back to B), source ≥ 8 s, **no ND licences**. Each clip is the loudest 12 s window, loudness-normalised, AAC `.m4a`, ~125 KB. Photos: CC (no ND) or public domain only.
 
+### Reviewing clips
+```sh
+bun run review            # http://localhost:5174
+```
+Lists every clip with a spectrogram (0–12 kHz; click it to play from that point). Mark clips **OK** or **Bad** (keys: `J`/`K` next/previous, `Space` play, `O` OK, `X` bad, `U` undo); marks go to `approved` / `exclude` in `content/overrides.json`. **"Wymień złe nagrania"** re-runs the data script for species with bad clips: approved clips stay, bad ones are replaced by the next-best Polish recordings, which then show up as "to review". Commit and push to publish.
+
 ### Overrides (`content/overrides.json`)
 ```json
 {
-  "parus-major":       { "exclude": ["xc123522"], "pin": ["xc975501"] },
+  "parus-major":       { "exclude": ["xc123522"], "approved": ["xc160982"], "pin": ["xc975501"] },
   "luscinia-luscinia": { "image": "File:Some_better_photo.jpg" },
   "ardea-cinerea":     { "imageAuthor": "Giacomo Cimino" }
 }
 ```
-`image` picks a specific Wikimedia Commons file (default: the species' English Wikipedia lead photo); `imageAuthor` shortens a messy credit. Re-run with `--only <id>` afterwards.
+`exclude` drops a clip, `approved` (set by the review tool) and `pin` keep one. `image` picks a specific Wikimedia Commons file (default: the species' English Wikipedia lead photo); `imageAuthor` shortens a messy credit. Re-run with `--only <id>` afterwards.
 
 ## Design notes
 - **No runtime APIs.** Xeno-canto needs an API key (it must never reach the browser) and live fetching breaks offline use, so all data is built once on the dev machine and shipped as static files.

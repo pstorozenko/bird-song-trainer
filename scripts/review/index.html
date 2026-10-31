@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Przegląd nagrań</title>
+  <style>
+    :root {
+      --bg: #f4f6f1; --surface: #fff; --text: #1d2a1f; --muted: #5b6b5d; --border: #dbe2d6;
+      --accent: #2f6b3a; --ok: #2f7d32; --bad: #b3261e; --focus: #1d5fd0;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121712; --surface: #1b221c; --text: #e4ebe3; --muted: #9fae9f; --border: #2c372d;
+        --accent: #7cc48a; --ok: #7cc48a; --bad: #f2a29b; --focus: #8ab4ff; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.4 system-ui, sans-serif; }
+    a { color: var(--accent); }
+    header {
+      position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+    }
+    header h1 { font-size: 1.1rem; margin: 0 8px 0 0; }
+    .stat b { font-variant-numeric: tabular-nums; }
+    .stat.bad b { color: var(--bad); }
+    .stat.ok b { color: var(--ok); }
+    select, button { font: inherit; }
+    button { cursor: pointer; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 6px 12px; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .help { color: var(--muted); font-size: 0.85rem; margin-left: auto; }
+    kbd { border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; font-size: 0.8rem; background: var(--bg); }
+    #log { display: none; margin: 0; padding: 10px 20px; max-height: 240px; overflow: auto; background: #111; color: #cfe; font: 12px/1.4 ui-monospace, monospace; white-space: pre-wrap; }
+    #log.show { display: block; }
+    main { max-width: 1100px; margin: 0 auto; padding: 16px 20px 80px; }
+    .species { margin: 22px 0 8px; display: flex; align-items: center; gap: 12px; }
+    .species img { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; }
+    .species h2 { margin: 0; font-size: 1.1rem; }
+    .species i { color: var(--muted); }
+    .clip {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center;
+      background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 10px 14px; margin: 8px 0;
+    }
+    .clip.is-ok { border-color: var(--ok); }
+    .clip.is-bad { border-color: var(--bad); }
+    .clip.is-bad .spec img { opacity: 0.45; }
+    .clip.focused { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .meta { font-size: 0.88rem; color: var(--muted); }
+    .meta strong { color: var(--text); }
+    .actions { display: flex; gap: 8px; }
+    .actions button { min-width: 72px; }
+    .actions .ok[aria-pressed='true'] { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+    .actions .bad[aria-pressed='true'] { background: var(--bad); border-color: var(--bad); color: var(--surface); }
+    .spec { grid-column: 1 / -1; position: relative; cursor: pointer; border-radius: 6px; overflow: hidden; background: #000; }
+    .spec img { display: block; width: 100%; height: 110px; object-fit: fill; }
+    .spec .head { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; box-shadow: 0 0 4px #000; left: 0; display: none; }
+    .spec .khz { position: absolute; right: 6px; font-size: 10px; color: #fff; text-shadow: 0 0 3px #000; }
+    .badge { display: inline-block; padding: 0 6px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; background: var(--bg); border: 1px solid var(--border); }
+    .badge.pending { color: var(--bad); border-color: var(--bad); }
+    .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Przegląd nagrań</h1>
+    <span class="stat">Sprawdzone: <b id="s-reviewed">0</b>/<b id="s-total">0</b></span>
+    <span class="stat ok">OK: <b id="s-ok">0</b></span>
+    <span class="stat bad">Złe: <b id="s-bad">0</b></span>
+    <label>Pokaż:
+      <select id="filter">
+        <option value="todo">do sprawdzenia</option>
+        <option value="all">wszystkie</option>
+        <option value="bad">złe</option>
+        <option value="ok">OK</option>
+      </select>
+    </label>
+    <button id="rebuild" class="primary" disabled>Wymień złe nagrania</button>
+    <span class="help"><kbd>J</kbd>/<kbd>K</kbd> następne/poprzednie · <kbd>Spacja</kbd> odtwórz · <kbd>O</kbd> OK · <kbd>X</kbd> złe · <kbd>U</kbd> cofnij ocenę</span>
+  </header>
+  <pre id="log"></pre>
+  <main id="list"></main>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const TYPE = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot' };
+
+let state = { birds: { species: [] }, overrides: {}, pending: [] };
+let focusKey = null; // "speciesId/clipId"
+const player = new Audio();
+let playingKey = null;
+
+const statusOf = (sid, cid) =>
+  state.overrides[sid]?.exclude?.includes(cid) ? 'bad' : state.overrides[sid]?.approved?.includes(cid) ? 'ok' : null;
+
+async function load() {
+  state = await (await fetch('/api/state')).json();
+  render();
+}
+
+function visibleClips() {
+  const f = $('#filter').value;
+  const out = [];
+  for (const sp of state.birds.species) {
+    for (const r of sp.recordings) {
+      const st = statusOf(sp.id, r.id);
+      if (f === 'all' || (f === 'todo' && !st) || f === st) out.push({ sp, r, st });
+    }
+  }
+  return out;
+}
+
+function render() {
+  const all = state.birds.species.flatMap((sp) => sp.recordings.map((r) => statusOf(sp.id, r.id)));
+  $('#s-total').textContent = all.length;
+  $('#s-reviewed').textContent = all.filter(Boolean).length;
+  $('#s-ok').textContent = all.filter((s) => s === 'ok').length;
+  $('#s-bad').textContent = all.filter((s) => s === 'bad').length;
+  const btn = $('#rebuild');
+  btn.disabled = !state.pending.length || state.rebuilding;
+  btn.textContent = state.pending.length ? `Wymień złe nagrania (${state.pending.length} gat.)` : 'Wymień złe nagrania';
+
+  const clips = visibleClips();
+  if (!clips.length) {
+    $('#list').innerHTML = '<p class="empty">Nic tu nie ma 🎉</p>';
+    return;
+  }
+  let html = '';
+  let lastSp = null;
+  for (const { sp, r, st } of clips) {
+    if (sp.id !== lastSp) {
+      lastSp = sp.id;
+      html += `<div class="species">${sp.image ? `<img src="/${esc(sp.image.src)}" alt="">` : ''}
+        <h2>${esc(sp.namePl)}</h2><i>${esc(sp.nameLatin)}</i>
+        ${state.pending.includes(sp.id) ? '<span class="badge pending">czeka na wymianę</span>' : ''}</div>`;
+    }
+    const key = `${sp.id}/${r.id}`;
+    const file = r.src.split('/').pop();
+    html += `
+      <div class="clip ${st ? 'is-' + st : ''} ${key === focusKey ? 'focused' : ''}" data-key="${esc(key)}" data-src="/${esc(r.src)}">
+        <div class="meta">
+          <strong>${esc(TYPE[r.type] ?? r.type)}</strong> · <a href="${esc(r.sourceUrl)}" target="_blank" rel="noopener">${esc(r.id.toUpperCase())}</a>
+          · jakość <strong>${esc(r.quality ?? '?')}</strong> · ${r.durationSec}s z ${r.sourceLengthSec ?? '?'}s
+          · ${esc(r.recordist)} · ${esc(r.location ?? r.country ?? '')}
+        </div>
+        <div class="actions">
+          <button class="ok" data-mark="ok" aria-pressed="${st === 'ok'}">✓ OK</button>
+          <button class="bad" data-mark="bad" aria-pressed="${st === 'bad'}">✗ Złe</button>
+        </div>
+        <div class="spec" title="Kliknij, aby odtworzyć od tego miejsca">
+          <img src="/spectrogram/${esc(file)}" alt="Spektrogram" loading="lazy">
+          <span class="khz" style="top:2px">12 kHz</span><span class="khz" style="bottom:2px">0</span>
+          <span class="head"></span>
+        </div>
+      </div>`;
+  }
+  $('#list').innerHTML = html;
+  syncPlayhead();
+}
+
+async function mark(key, status) {
+  const [species, clip] = key.split('/');
+  const current = statusOf(species, clip);
+  const next = current === status ? null : status; // pressing again clears the mark
+  // position in the current view, taken before the clip possibly drops out of it
+  const idx = visibleClips().map(({ sp, r }) => `${sp.id}/${r.id}`).indexOf(key);
+  const res = await (await fetch('/api/mark', { method: 'POST', body: JSON.stringify({ species, clip, status: next }) })).json();
+  const entry = (state.overrides[species] ??= {});
+  entry.exclude = (entry.exclude ?? []).filter((x) => x !== clip);
+  entry.approved = (entry.approved ?? []).filter((x) => x !== clip);
+  if (next === 'bad') entry.exclude.push(clip);
+  if (next === 'ok') entry.approved.push(clip);
+  state.pending = res.pending;
+  render();
+  // in the "to review" view the marked clip disappears: move on to the next one and play it
+  if ($('#filter').value === 'todo' && next) {
+    const after = visibleClips().map(({ sp, r }) => `${sp.id}/${r.id}`);
+    setFocus(after[Math.max(0, Math.min(idx, after.length - 1))] ?? null, true);
+  } else {
+    setFocus(key);
+  }
+}
+
+function setFocus(key, play = false) {
+  focusKey = key;
+  document.querySelectorAll('.clip.focused').forEach((el) => el.classList.remove('focused'));
+  const el = key && document.querySelector(`.clip[data-key="${CSS.escape(key)}"]`);
+  if (!el) return;
+  el.classList.add('focused');
+  el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  if (play) playKey(key);
+}
+
+function playKey(key, fraction = 0) {
+  const el = document.querySelector(`.clip[data-key="${CSS.escape(key)}"]`);
+  if (!el) return;
+  if (playingKey === key && !player.paused && fraction === 0) { player.pause(); return; }
+  if (player.dataset.key !== key) { player.src = el.dataset.src; player.dataset.key = key; }
+  playingKey = key;
+  const start = () => { player.currentTime = fraction * (player.duration || 0); player.play().catch(() => {}); };
+  player.readyState >= 1 ? start() : player.addEventListener('loadedmetadata', start, { once: true });
+}
+
+function syncPlayhead() {
+  document.querySelectorAll('.spec .head').forEach((h) => (h.style.display = 'none'));
+  if (!playingKey || player.paused) return;
+  const el = document.querySelector(`.clip[data-key="${CSS.escape(playingKey)}"] .head`);
+  if (!el || !player.duration) return;
+  el.style.display = 'block';
+  el.style.left = `${(player.currentTime / player.duration) * 100}%`;
+}
+player.addEventListener('timeupdate', syncPlayhead);
+player.addEventListener('pause', syncPlayhead);
+(function tick() { syncPlayhead(); requestAnimationFrame(tick); })();
+
+document.addEventListener('click', (ev) => {
+  const clip = ev.target.closest('.clip');
+  if (!clip) return;
+  const key = clip.dataset.key;
+  const markBtn = ev.target.closest('[data-mark]');
+  if (markBtn) { focusKey = key; mark(key, markBtn.dataset.mark); return; }
+  const spec = ev.target.closest('.spec');
+  if (spec) {
+    const rect = spec.getBoundingClientRect();
+    setFocus(key);
+    playKey(key, Math.max(0, Math.min(1, (ev.clientX - rect.left) / rect.width)));
+    return;
+  }
+  if (!ev.target.closest('a')) setFocus(key);
+});
+
+document.addEventListener('keydown', (ev) => {
+  if (ev.target.matches('select, input') || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  const keys = visibleClips().map(({ sp, r }) => `${sp.id}/${r.id}`);
+  const idx = keys.indexOf(focusKey);
+  const k = ev.key.toLowerCase();
+  if (k === 'j' || k === 'arrowdown') { ev.preventDefault(); setFocus(keys[Math.min(idx + 1, keys.length - 1)] ?? keys[0], true); }
+  else if (k === 'k' || k === 'arrowup') { ev.preventDefault(); setFocus(keys[Math.max(idx - 1, 0)] ?? keys[0], true); }
+  else if (k === ' ') { ev.preventDefault(); if (!focusKey) setFocus(keys[0]); playKey(focusKey ?? keys[0]); }
+  else if (k === 'o' && focusKey) mark(focusKey, 'ok');
+  else if (k === 'x' && focusKey) mark(focusKey, 'bad');
+  else if (k === 'u' && focusKey) { const [s, c] = focusKey.split('/'); const st = statusOf(s, c); if (st) mark(focusKey, st); }
+});
+
+$('#filter').addEventListener('change', () => { render(); });
+
+$('#rebuild').addEventListener('click', async () => {
+  const btn = $('#rebuild');
+  btn.disabled = true;
+  player.pause();
+  const log = $('#log');
+  log.textContent = '';
+  log.classList.add('show');
+  const res = await fetch('/api/rebuild', { method: 'POST' });
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    log.textContent += dec.decode(value, { stream: true });
+    log.scrollTop = log.scrollHeight;
+  }
+  await load(); // replacements appear unreviewed in the "do sprawdzenia" view
+});
+
+load();
+</script>
+</body>
+</html>

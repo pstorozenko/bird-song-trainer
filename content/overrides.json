@@ -1,17 +1,344 @@
 {
   "turdus-merula": {
-    "image": "File:Чёрный дрозд (Turdus merula, mas), Битцевский лес.jpg"
+    "image": "File:Чёрный дрозд (Turdus merula, mas), Битцевский лес.jpg",
+    "approved": [
+      "xc879871",
+      "xc127998"
+    ]
   },
   "luscinia-luscinia": {
-    "image": "File:Thrush Nightingale (Luscinia luscinia), Gugny, Biebrzański Park Narodowy, Polska cropped.jpg"
+    "image": "File:Thrush Nightingale (Luscinia luscinia), Gugny, Biebrzański Park Narodowy, Polska cropped.jpg",
+    "approved": [
+      "xc129526",
+      "xc176967"
+    ]
   },
   "anas-platyrhynchos": {
-    "imageAuthor": "Richard Bartz"
+    "imageAuthor": "Richard Bartz",
+    "approved": [
+      "xc541821",
+      "xc541823"
+    ],
+    "exclude": [
+      "xc598281"
+    ]
   },
   "ardea-cinerea": {
-    "imageAuthor": "Giacomo Cimino"
+    "imageAuthor": "Giacomo Cimino",
+    "approved": [
+      "xc113456",
+      "xc494022"
+    ],
+    "exclude": [
+      "xc668169"
+    ]
   },
   "podiceps-cristatus": {
-    "imageAuthor": "JJ Harrison"
+    "imageAuthor": "JJ Harrison",
+    "approved": [
+      "xc592110",
+      "xc662845"
+    ],
+    "exclude": [
+      "xc1104142"
+    ]
+  },
+  "corvus-cornix": {
+    "approved": [
+      "xc522501",
+      "xc547018"
+    ],
+    "exclude": [
+      "xc536193"
+    ]
+  },
+  "pica-pica": {
+    "approved": [
+      "xc545632",
+      "xc620515"
+    ],
+    "exclude": [
+      "xc1025967"
+    ]
+  },
+  "columba-livia": {
+    "approved": [
+      "xc462611",
+      "xc536371"
+    ],
+    "exclude": [
+      "xc121680",
+      "xc844858"
+    ]
+  },
+  "passer-domesticus": {
+    "approved": [
+      "xc559610",
+      "xc634437"
+    ]
+  },
+  "chroicocephalus-ridibundus": {
+    "approved": [
+      "xc591451",
+      "xc1144933"
+    ]
+  },
+  "parus-major": {
+    "approved": [
+      "xc123522",
+      "xc160982"
+    ]
+  },
+  "coloeus-monedula": {
+    "approved": [
+      "xc623278",
+      "xc630212"
+    ]
+  },
+  "sturnus-vulgaris": {
+    "approved": [
+      "xc327880",
+      "xc129217"
+    ]
+  },
+  "corvus-frugilegus": {
+    "approved": [
+      "xc153799",
+      "xc113543"
+    ]
+  },
+  "corvus-corax": {
+    "approved": [
+      "xc627736",
+      "xc1099362"
+    ]
+  },
+  "apus-apus": {
+    "approved": [
+      "xc559392",
+      "xc559377"
+    ]
+  },
+  "hirundo-rustica": {
+    "approved": [
+      "xc559606",
+      "xc609237"
+    ],
+    "exclude": [
+      "xc1029079"
+    ]
+  },
+  "delichon-urbicum": {
+    "approved": [
+      "xc344098",
+      "xc492092"
+    ],
+    "exclude": [
+      "xc483659"
+    ]
+  },
+  "spinus-spinus": {
+    "approved": [
+      "xc462615",
+      "xc121690"
+    ]
+  },
+  "alcedo-atthis": {
+    "approved": [
+      "xc591055",
+      "xc598253"
+    ]
+  },
+  "ciconia-ciconia": {
+    "approved": [
+      "xc181349",
+      "xc169478"
+    ],
+    "exclude": [
+      "xc340921"
+    ]
+  },
+  "grus-grus": {
+    "approved": [
+      "xc754499",
+      "xc548679"
+    ]
+  },
+  "cygnus-olor": {
+    "approved": [
+      "xc527486",
+      "xc699425"
+    ],
+    "exclude": [
+      "xc1052052"
+    ]
+  },
+  "anser-anser": {
+    "approved": [
+      "xc549740",
+      "xc617055"
+    ]
+  },
+  "phalacrocorax-carbo": {
+    "approved": [
+      "xc448581",
+      "xc738996"
+    ]
+  },
+  "cyanistes-caeruleus": {
+    "approved": [
+      "xc405168",
+      "xc466233"
+    ]
+  },
+  "erithacus-rubecula": {
+    "approved": [
+      "xc635167",
+      "xc820064"
+    ],
+    "exclude": [
+      "xc643331",
+      "xc617821"
+    ]
+  },
+  "fringilla-coelebs": {
+    "approved": [
+      "xc512402",
+      "xc568013"
+    ]
+  },
+  "turdus-philomelos": {
+    "exclude": [
+      "xc629580"
+    ],
+    "approved": [
+      "xc363197",
+      "xc477572"
+    ]
+  },
+  "sitta-europaea": {
+    "approved": [
+      "xc407887",
+      "xc310154"
+    ]
+  },
+  "troglodytes-troglodytes": {
+    "exclude": [
+      "xc113586",
+      "xc464367"
+    ],
+    "approved": [
+      "xc632487",
+      "xc796099"
+    ]
+  },
+  "phylloscopus-collybita": {
+    "approved": [
+      "xc630178",
+      "xc464612"
+    ],
+    "exclude": [
+      "xc129459"
+    ]
+  },
+  "phylloscopus-sibilatrix": {
+    "approved": [
+      "xc568870",
+      "xc632489"
+    ]
+  },
+  "sylvia-atricapilla": {
+    "approved": [
+      "xc347351",
+      "xc819251"
+    ]
+  },
+  "sylvia-borin": {
+    "approved": [
+      "xc1107229",
+      "xc998247"
+    ]
+  },
+  "ficedula-hypoleuca": {
+    "approved": [
+      "xc1139219",
+      "xc1104340"
+    ]
+  },
+  "oriolus-oriolus": {
+    "approved": [
+      "xc593684",
+      "xc328396"
+    ]
+  },
+  "cuculus-canorus": {
+    "approved": [
+      "xc546326",
+      "xc595419"
+    ]
+  },
+  "columba-palumbus": {
+    "approved": [
+      "xc246655",
+      "xc712671"
+    ],
+    "exclude": [
+      "xc130072",
+      "xc536549",
+      "xc631064",
+      "xc776538"
+    ]
+  },
+  "pyrrhula-pyrrhula": {
+    "approved": [
+      "xc113712",
+      "xc217378"
+    ],
+    "exclude": [
+      "xc129200",
+      "xc217379"
+    ]
+  },
+  "emberiza-citrinella": {
+    "approved": [
+      "xc402005",
+      "xc462588"
+    ]
+  },
+  "alauda-arvensis": {
+    "approved": [
+      "xc548685",
+      "xc1151819"
+    ]
+  },
+  "crex-crex": {
+    "approved": [
+      "xc662642",
+      "xc184771"
+    ]
+  },
+  "larus-argentatus": {
+    "exclude": [
+      "xc840012"
+    ],
+    "approved": [
+      "xc795350",
+      "xc623707"
+    ]
+  },
+  "passer-montanus": {
+    "approved": [
+      "xc1104910",
+      "xc665124"
+    ]
+  },
+  "bombycilla-garrulus": {
+    "approved": [
+      "xc113537",
+      "xc113541"
+    ],
+    "exclude": [
+      "xc113540"
+    ]
   }
 }

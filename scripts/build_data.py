@@ -26,6 +26,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from urllib.parse import unquote
 
 import httpx
 import numpy as np
@@ -89,6 +90,7 @@ class Http:
         ua = f"{UA[:-1]}; {contact})" if contact else UA
         self.client = httpx.Client(headers={"User-Agent": ua, "Accept": "application/json, */*", "Accept-Encoding": "gzip"}, timeout=60, follow_redirects=True)
         self.wiki_delay = wiki_delay
+        self.requests = 0  # network requests actually made (cache hits don't count)
         self._last: dict[str, float] = {}
 
     def _throttle(self, url: str) -> None:
@@ -105,6 +107,7 @@ class Http:
     def get(self, url: str, params: dict | None = None, retries: int = 4) -> httpx.Response:
         for attempt in range(retries):
             self._throttle(url)
+            self.requests += 1
             r = self.client.get(url, params=params)
             if r.status_code not in (429, 503) and not (r.status_code == 403 and "robot policy" in r.text):
                 r.raise_for_status()
@@ -165,7 +168,8 @@ def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool, r
 
 def pick_recordings(recs: list[dict], n: int, overrides: dict, skip: set[str] = frozenset()) -> list[dict]:
     exclude = {x.removeprefix("xc") for x in overrides.get("exclude", [])} | set(skip)
-    pins = [x.removeprefix("xc") for x in overrides.get("pin", [])]
+    # clips approved in the review tool stay put, like explicit pins
+    pins = [x.removeprefix("xc") for x in [*overrides.get("pin", []), *overrides.get("approved", [])]]
     by_id = {r["id"]: r for r in recs}
 
     usable = [
@@ -299,7 +303,21 @@ def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dic
     }
 
 
+def commons_title(url: str) -> str:
+    """'https://commons.wikimedia.org/wiki/File:A_b%C3%B3.jpg' or 'File:A b.jpg' -> 'A bó.jpg'"""
+    return unquote(url.rsplit("File:", 1)[-1]).replace("_", " ").strip()
+
+
 def fetch_image(http: Http, sp: dict, refresh: bool, overrides: dict, previous: dict | None) -> dict | None:
+    # Reuse the previous photo (no network) unless overrides now asks for a different Commons file.
+    prev = (previous or {}).get("image")
+    if prev and not refresh and (PUBLIC / prev["src"]).exists():
+        wanted = overrides.get("image")
+        if not wanted or commons_title(wanted) == commons_title(prev.get("sourceUrl", "")):
+            img = dict(prev)
+            if overrides.get("imageAuthor"):
+                img["author"] = overrides["imageAuthor"]
+            return img
     try:
         return wikimedia_image(http, sp, refresh, overrides)
     except (httpx.HTTPError, KeyError, StopIteration) as e:
@@ -319,12 +337,25 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
     # split the clip budget across types, e.g. 2 clips over [call, song] -> 1 + 1
     quotas = [n // len(types) + (1 if i < n % len(types) else 0) for i in range(len(types))]
     pools: dict[str, list[dict]] = {}
-    chosen: list[tuple[str, dict]] = []
+    chosen: list[tuple[str, dict]] = []  # newly picked (XC API records)
+
+    # Keep finished clips from the previous build that are still wanted: no API call, no download.
+    excluded = {x.removeprefix("xc") for x in overrides.get("exclude", [])}
+    kept: list[dict] = []
+    if previous and not refresh:
+        kept = [
+            rec for rec in previous.get("recordings", [])
+            if rec["id"].removeprefix("xc") not in excluded and rec.get("type") in types and (PUBLIC / rec["src"]).exists()
+        ][:n]
+        # an explicit "pin" that isn't among them means: pick again from scratch
+        if {x.removeprefix("xc") for x in overrides.get("pin", [])} - {r["id"].removeprefix("xc") for r in kept}:
+            kept = []
+    kept_ids = {r["id"].removeprefix("xc") for r in kept}
 
     def take(rtype: str, k: int) -> None:
         if k <= 0:
             return
-        taken = {r["id"] for _, r in chosen}
+        taken = kept_ids | {r["id"] for _, r in chosen}
         pools.setdefault(rtype, xc_candidates(http, key, sp, "A", refresh, rtype))
         picked = pick_recordings(pools[rtype], k, overrides, taken)
         if len(picked) < k:
@@ -333,13 +364,16 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
         chosen.extend((rtype, r) for r in picked)
 
     for rtype, k in zip(types, quotas):
-        take(rtype, k)
+        take(rtype, k - sum(1 for r in kept if r["type"] == rtype))
     for rtype in types:  # top up from any type if one came up short
-        take(rtype, n - len(chosen))
-    if len(chosen) < n:
-        log(f"  ! only {len(chosen)} usable Polish recordings ({'/'.join(types)})")
+        take(rtype, n - len(kept) - len(chosen))
+    if len(kept) + len(chosen) < n:
+        log(f"  ! only {len(kept) + len(chosen)} usable Polish recordings ({'/'.join(types)})")
 
     recordings = []
+    for rec in kept:
+        log(f"  = {rec['type']} {rec['id'].upper()} (kept)")
+        recordings.append({**rec, "sizeBytes": (PUBLIC / rec["src"]).stat().st_size})
     for rtype, r in chosen:
         ext = Path(r.get("file-name") or "x.mp3").suffix or ".mp3"
         raw = http.download(r["file"], CACHE / "xc" / f"{r['id']}{ext}")
@@ -369,7 +403,7 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
 
     out = {k: sp[k] for k in META_KEYS}
     out["image"] = image
-    out["recordings"] = recordings
+    out["recordings"] = sorted(recordings, key=lambda r: types.index(r["type"]) if r["type"] in types else len(types))
     return out
 
 
@@ -451,7 +485,8 @@ def main() -> int:
                 log(f"removed stale {sub}/{f.name}")
 
     total = sum((PUBLIC / p).stat().st_size for p in referenced)
-    log(f"\nWrote {OUT_JSON.relative_to(ROOT)}: {len(species)} species, "
+    log(f"\nNetwork requests: {http.requests}")
+    log(f"Wrote {OUT_JSON.relative_to(ROOT)}: {len(species)} species, "
         f"{sum(len(s['recordings']) for s in species)} clips, {total / 1024:.0f} KB of assets")
     return 0
 
