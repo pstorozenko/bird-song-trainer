@@ -2,6 +2,8 @@
 
 Static, offline-friendly web app for learning Polish birds — city, lakes, forests and meadows — by ear. By Piotr Pasza Storożenko ([@pstorozenko](https://github.com/pstorozenko)).
 
+**Live:** https://pstorozenko.github.io/bird-song-trainer/ — deployed by GitHub Actions on every push to `main`.
+
 The app only reads **bundled static files**. It never calls Xeno-canto or Wikimedia, and no API key is ever shipped to the browser.
 
 ## Layout
