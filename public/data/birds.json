@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-31T15:33:28Z",
+  "clipsPerSpecies": 4,
+  "generatedAt": "2026-10-31T15:48:07Z",
   "species": [
     {
       "id": "corvus-cornix",
@@ -336,6 +337,22 @@
           "country": "Poland",
           "location": "Tychy, Tychy, śląskie",
           "date": "2020-03-20"
+        },
+        {
+          "id": "xc270097",
+          "src": "audio/columba-livia-xc270097.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123786,
+          "sourceLengthSec": 12,
+          "quality": "A",
+          "recordist": "Timo Schnabel",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/270097",
+          "country": "France",
+          "location": "Sélestat, Bas-Rhin, Alsace",
+          "date": "2015-04-08"
         }
       ]
     },
@@ -511,6 +528,180 @@
           "country": "Poland",
           "location": "Gmina Goczałkowice-Zdrój (near  Goczałkowice-Zdrój), Powiat pszczyński, śląskie",
           "date": "2020-05-21"
+        }
+      ]
+    },
+    {
+      "id": "gallus-gallus-domesticus",
+      "namePl": "Kura domowa",
+      "nameEn": "Chicken",
+      "nameLatin": "Gallus gallus domesticus",
+      "family": "Phasianidae",
+      "habitat": [
+        "village"
+      ],
+      "similarTo": [
+        "meleagris-gallopavo"
+      ],
+      "note": "Kogut pieje „kukuryku”, kury gdaczą „ko-ko-ko”, zwłaszcza po zniesieniu jajka. Nagrania głównie z Francji — w Polsce prawie nikt nie nagrywa kur.",
+      "image": {
+        "src": "img/gallus-gallus-domesticus.webp",
+        "author": "Andrei Niemimäki from Turku, Finland",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc1153675",
+          "src": "audio/gallus-gallus-domesticus-xc1153675.m4a",
+          "type": "song",
+          "durationSec": 9.3,
+          "sizeBytes": 95322,
+          "sourceLengthSec": 9,
+          "quality": "A",
+          "recordist": "Aku Kalliomäki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1153675",
+          "country": "Finland",
+          "location": "Virrat",
+          "date": "2026-05-24"
+        },
+        {
+          "id": "xc577812",
+          "src": "audio/gallus-gallus-domesticus-xc577812.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 126389,
+          "sourceLengthSec": 61,
+          "quality": "A",
+          "recordist": "Olivier SWIFT",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/577812",
+          "country": "France",
+          "location": "Couffé, Loire-Atlantique, Pays de la Loire",
+          "date": "2015-11-10"
+        },
+        {
+          "id": "xc577810",
+          "src": "audio/gallus-gallus-domesticus-xc577810.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125530,
+          "sourceLengthSec": 73,
+          "quality": "A",
+          "recordist": "Olivier SWIFT",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/577810",
+          "country": "France",
+          "location": "Couffé, Loire-Atlantique, Pays de la Loire",
+          "date": "2015-11-10"
+        },
+        {
+          "id": "xc577813",
+          "src": "audio/gallus-gallus-domesticus-xc577813.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125378,
+          "sourceLengthSec": 44,
+          "quality": "A",
+          "recordist": "Olivier SWIFT",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/577813",
+          "country": "France",
+          "location": "Ordizan, Hautes-Pyrénées, Occitanie",
+          "date": "2016-08-21"
+        }
+      ]
+    },
+    {
+      "id": "meleagris-gallopavo",
+      "namePl": "Indyk",
+      "nameEn": "Turkey",
+      "nameLatin": "Meleagris gallopavo",
+      "family": "Phasianidae",
+      "habitat": [
+        "village"
+      ],
+      "similarTo": [
+        "gallus-gallus-domesticus"
+      ],
+      "note": "Samiec bulgocze charakterystycznym, perlistym „gul-gul-gul”, nadymając się i strosząc pióra. Nagrania z gospodarstw we Francji i Włoszech oraz dzikich indyków z Ameryki — brzmią tak samo.",
+      "image": {
+        "src": "img/meleagris-gallopavo.webp",
+        "author": "Lupin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_north_american_turkey_supersaturated.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc991221",
+          "src": "audio/meleagris-gallopavo-xc991221.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124059,
+          "sourceLengthSec": 15,
+          "quality": "A",
+          "recordist": "Olivier SWIFT, Hélène CARTAUD",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/991221",
+          "country": "France",
+          "location": "Arrondissement of Montbrison (near  Saint-Bonnet-le-Courreau), Loire, Auvergne-Rhône-Alpes",
+          "date": "2025-04-17"
+        },
+        {
+          "id": "xc1019831",
+          "src": "audio/meleagris-gallopavo-xc1019831.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123448,
+          "sourceLengthSec": 23,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1019831",
+          "country": "Canada",
+          "location": "La Haute-Côte-Nord (near  Rivière-Sainte-Marguerite), Côte-Nord, Québec",
+          "date": "2025-05-30"
+        },
+        {
+          "id": "xc991220",
+          "src": "audio/meleagris-gallopavo-xc991220.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125151,
+          "sourceLengthSec": 85,
+          "quality": "A",
+          "recordist": "Olivier SWIFT, Hélène CARTAUD",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/991220",
+          "country": "France",
+          "location": "Arrondissement of Montbrison (near  Saint-Bonnet-le-Courreau), Loire, Auvergne-Rhône-Alpes",
+          "date": "2025-04-17"
+        },
+        {
+          "id": "xc586566",
+          "src": "audio/meleagris-gallopavo-xc586566.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124605,
+          "sourceLengthSec": 46,
+          "quality": "A",
+          "recordist": "Bruce Lagerquist",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/586566",
+          "country": "United States",
+          "location": "Troy, Lincoln County, Montana",
+          "date": "2020-08-29"
         }
       ]
     },
@@ -1290,6 +1481,22 @@
           "country": "Poland",
           "location": "Białowieża, Podlaskie Voivodeship",
           "date": "2011-05-21"
+        },
+        {
+          "id": "xc768814",
+          "src": "audio/delichon-urbicum-xc768814.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 127739,
+          "sourceLengthSec": 22,
+          "quality": "A",
+          "recordist": "Michel Veldt",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/768814",
+          "country": "Netherlands",
+          "location": "De Cocksdorp, Texel, Noord-Holland",
+          "date": "2021-05-30"
         }
       ]
     },

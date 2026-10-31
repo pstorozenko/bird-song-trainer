@@ -25,6 +25,10 @@
     .stat b { font-variant-numeric: tabular-nums; }
     .stat.bad b { color: var(--bad); }
     .stat.ok b { color: var(--ok); }
+    .stat.short b { color: var(--bad); }
+    .badge.short { color: var(--bad); border-color: var(--bad); }
+    .notice { max-width: 1100px; margin: 12px auto 0; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--bad); background: var(--surface); }
+    .notice[hidden] { display: none; }
     select, button { font: inherit; }
     button { cursor: pointer; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 6px 12px; }
     button.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
@@ -67,6 +71,7 @@
     <span class="stat">Sprawdzone: <b id="s-reviewed">0</b>/<b id="s-total">0</b></span>
     <span class="stat ok">OK: <b id="s-ok">0</b></span>
     <span class="stat bad">Złe: <b id="s-bad">0</b></span>
+    <span class="stat short" id="s-short-wrap" hidden>Za mało nagrań: <b id="s-short">0</b> gat.</span>
     <label>Pokaż:
       <select id="filter">
         <option value="todo">do sprawdzenia</option>
@@ -79,6 +84,7 @@
     <span class="help"><kbd>J</kbd>/<kbd>K</kbd> następne/poprzednie · <kbd>Spacja</kbd> odtwórz · <kbd>O</kbd> OK · <kbd>X</kbd> złe · <kbd>U</kbd> cofnij ocenę</span>
   </header>
   <pre id="log"></pre>
+  <div class="notice" id="notice" hidden></div>
   <main id="list"></main>
 
 <script>
@@ -117,6 +123,10 @@ function render() {
   $('#s-reviewed').textContent = all.filter(Boolean).length;
   $('#s-ok').textContent = all.filter((s) => s === 'ok').length;
   $('#s-bad').textContent = all.filter((s) => s === 'bad').length;
+  const target = state.birds.clipsPerSpecies ?? 4;
+  const short = state.birds.species.filter((sp) => sp.recordings.length < target);
+  $('#s-short').textContent = short.length;
+  $('#s-short-wrap').hidden = !short.length;
   const btn = $('#rebuild');
   btn.disabled = !state.pending.length || state.rebuilding;
   btn.textContent = state.pending.length ? `Wymień złe nagrania (${state.pending.length} gat.)` : 'Wymień złe nagrania';
@@ -133,6 +143,8 @@ function render() {
       lastSp = sp.id;
       html += `<div class="species">${sp.image ? `<img src="/${esc(sp.image.src)}" alt="">` : ''}
         <h2>${esc(sp.namePl)}</h2><i>${esc(sp.nameLatin)}</i>
+        <span class="badge ${sp.recordings.length < (state.birds.clipsPerSpecies ?? 4) ? 'short' : ''}"
+          title="Liczba nagrań w aplikacji">${sp.recordings.length}/${state.birds.clipsPerSpecies ?? 4}</span>
         ${state.pending.includes(sp.id) ? '<span class="badge pending">czeka na wymianę</span>' : ''}</div>`;
     }
     const key = `${sp.id}/${r.id}`;
@@ -261,7 +273,22 @@ $('#rebuild').addEventListener('click', async () => {
     log.textContent += dec.decode(value, { stream: true });
     log.scrollTop = log.scrollHeight;
   }
+  const before = Object.fromEntries(state.birds.species.map((s) => [s.id, s.recordings.map((r) => r.id)]));
+  const rebuilt = [...state.pending];
   await load(); // replacements appear unreviewed in the "do sprawdzenia" view
+  // Tell the user what actually happened per species, so "nothing new" is never silent.
+  const target = state.birds.clipsPerSpecies ?? 4;
+  const lines = rebuilt.map((id) => {
+    const sp = state.birds.species.find((s) => s.id === id);
+    if (!sp) return '';
+    const fresh = sp.recordings.filter((r) => !before[id]?.includes(r.id)).length;
+    const short = target - sp.recordings.length;
+    return `<li><strong>${esc(sp.namePl)}</strong>: ${fresh ? `${fresh} nowe do sprawdzenia` : 'brak nowych nagrań'}${
+      short > 0 ? ` — <span style="color:var(--bad)">brakuje ${short} (nie ma więcej pasujących nagrań na xeno-canto)</span>` : ''}</li>`;
+  });
+  const notice = $('#notice');
+  notice.innerHTML = `<strong>Wynik wymiany:</strong><ul style="margin:6px 0 0">${lines.join('')}</ul>`;
+  notice.hidden = !lines.length;
 });
 
 load();

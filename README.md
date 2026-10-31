@@ -41,7 +41,7 @@ uv run scripts/build_data.py --only sitta-europaea,crex-crex   # add/refresh som
 ```
 Downloads are cached in `.cache/` (git-ignored), so re-runs only fetch what's missing; `--refresh` redoes everything. Edits to names, habitats or notes in `species.json` apply on any run without re-downloading.
 
-Each species has `types`: any Xeno-canto sound type, e.g. `["song"]` (default), `["call"]`, `["call", "song"]` (split evenly) or `["bill clapping"]`. Each species gets **4 clips** (`RECORDINGS_PER_SPECIES`). Rules: Polish recordings only, quality A (falling back to B), source ≥ 8 s, **no ND licences**. Each clip is the loudest 12 s window, loudness-normalised, AAC `.m4a`, ~125 KB. Photos: CC (no ND) or public domain only.
+Each species has `types`: any Xeno-canto sound type, e.g. `["song"]` (default), `["call"]`, `["call", "song"]` (split evenly) or `["bill clapping"]`. Each species gets **4 clips** (`RECORDINGS_PER_SPECIES`). Optional per species: `fallbackArea` (`"europe"`, or a list tried in order like `["europe", "america"]`) widens the search when Poland has too few usable recordings (kura, indyk, gołąb miejski, oknówka), and `wikiTitle` picks the Wikipedia page for the photo when the Latin name lands on the wrong one (e.g. wild vs domestic). Rules: Polish recordings only, quality A (falling back to B), source ≥ 8 s, **no ND licences**. Each clip is the loudest 12 s window, loudness-normalised, AAC `.m4a`, ~125 KB. Photos: CC (no ND) or public domain only.
 
 ### Reviewing clips
 ```sh

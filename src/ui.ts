@@ -17,6 +17,7 @@ export const HABITAT_PL: Record<string, string> = {
   meadow: 'łąka',
   park: 'park',
   wetland: 'mokradła',
+  village: 'wieś',
 };
 
 export const TYPE_PL: Record<string, string> = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot' };

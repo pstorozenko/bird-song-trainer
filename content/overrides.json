@@ -81,12 +81,14 @@
     "approved": [
       "xc462611",
       "xc536371",
-      "xc536370"
+      "xc536370",
+      "xc270097"
     ],
     "exclude": [
       "xc121680",
       "xc844858",
-      "xc709206"
+      "xc709206",
+      "xc342145"
     ]
   },
   "passer-domesticus": {
@@ -171,7 +173,8 @@
     "approved": [
       "xc344098",
       "xc492092",
-      "xc492093"
+      "xc492093",
+      "xc768814"
     ],
     "exclude": [
       "xc483659",
@@ -439,6 +442,31 @@
     ],
     "exclude": [
       "xc113540"
+    ]
+  },
+  "meleagris-gallopavo": {
+    "imageAuthor": "Lupin",
+    "approved": [
+      "xc991221",
+      "xc991220",
+      "xc1019831",
+      "xc586566"
+    ],
+    "exclude": [
+      "xc702183",
+      "xc577954",
+      "xc586568",
+      "xc134744",
+      "xc586576",
+      "xc617755"
+    ]
+  },
+  "gallus-gallus-domesticus": {
+    "approved": [
+      "xc1153675",
+      "xc577812",
+      "xc577810",
+      "xc577813"
     ]
   }
 }

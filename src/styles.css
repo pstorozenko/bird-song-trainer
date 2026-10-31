@@ -40,6 +40,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Always reserve the scrollbar's space, so content doesn't shift sideways when a view
+     becomes long enough to scroll (desktop; overlay scrollbars on phones are unaffected). */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -273,8 +276,14 @@ a {
   top: 0;
   z-index: 5;
   margin: 0 calc(-1 * var(--gutter));
-  padding: calc(env(safe-area-inset-top) + 4px) var(--gutter) 10px;
+  /* The page's top spacing lives inside the sticky header (see below), so it is already
+     in its stuck position and doesn't jump when scrolling starts. */
+  padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) 10px;
   background: var(--bg);
+}
+
+#view[data-view='list'] {
+  padding-top: 0;
 }
 
 .search input {
@@ -1203,6 +1212,9 @@ a {
     padding: 0 max(24px, calc((100vw - var(--desk-max)) / 2));
     border-top: none;
     border-bottom: 1px solid var(--border);
+    background: var(--surface); /* solid on desktop: no list ghosting through the header */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .tabbar .brand {
@@ -1257,10 +1269,14 @@ a {
 
   /* ---- study list: card grid ---- */
 
+  #view[data-view='list'] {
+    padding-top: var(--tabbar-h);
+  }
+
   .list-header {
     top: var(--tabbar-h);
     margin: 0 -24px;
-    padding: 4px 24px 12px;
+    padding: 20px 24px 12px;
   }
 
   .search input {

@@ -142,12 +142,14 @@ class Http:
 
 # ---------------------------------------------------------------- xeno-canto
 
-def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool, rtype: str = "song") -> list[dict]:
+def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool, rtype: str = "song",
+                  area: str | None = None) -> list[dict]:
     gen, spec = sp["nameLatin"].split()[:2]
     type_q = f'"{rtype}"' if " " in rtype else rtype  # e.g. type:"bill clapping"
-    query = f"gen:{gen} sp:{spec} cnt:{COUNTRY} type:{type_q} q:{quality}"
-    # songs keep the original cache names so existing picks stay stable
-    tag = "" if rtype == "song" else f"{rtype.replace(' ', '_')}-"
+    where = f"area:{area}" if area else f"cnt:{COUNTRY}"
+    query = f"gen:{gen} sp:{spec} {where} type:{type_q} q:{quality}"
+    # songs in Poland keep the original cache names so existing picks stay stable
+    tag = ("" if rtype == "song" else f"{rtype.replace(' ', '_')}-") + (f"{area}-" if area else "")
     recs: list[dict] = []
     page = 1
     while True:
@@ -268,7 +270,7 @@ def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dic
             f"wp-{sp['id']}.json",
             "https://en.wikipedia.org/w/api.php",
             {"action": "query", "format": "json", "prop": "pageimages", "piprop": "name",
-             "redirects": 1, "titles": sp["nameLatin"]},
+             "redirects": 1, "titles": sp.get("wikiTitle") or sp["nameLatin"]},
             refresh, retries=1,
         )
         page = next(iter(wp["query"]["pages"].values()))
@@ -361,6 +363,14 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
         if len(picked) < k:
             pools[rtype] += xc_candidates(http, key, sp, "B", refresh, rtype)
             picked = pick_recordings(pools[rtype], k, overrides, taken)
+        # Some birds are barely recorded in Poland: optionally widen, area by area (e.g. europe, then america).
+        areas = sp.get("fallbackArea") or []
+        for area in [areas] if isinstance(areas, str) else areas:
+            for quality in ("A", "B"):
+                if len(picked) >= k:
+                    break
+                pools[rtype] += xc_candidates(http, key, sp, quality, refresh, rtype, area)
+                picked = pick_recordings(pools[rtype], k, overrides, taken)
         chosen.extend((rtype, r) for r in picked)
 
     for rtype, k in zip(types, quotas):
@@ -471,6 +481,7 @@ def main() -> int:
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps({
         "version": 1,
+        "clipsPerSpecies": RECORDINGS_PER_SPECIES,
         "generatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "species": species,
     }, ensure_ascii=False, indent=2) + "\n")
