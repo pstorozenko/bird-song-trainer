@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#2f6b3a" />
+    <meta name="theme-color" content="#f4f6f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121712" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Nauka rozpoznawania ptaków Warmii i Mazur po głosie." />
     <title>Ptasie głosy</title>
   </head>
   <body>
-    <main class="page">
-      <header class="page-header">
-        <h1>Ptasie głosy</h1>
-        <p>Nauka i quiz — wkrótce. Na razie: <a href="./review.html">przegląd nagrań</a>.</p>
-      </header>
+    <main id="view" class="page" tabindex="-1">
+      <p class="status">Ładowanie…</p>
     </main>
+    <nav class="tabbar" aria-label="Główna nawigacja">
+      <a href="#/study" data-tab="study">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5c-1.1-.4-2.3-.5-3.5-.5-1.9 0-4 .4-5.5 1.5-1.5-1.1-3.6-1.5-5.5-1.5S2.5 4.9 1 6v14.6c0 .3.3.5.5.5h.3C3.1 20.5 5 20 6.5 20c1.9 0 4 .4 5.5 1.5 1.3-.8 3.8-1.5 5.5-1.5 1.7 0 3.4.3 4.8 1.1h.2c.3 0 .5-.2.5-.5V6c-.6-.4-1.2-.7-2-1zm0 13.5c-1.1-.3-2.3-.5-3.5-.5-1.7 0-4.2.7-5.5 1.5V8c1.3-.8 3.8-1.5 5.5-1.5 1.2 0 2.4.2 3.5.5z"/></svg>
+        <span>Nauka</span>
+      </a>
+      <a href="#/quiz" data-tab="quiz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm-.1 2.5c-1.9 0-3.2 1.1-3.4 2.9h2c.1-.7.6-1.1 1.4-1.1.8 0 1.3.4 1.3 1 0 .5-.3.8-1 1.2-1 .6-1.4 1.2-1.3 2.4v.4h1.9v-.3c0-.7.2-1 1-1.5.9-.6 1.5-1.3 1.5-2.4 0-1.6-1.4-2.6-3.4-2.6zM11 15.5v2h2v-2z"/></svg>
+        <span>Quiz</span>
+      </a>
+    </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
