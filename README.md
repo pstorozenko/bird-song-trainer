@@ -10,7 +10,7 @@ The app only reads **bundled static files** (`public/data/birds.json`, `public/a
 ## Building the data (dev machine only)
 ```sh
 cp .env.example .env              # put your key from https://xeno-canto.org/account
-uv run scripts/build_data.py      # MVP species (marked "mvp" in data/species.json)
+uv run scripts/build_data.py      # species marked "enabled" in data/species.json
 uv run scripts/build_data.py --only turdus-philomelos,sitta-europaea   # add/refresh some
 uv run scripts/build_data.py --all
 ```

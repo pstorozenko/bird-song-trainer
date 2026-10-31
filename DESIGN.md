@@ -60,7 +60,7 @@ Instead, a **build-time data script** (Node or Python, run manually on the dev m
 
 ## 5. Data pipeline (`scripts/build-data`)
 
-Implemented as `scripts/build_data.py` (Python, run with `uv run`). Input: `data/species.json` (hand-maintained seed list, see section 6). Decisions: **Poland-only recordings, 2 songs per species** for the MVP (5 species, flagged `mvp`), 12 s loudest-window clips as AAC `.m4a` at 80 kbps (plays everywhere, including iOS), photos as 640 px WebP. Manual picks go in `data/overrides.json`.
+Implemented as `scripts/build_data.py` (Python, run with `uv run`). Input: `data/species.json` (hand-maintained seed list, see section 6). Decisions: **Poland-only recordings, 2 songs per species** (species included in the build are flagged `enabled`; 20 as of 2026-10-31), 12 s loudest-window clips as AAC `.m4a` at 80 kbps (plays everywhere, including iOS), photos as 640 px WebP. Manual picks go in `data/overrides.json`.
 
 For each species the script:
 1. Queries Xeno-canto for recordings by scientific name, filtered to:

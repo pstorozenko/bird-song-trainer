@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-31T12:17:44Z",
+  "generatedAt": "2026-10-31T12:50:31Z",
   "species": [
     {
       "id": "parus-major",
@@ -12,7 +12,9 @@
         "forest",
         "park"
       ],
-      "similarTo": [],
+      "similarTo": [
+        "cyanistes-caeruleus"
+      ],
       "note": "Dwusylabowe „ci-ca, ci-ca” — bardzo pospolita przez cały rok.",
       "image": {
         "src": "img/parus-major.webp",
@@ -51,6 +53,60 @@
           "country": "Poland",
           "location": "Gmina Iłowo-Osada (near  Iłowo-Osada), Działdowo County, Warmian-Masurian Voivodeship",
           "date": "2013-12-27"
+        }
+      ]
+    },
+    {
+      "id": "cyanistes-caeruleus",
+      "namePl": "Modraszka",
+      "nameEn": "Eurasian Blue Tit",
+      "nameLatin": "Cyanistes caeruleus",
+      "family": "Paridae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [
+        "parus-major"
+      ],
+      "note": "Wysokie „ci-ci-cirrr” zakończone trylem.",
+      "image": {
+        "src": "img/cyanistes-caeruleus.webp",
+        "author": "Francis Franklin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_blue_tit_Lancashire.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc405168",
+          "src": "audio/cyanistes-caeruleus-xc405168.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/405168",
+          "country": "Poland",
+          "location": "Gmina Czosnów (near  Adamówek), nowodworski, mazowieckie",
+          "date": "2018-03-09"
+        },
+        {
+          "id": "xc466233",
+          "src": "audio/cyanistes-caeruleus-xc466233.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 16,
+          "quality": "A",
+          "recordist": "Michał Jezierski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/466233",
+          "country": "Poland",
+          "location": "Gmina Rydzyna, leszczyński, Greater Poland Voivodeship",
+          "date": "2019-04-12"
         }
       ]
     },
@@ -118,7 +174,9 @@
         "forest",
         "park"
       ],
-      "similarTo": [],
+      "similarTo": [
+        "phylloscopus-sibilatrix"
+      ],
       "note": "Przyspieszająca strofa zakończona wyraźnym „zakrętasem”.",
       "image": {
         "src": "img/fringilla-coelebs.webp",
@@ -170,7 +228,9 @@
         "forest",
         "park"
       ],
-      "similarTo": [],
+      "similarTo": [
+        "turdus-philomelos"
+      ],
       "note": "Niski, fletowy, niespieszny śpiew; frazy bez powtórzeń.",
       "image": {
         "src": "img/turdus-merula.webp",
@@ -209,6 +269,111 @@
           "country": "Poland",
           "location": "Ostrów Lubelski (near  Gmina Ostrów Lubelski), Lubartów County, Lublin Voivodeship",
           "date": "2013-03-30"
+        }
+      ]
+    },
+    {
+      "id": "turdus-philomelos",
+      "namePl": "Śpiewak",
+      "nameEn": "Song Thrush",
+      "nameLatin": "Turdus philomelos",
+      "family": "Turdidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [
+        "turdus-merula"
+      ],
+      "note": "Każdą frazę powtarza 2–4 razy, głośno i dobitnie.",
+      "image": {
+        "src": "img/turdus-philomelos.webp",
+        "author": "Dion Art",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B5%D0%B2%D1%87%D0%B8%D0%B9_%D0%B4%D1%80%D0%BE%D0%B7%D0%B4_%D0%BD%D0%B0_%D0%BF%D0%B5%D0%BD%D1%8C%D0%BA%D0%B5_(Turdus_philomelos),_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BB%D0%B5%D1%81.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc629580",
+          "src": "audio/turdus-philomelos-xc629580.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/629580",
+          "country": "Poland",
+          "location": "Gmina Kęty (near  Malec), Powiat oświęcimski, Małopolskie",
+          "date": "2021-03-14"
+        },
+        {
+          "id": "xc363197",
+          "src": "audio/turdus-philomelos-xc363197.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/363197",
+          "country": "Poland",
+          "location": "Stolowe Mts. National Park, near Kudowa-Zdroj",
+          "date": "2017-04-05"
+        }
+      ]
+    },
+    {
+      "id": "sitta-europaea",
+      "namePl": "Kowalik",
+      "nameEn": "Eurasian Nuthatch",
+      "nameLatin": "Sitta europaea",
+      "family": "Sittidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Głośne gwizdy „łi-łi-łi” i „tłit tłit”.",
+      "image": {
+        "src": "img/sitta-europaea.webp",
+        "author": "Isiwal",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kleiber_Sitta_europaea-0447.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc407887",
+          "src": "audio/sitta-europaea-xc407887.m4a",
+          "type": "song",
+          "durationSec": 10.6,
+          "sourceLengthSec": 10,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/407887",
+          "country": "Poland",
+          "location": "Gmina Sztabin (near  Wilkownia), augustowski, podlaskie",
+          "date": "2018-03-25"
+        },
+        {
+          "id": "xc310154",
+          "src": "audio/sitta-europaea-xc310154.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 185,
+          "quality": "A",
+          "recordist": "Izabela Dluzyk",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/310154",
+          "country": "Poland",
+          "location": "Gdansk",
+          "date": "0000-00-00"
         }
       ]
     },
@@ -262,6 +427,632 @@
           "country": "Poland",
           "location": "Ustroń, Powiat cieszyński, Śląskie",
           "date": "2020-05-22"
+        }
+      ]
+    },
+    {
+      "id": "phylloscopus-collybita",
+      "namePl": "Pierwiosnek",
+      "nameEn": "Common Chiffchaff",
+      "nameLatin": "Phylloscopus collybita",
+      "family": "Phylloscopidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [
+        "phylloscopus-sibilatrix"
+      ],
+      "note": "Monotonne „cilp-calp-cilp-calp” — wymawia swoje angielskie imię.",
+      "image": {
+        "src": "img/phylloscopus-collybita.webp",
+        "author": "Alexis Lours",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Common_Chiffchaff_2025_04_04_01.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc630178",
+          "src": "audio/phylloscopus-collybita-xc630178.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 34,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/630178",
+          "country": "Poland",
+          "location": "Gmina Chełmiec (near  Świniarsko), nowosądecki, Małopolskie",
+          "date": "2020-06-17"
+        },
+        {
+          "id": "xc129459",
+          "src": "audio/phylloscopus-collybita-xc129459.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 37,
+          "quality": "A",
+          "recordist": "Mathias Ritschard",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/129459",
+          "country": "Poland",
+          "location": "Bialowieza",
+          "date": "2012-05-18"
+        }
+      ]
+    },
+    {
+      "id": "phylloscopus-sibilatrix",
+      "namePl": "Świstunka leśna",
+      "nameEn": "Wood Warbler",
+      "nameLatin": "Phylloscopus sibilatrix",
+      "family": "Phylloscopidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [
+        "phylloscopus-collybita"
+      ],
+      "note": "Przyspieszające „sip-sip-sip-sirrrr” jak wirująca moneta.",
+      "image": {
+        "src": "img/phylloscopus-sibilatrix.webp",
+        "author": "Steve Garvie from Dunfermline, Fife, Scotland",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Rainbirder_-_Wood_Warbler_(Phylloscopus_sibilatrix).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc568870",
+          "src": "audio/phylloscopus-sibilatrix-xc568870.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 45,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/568870",
+          "country": "Poland",
+          "location": "Półwysep Helski",
+          "date": "2020-06-12"
+        },
+        {
+          "id": "xc632489",
+          "src": "audio/phylloscopus-sibilatrix-xc632489.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 70,
+          "quality": "A",
+          "recordist": "Jacek Betleja",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/632489",
+          "country": "Poland",
+          "location": "Ustroń, Powiat cieszyński, Śląskie",
+          "date": "2020-05-22"
+        }
+      ]
+    },
+    {
+      "id": "sylvia-atricapilla",
+      "namePl": "Kapturka",
+      "nameEn": "Eurasian Blackcap",
+      "nameLatin": "Sylvia atricapilla",
+      "family": "Sylviidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [
+        "sylvia-borin"
+      ],
+      "note": "Szczebiot przechodzący w czyste, fletowe zakończenie.",
+      "image": {
+        "src": "img/sylvia-atricapilla.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_blackcap_(Sylvia_atricapilla)_male_Drenthe.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc347351",
+          "src": "audio/sylvia-atricapilla-xc347351.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 29,
+          "quality": "A",
+          "recordist": "Tero Linjama",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/347351",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Budy), hajnowski, podlaskie",
+          "date": "2007-05-19"
+        },
+        {
+          "id": "xc819251",
+          "src": "audio/sylvia-atricapilla-xc819251.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 27,
+          "quality": "A",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/819251",
+          "country": "Poland",
+          "location": "Gmina Góra (near  Radosław), Góra County, Lower Silesian Voivodeship",
+          "date": "2023-04-16"
+        }
+      ]
+    },
+    {
+      "id": "sylvia-borin",
+      "namePl": "Gajówka",
+      "nameEn": "Garden Warbler",
+      "nameLatin": "Sylvia borin",
+      "family": "Sylviidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [
+        "sylvia-atricapilla"
+      ],
+      "note": "Długi, równy, bulgoczący śpiew bez fletowej końcówki.",
+      "image": {
+        "src": "img/sylvia-borin.webp",
+        "author": "Biillyboy",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sylvia_borin_(%C3%96rebro_County).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc1107229",
+          "src": "audio/sylvia-borin-xc1107229.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 54,
+          "quality": "A",
+          "recordist": "Andrew McCafferty",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1107229",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Białowieża), Powiat hajnowski, Województwo podlaskie",
+          "date": "2018-05-06"
+        },
+        {
+          "id": "xc998247",
+          "src": "audio/sylvia-borin-xc998247.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 62,
+          "quality": "A",
+          "recordist": "Radek Grochowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/998247",
+          "country": "Poland",
+          "location": "Gmina Jaworzyna Śląska (near  Świebodzice), Świdnica County, Lower Silesian Voivodeship",
+          "date": "2025-05-14"
+        }
+      ]
+    },
+    {
+      "id": "ficedula-hypoleuca",
+      "namePl": "Muchołówka żałobna",
+      "nameEn": "European Pied Flycatcher",
+      "nameLatin": "Ficedula hypoleuca",
+      "family": "Muscicapidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [],
+      "note": "Krótka, rytmiczna, dzwoniąca zwrotka.",
+      "image": {
+        "src": "img/ficedula-hypoleuca.webp",
+        "author": "Mark Medcalf",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_-Wood_of_Cree_Nature_Reserve,_Scotland_-male-8a.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc1139219",
+          "src": "audio/ficedula-hypoleuca-xc1139219.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 41,
+          "quality": "A",
+          "recordist": "Franek Owczarek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1139219",
+          "country": "Poland",
+          "location": "Łódź, Łódź, Łódź Voivodeship",
+          "date": "2026-05-22"
+        },
+        {
+          "id": "xc1104340",
+          "src": "audio/ficedula-hypoleuca-xc1104340.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 34,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1104340",
+          "country": "Poland",
+          "location": "Gmina Ostrów Lubelski (near  Bójki), Powiat lubartowski, Województwo lubelskie",
+          "date": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "id": "oriolus-oriolus",
+      "namePl": "Wilga",
+      "nameEn": "Eurasian Golden Oriole",
+      "nameLatin": "Oriolus oriolus",
+      "family": "Oriolidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [],
+      "note": "Fletowe „fi-fiu-lio” z koron drzew.",
+      "image": {
+        "src": "img/oriolus-oriolus.webp",
+        "author": "Apatura1955",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rigogolo-(Oriolus_oriolus)_Lazio,_isola_di_Ventotene_(LT)_19.4.2024_(cropped).png"
+      },
+      "recordings": [
+        {
+          "id": "xc593684",
+          "src": "audio/oriolus-oriolus-xc593684.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 37,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/593684",
+          "country": "Poland",
+          "location": "Gmina Kostrzyn (near  Trzek), Poznański, wielkopolskie",
+          "date": "2020-05-08"
+        },
+        {
+          "id": "xc328396",
+          "src": "audio/oriolus-oriolus-xc328396.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 43,
+          "quality": "A",
+          "recordist": "Patrik Åberg",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/328396",
+          "country": "Poland",
+          "location": "Biebrza National Park",
+          "date": "2016-05-11"
+        }
+      ]
+    },
+    {
+      "id": "cuculus-canorus",
+      "namePl": "Kukułka",
+      "nameEn": "Common Cuckoo",
+      "nameLatin": "Cuculus canorus",
+      "family": "Cuculidae",
+      "habitat": [
+        "forest",
+        "meadow"
+      ],
+      "similarTo": [],
+      "note": "„Ku-ku” — nie do pomylenia.",
+      "image": {
+        "src": "img/cuculus-canorus.webp",
+        "author": "Andy  Morffew from Itchen Abbas, Hampshire, UK",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuckoo_(51169010335).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc546326",
+          "src": "audio/cuculus-canorus-xc546326.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/546326",
+          "country": "Poland",
+          "location": "Gmina Augustów (near  Augustów), augustowski, podlaskie",
+          "date": "2018-05-01"
+        },
+        {
+          "id": "xc595419",
+          "src": "audio/cuculus-canorus-xc595419.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 45,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/595419",
+          "country": "Poland",
+          "location": "Gmina Stary Brus (near  Kołacze), włodawski, lubelskie",
+          "date": "2020-06-07"
+        }
+      ]
+    },
+    {
+      "id": "columba-palumbus",
+      "namePl": "Grzywacz",
+      "nameEn": "Common Wood Pigeon",
+      "nameLatin": "Columba palumbus",
+      "family": "Columbidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Pięciosylabowe, gruchające „hu-huu-hu, hu-hu”.",
+      "image": {
+        "src": "img/columba-palumbus.webp",
+        "author": "Bengt Nyman from Vaxholm, Sweden",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columba_palumbus_EM1B1397_(27445478998).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc246655",
+          "src": "audio/columba-palumbus-xc246655.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 66,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/246655",
+          "country": "Poland",
+          "location": "Leoncin",
+          "date": "2015-05-29"
+        },
+        {
+          "id": "xc130072",
+          "src": "audio/columba-palumbus-xc130072.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 208,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/130072",
+          "country": "Poland",
+          "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
+          "date": "2013-04-17"
+        }
+      ]
+    },
+    {
+      "id": "emberiza-citrinella",
+      "namePl": "Trznadel",
+      "nameEn": "Yellowhammer",
+      "nameLatin": "Emberiza citrinella",
+      "family": "Emberizidae",
+      "habitat": [
+        "meadow",
+        "forest"
+      ],
+      "similarTo": [],
+      "note": "„Ci-ci-ci-ci-ciii-ciuu” — „mało chleba, bez sera”.",
+      "image": {
+        "src": "img/emberiza-citrinella.webp",
+        "author": "Andreas Trepte",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc402005",
+          "src": "audio/emberiza-citrinella-xc402005.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 27,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/402005",
+          "country": "Poland",
+          "location": "Gmina Fredropol, przemyski, Województwo podkarpackie",
+          "date": "2017-07-28"
+        },
+        {
+          "id": "xc462588",
+          "src": "audio/emberiza-citrinella-xc462588.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 39,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462588",
+          "country": "Poland",
+          "location": "Gmina Hańsk (near  Wojciechów), włodawski, lubelskie",
+          "date": "2019-03-20"
+        }
+      ]
+    },
+    {
+      "id": "alauda-arvensis",
+      "namePl": "Skowronek",
+      "nameEn": "Eurasian Skylark",
+      "nameLatin": "Alauda arvensis",
+      "family": "Alaudidae",
+      "habitat": [
+        "meadow"
+      ],
+      "similarTo": [],
+      "note": "Niekończący się, perlisty śpiew wysoko w powietrzu.",
+      "image": {
+        "src": "img/alauda-arvensis.webp",
+        "author": "User:Diliff",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skylark_2,_Lake_District,_England_-_June_2009.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc548685",
+          "src": "audio/alauda-arvensis-xc548685.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 53,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/548685",
+          "country": "Poland",
+          "location": "Ostrołęka County, Masovian Voivodeship",
+          "date": "2020-04-20"
+        },
+        {
+          "id": "xc1151819",
+          "src": "audio/alauda-arvensis-xc1151819.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 61,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1151819",
+          "country": "Poland",
+          "location": "Stolowe Mts NP, Lewin Kłodzki (near  Kudowa-Zdrój), Kłodzko County, Lower Silesian Voivodeship",
+          "date": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "id": "luscinia-luscinia",
+      "namePl": "Słowik szary",
+      "nameEn": "Thrush Nightingale",
+      "nameLatin": "Luscinia luscinia",
+      "family": "Muscicapidae",
+      "habitat": [
+        "wetland",
+        "forest"
+      ],
+      "similarTo": [],
+      "note": "Potężny śpiew z kląskaniem i „cukaniem”; północno-wschodnia Polska to jego twierdza.",
+      "image": {
+        "src": "img/luscinia-luscinia.webp",
+        "author": "Frank Vassen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thrush_Nightingale_(Luscinia_luscinia),_Gugny,_Biebrza%C5%84ski_Park_Narodowy,_Polska_cropped.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc129526",
+          "src": "audio/luscinia-luscinia-xc129526.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Mathias Ritschard",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/129526",
+          "country": "Poland",
+          "location": "Budy, Biebrza Marshes",
+          "date": "2012-05-26"
+        },
+        {
+          "id": "xc176967",
+          "src": "audio/luscinia-luscinia-xc176967.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 56,
+          "quality": "A",
+          "recordist": "Dawid Jablonski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/176967",
+          "country": "Poland",
+          "location": "Lublin, Lublin County, Lublin Voivodeship",
+          "date": "2014-05-03"
+        }
+      ]
+    },
+    {
+      "id": "crex-crex",
+      "namePl": "Derkacz",
+      "nameEn": "Corn Crake",
+      "nameLatin": "Crex crex",
+      "family": "Rallidae",
+      "habitat": [
+        "meadow"
+      ],
+      "similarTo": [],
+      "note": "Suche „derr-derr” z łąk, całą noc.",
+      "image": {
+        "src": "img/crex-crex.webp",
+        "author": "Alpo Roikola",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ruisr%C3%A4%C3%A4kk%C3%A4.JPG"
+      },
+      "recordings": [
+        {
+          "id": "xc662642",
+          "src": "audio/crex-crex-xc662642.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Adam Gruszczyński",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/662642",
+          "country": "Poland",
+          "location": "Gmina Jejkowice (near  Jejkowice), rybnicki, Śląskie",
+          "date": "2021-06-23"
+        },
+        {
+          "id": "xc184771",
+          "src": "audio/crex-crex-xc184771.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 27,
+          "quality": "A",
+          "recordist": "Wojciech Miczajka",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/184771",
+          "country": "Poland",
+          "location": "Gmina Wyry (near  Gostyn), Mikołów County, Silesian Voivodeship",
+          "date": "2014-07-01"
         }
       ]
     }

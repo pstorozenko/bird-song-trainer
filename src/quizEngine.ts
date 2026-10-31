@@ -16,6 +16,17 @@ export interface Answer {
   correct: boolean;
 }
 
+export interface PickerOptions {
+  /** Every species (used to fill distractors when the active set is small). */
+  pool: Species[];
+  /** Species that may be asked right now; re-read on every question. Defaults to the whole pool. */
+  active?: () => string[];
+  /** Relative sampling weight per species id; re-read on every question. Defaults to 1. */
+  weight?: (id: string) => number;
+  choiceCount?: number;
+  rng?: Rng;
+}
+
 export function shuffle<T>(items: readonly T[], rng: Rng = Math.random): T[] {
   const a = [...items];
   for (let i = a.length - 1; i > 0; i--) {
@@ -27,30 +38,52 @@ export function shuffle<T>(items: readonly T[], rng: Rng = Math.random): T[] {
 
 const pick = <T>(items: readonly T[], rng: Rng): T => items[Math.floor(rng() * items.length)];
 
+export function weightedPick<T>(items: readonly T[], weight: (item: T) => number, rng: Rng): T {
+  const weights = items.map((i) => Math.max(0, weight(i)));
+  const total = weights.reduce((a, b) => a + b, 0);
+  if (total <= 0) return pick(items, rng);
+  let r = rng() * total;
+  for (let i = 0; i < items.length; i++) {
+    r -= weights[i];
+    if (r < 0) return items[i];
+  }
+  return items[items.length - 1];
+}
+
 export class QuestionPicker {
   private lastSpeciesId: string | null = null;
   /** Recording ids already used per species in this session, to rotate through clips. */
   private usedClips = new Map<string, Set<string>>();
+  private readonly pool: Species[];
+  private readonly active: () => string[];
+  private readonly weight: (id: string) => number;
+  private readonly choiceCount: number;
+  private readonly rng: Rng;
 
-  constructor(
-    private readonly pool: Species[],
-    private readonly choiceCount = 4,
-    private readonly rng: Rng = Math.random,
-  ) {
-    if (!pool.some((s) => s.recordings.length)) throw new Error('No species with recordings');
+  constructor(opts: PickerOptions) {
+    this.pool = opts.pool;
+    this.active = opts.active ?? (() => this.pool.map((s) => s.id));
+    this.weight = opts.weight ?? (() => 1);
+    this.choiceCount = opts.choiceCount ?? 4;
+    this.rng = opts.rng ?? Math.random;
+    if (!this.pool.some((s) => s.recordings.length)) throw new Error('No species with recordings');
   }
 
   next(): Question {
-    const playable = this.pool.filter((s) => s.recordings.length);
+    const activeSet = new Set(this.active());
+    let playable = this.pool.filter((s) => s.recordings.length && activeSet.has(s.id));
+    if (!playable.length) playable = this.pool.filter((s) => s.recordings.length);
     const candidates = playable.length > 1 ? playable.filter((s) => s.id !== this.lastSpeciesId) : playable;
-    const species = pick(candidates, this.rng);
+    const species = weightedPick(candidates, (s) => this.weight(s.id), this.rng);
     this.lastSpeciesId = species.id;
 
     const recording = this.nextRecording(species);
-    const distractors = shuffle(
-      this.pool.filter((s) => s.id !== species.id),
-      this.rng,
-    ).slice(0, Math.max(0, this.choiceCount - 1));
+    const want = Math.max(0, this.choiceCount - 1);
+    // Distractors come from birds the learner already knows; top up from the rest if needed.
+    const others = this.pool.filter((s) => s.id !== species.id);
+    const known = shuffle(others.filter((s) => activeSet.has(s.id)), this.rng);
+    const rest = shuffle(others.filter((s) => !activeSet.has(s.id)), this.rng);
+    const distractors = [...known, ...rest].slice(0, want);
     const choices = shuffle([species, ...distractors], this.rng);
     return { species, recording, choices };
   }

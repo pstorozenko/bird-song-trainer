@@ -9,7 +9,7 @@ processes audio/images, and writes public/data/birds.json. The web app only ever
 reads these local static files — the API key never leaves this script.
 
 Usage:
-  uv run scripts/build_data.py --mvp
+  uv run scripts/build_data.py            # species marked "enabled"
   uv run scripts/build_data.py --only parus-major,turdus-merula
   uv run scripts/build_data.py --all [--refresh]
 """
@@ -45,6 +45,7 @@ UA = "BirdSongTrainer/0.1 (personal learning project; data build script)"
 RECORDINGS_PER_SPECIES = 2
 COUNTRY = "poland"
 MAX_SOURCE_SEC = 90  # prefer short source recordings (less to sift through)
+MIN_SOURCE_SEC = 8   # too short to hold more than one phrase
 CLIP_SEC = 12.0
 SAMPLE_RATE = 32000
 
@@ -84,13 +85,18 @@ def run(cmd: list[str], **kw) -> subprocess.CompletedProcess:
 
 
 class Http:
-    def __init__(self) -> None:
-        self.client = httpx.Client(headers={"User-Agent": UA, "Accept": "application/json, */*", "Accept-Encoding": "gzip"}, timeout=60, follow_redirects=True)
+    def __init__(self, wiki_delay: float = 1.5, contact: str = "") -> None:
+        ua = f"{UA[:-1]}; {contact})" if contact else UA
+        self.client = httpx.Client(headers={"User-Agent": ua, "Accept": "application/json, */*", "Accept-Encoding": "gzip"}, timeout=60, follow_redirects=True)
+        self.wiki_delay = wiki_delay
         self._last: dict[str, float] = {}
 
-    def _throttle(self, url: str, min_gap: float = 1.5) -> None:
-        """Be polite: at most one request per host every `min_gap` seconds."""
+    def _throttle(self, url: str) -> None:
+        """Be polite: Wikimedia hosts share one slow lane; other hosts get 1.5 s spacing."""
         host = httpx.URL(url).host
+        min_gap = 1.5
+        if host.endswith(("wikipedia.org", "wikimedia.org")):
+            host, min_gap = "wikimedia", self.wiki_delay
         wait = min_gap - (time.monotonic() - self._last.get(host, 0.0))
         if wait > 0:
             time.sleep(wait)
@@ -162,6 +168,7 @@ def pick_recordings(recs: list[dict], n: int, overrides: dict) -> list[dict]:
     usable = [
         r for r in recs
         if license_ok(r.get("lic", "")) and r["id"] not in exclude and r.get("file")
+        and parse_len(r.get("length", "0:00")) >= MIN_SOURCE_SEC
     ]
 
     def score(r: dict) -> tuple:
@@ -232,6 +239,14 @@ def probe_duration(path: Path) -> float:
 
 # ---------------------------------------------------------------- images
 
+def image_license_ok(lic: str) -> bool:
+    """CC (no ND) or public domain only. GFDL etc. would require shipping the full licence text."""
+    u = lic.upper().strip()
+    if u in ("CC0", "PUBLIC DOMAIN", "PD") or u.startswith(("CC0", "PUBLIC DOMAIN", "PD-")):
+        return True
+    return u.startswith("CC ") and "ND" not in u.replace("CC ", "").split("-")
+
+
 def to_webp(src: Path, dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-vf", "scale='min(640,iw)':-2",
@@ -282,8 +297,8 @@ def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dic
     ii = next(iter(info["query"]["pages"].values()))["imageinfo"][0]
     meta = ii.get("extmetadata", {})
     lic = meta.get("LicenseShortName", {}).get("value", "")
-    if not lic or "ND" in lic.upper().split("-"):
-        log(f"  ! image licence not usable: {lic!r}")
+    if not image_license_ok(lic):
+        log(f"  ! image licence not usable: {lic!r} — pick another via overrides.json \"image\"")
         return None
 
     if refresh or not dest.exists():
@@ -361,10 +376,11 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
 def main() -> int:
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group()
-    g.add_argument("--mvp", action="store_true", help="only species marked mvp (default)")
+    g.add_argument("--enabled", action="store_true", help="only species marked enabled (default)")
     g.add_argument("--all", action="store_true", help="all species in data/species.json")
     g.add_argument("--only", help="comma-separated species ids")
     ap.add_argument("--refresh", action="store_true", help="ignore caches and re-process")
+    ap.add_argument("--wiki-delay", type=float, default=5.0, help="seconds between Wikimedia requests (default 5)")
     args = ap.parse_args()
 
     load_dotenv(ROOT / ".env")
@@ -393,9 +409,9 @@ def main() -> int:
     elif args.all:
         selected = seed
     else:
-        selected = [s for s in seed if s.get("mvp")]
+        selected = [s for s in seed if s.get("enabled")]
 
-    http = Http()
+    http = Http(args.wiki_delay, os.environ.get("WIKIMEDIA_CONTACT", "").strip())
     previous = {s["id"]: s for s in json.loads(OUT_JSON.read_text())["species"]} if OUT_JSON.exists() else {}
     built = {
         sp["id"]: build_species(http, key, sp, args.refresh, overrides_all.get(sp["id"], {}), previous.get(sp["id"]))
@@ -423,12 +439,12 @@ def main() -> int:
 
     # Remove generated assets no longer referenced (e.g. after an override).
     referenced = {r["src"] for s in species for r in s["recordings"]} | {s["image"]["src"] for s in species if s["image"]}
-    if not args.only:
-        for sub in ("audio", "img"):
-            for f in (PUBLIC / sub).glob("*"):
-                if f"{sub}/{f.name}" not in referenced:
-                    f.unlink()
-                    log(f"removed stale {sub}/{f.name}")
+    # Safe for --only too: `species` is the merged, complete list.
+    for sub in ("audio", "img"):
+        for f in (PUBLIC / sub).glob("*"):
+            if f"{sub}/{f.name}" not in referenced:
+                f.unlink()
+                log(f"removed stale {sub}/{f.name}")
 
     total = sum((PUBLIC / p).stat().st_size for p in referenced)
     log(f"\nWrote {OUT_JSON.relative_to(ROOT)}: {len(species)} species, "

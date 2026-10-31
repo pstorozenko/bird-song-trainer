@@ -871,3 +871,151 @@ a {
   gap: 10px;
   margin-top: 24px;
 }
+
+/* ================= progress (M4) ================= */
+
+.level {
+  display: inline-flex;
+  gap: 3px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.level i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.level i.on {
+  background: var(--accent);
+}
+
+.level--done i.on {
+  background: var(--ok);
+}
+
+.chip--struggling[aria-pressed='false'] {
+  border-style: dashed;
+}
+
+.detail-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -6px 0 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.detail-progress .level {
+  margin: 0;
+}
+
+.detail-progress .level:empty {
+  display: none;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 16px 0 6px;
+}
+
+.stats div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.stats dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.stats dd {
+  margin: 2px 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stats small {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.stats-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 16px;
+}
+
+.manage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 var(--gutter);
+}
+
+.manage summary {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.manage p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.manage-actions {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.btn-danger {
+  color: var(--bad);
+}
+
+.manage-message {
+  color: var(--text) !important;
+}
+
+.choice-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.reveal-unlock {
+  margin-top: 8px !important;
+  font-weight: 600;
+}
+
+.summary-unlocked {
+  text-align: left;
+}
+
+/* Portrait photos get cropped vertically in 4:3 frames; birds' heads are usually in the upper part.
+   (For landscape photos the vertical position has no effect.) */
+.card-photo,
+.detail-photo,
+.row-thumb,
+.choice-photo img {
+  object-position: 50% 10%;
+}

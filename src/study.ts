@@ -1,5 +1,7 @@
 // Study tab: searchable/filterable species list and a detail view per species.
 import { asset } from './data';
+import { activeIds, isLearned, isStruggling, MAX_BOX, speciesProgress } from './progress';
+import { getProgress } from './storage';
 import { bindPlayButtons, esc, fold, HABITAT_PL, ICON, playButton, recordingCredit } from './ui';
 import type { BirdsData, Species } from './types';
 
@@ -7,15 +9,31 @@ type Cleanup = () => void;
 
 /** Filter state survives switching between list and detail (not page reloads). */
 const filter = { query: '', habitat: '' };
+/** Special chip value: species answered wrong recently (back in box 1). */
+const STRUGGLING = '!struggling';
 let listScrollY = 0;
 
 const TYPE_PL: Record<string, string> = { song: 'śpiew', call: 'głos' };
 
 function matches(sp: Species): boolean {
-  if (filter.habitat && !sp.habitat.includes(filter.habitat)) return false;
+  if (filter.habitat === STRUGGLING) {
+    if (!isStruggling(getProgress(), sp.id)) return false;
+  } else if (filter.habitat && !sp.habitat.includes(filter.habitat)) return false;
   if (!filter.query) return true;
   const q = fold(filter.query.trim());
   return [sp.namePl, sp.nameLatin, sp.nameEn, sp.family].some((s) => fold(s).includes(q));
+}
+
+/** Small 4-dot level meter; empty string for species never answered. */
+function levelMeter(id: string): string {
+  const p = getProgress();
+  const s = speciesProgress(p, id);
+  if (!s.seen) return '';
+  const label = isLearned(p, id) ? 'opanowany' : `poziom ${s.box} z ${MAX_BOX}`;
+  return `<span class="level ${isLearned(p, id) ? 'level--done' : ''}" role="img" aria-label="${label}">${Array.from(
+    { length: MAX_BOX },
+    (_, i) => `<i class="${i < s.box ? 'on' : ''}"></i>`,
+  ).join('')}</span>`;
 }
 
 function row(sp: Species): string {
@@ -28,7 +46,7 @@ function row(sp: Species): string {
       <a class="row-link" href="#/study/${esc(sp.id)}">
         ${thumb}
         <span class="row-text">
-          <span class="row-title">${esc(sp.namePl)}</span>
+          <span class="row-title">${esc(sp.namePl)} ${levelMeter(sp.id)}</span>
           <span class="row-sub">${esc(sp.nameLatin)}</span>
         </span>
       </a>
@@ -50,10 +68,11 @@ export function renderStudyList(view: HTMLElement, data: BirdsData): Cleanup {
           autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="search" value="${esc(filter.query)}" />
       </label>
       <div class="chips" role="group" aria-label="Siedlisko">
-        ${['', ...habitats]
+        ${['', STRUGGLING, ...habitats]
           .map(
-            (h) => `<button type="button" class="chip" data-habitat="${h}" aria-pressed="${filter.habitat === h}">
-              ${h ? esc(HABITAT_PL[h] ?? h) : 'wszystkie'}</button>`,
+            (h) => `<button type="button" class="chip ${h === STRUGGLING ? 'chip--struggling' : ''}" data-habitat="${h}"
+              aria-pressed="${filter.habitat === h}">
+              ${h === STRUGGLING ? 'do powtórki' : h ? esc(HABITAT_PL[h] ?? h) : 'wszystkie'}</button>`,
           )
           .join('')}
       </div>
@@ -70,7 +89,9 @@ export function renderStudyList(view: HTMLElement, data: BirdsData): Cleanup {
     list.innerHTML = shown.map(row).join('');
     count.textContent = shown.length
       ? `${shown.length} z ${data.species.length} gatunków`
-      : 'Brak ptaków pasujących do wyszukiwania.';
+      : filter.habitat === STRUGGLING
+        ? 'Brak ptaków do powtórki — świetnie! Ptaki, przy których się pomylisz w quizie, pojawią się tutaj.'
+        : 'Brak ptaków pasujących do wyszukiwania.';
     for (const chip of view.querySelectorAll<HTMLButtonElement>('.chip')) {
       chip.setAttribute('aria-pressed', String(chip.dataset.habitat === filter.habitat));
     }
@@ -136,6 +157,7 @@ export function renderStudyDetail(view: HTMLElement, data: BirdsData, id: string
         <p class="tags">${sp.habitat.map((h) => `<span class="tag">${esc(HABITAT_PL[h] ?? h)}</span>`).join('')}
           <span class="tag tag--muted">${esc(sp.family)}</span></p>
         <p class="detail-note">${esc(sp.note)}</p>
+        ${progressLine(data, sp)}
 
         <h2 class="section-title">Nagrania</h2>
         <ul class="clips">
@@ -175,4 +197,16 @@ export function renderStudyDetail(view: HTMLElement, data: BirdsData, id: string
 function shortLocation(loc: string): string {
   const parts = loc.replace(/\s*\(near[^)]*\)/g, '').split(',').map((s) => s.trim()).filter(Boolean);
   return parts.length > 1 ? `${parts[0]}, ${parts[parts.length - 1]}` : parts[0] ?? '';
+}
+
+function progressLine(data: BirdsData, sp: Species): string {
+  const p = getProgress();
+  const s = speciesProgress(p, sp.id);
+  const active = activeIds(p, data.species.map((x) => x.id)).includes(sp.id);
+  let text: string;
+  if (!active) text = 'Jeszcze nie w quizie — odblokuje się, gdy poznasz obecne ptaki.';
+  else if (!s.seen) text = 'W quizie, jeszcze bez odpowiedzi.';
+  else
+    text = `${isLearned(p, sp.id) ? 'Opanowany' : `Poziom ${s.box} z ${MAX_BOX}`} · ${s.correct} z ${s.seen} poprawnie`;
+  return `<p class="detail-progress">${levelMeter(sp.id)}<span>${esc(text)}</span></p>`;
 }

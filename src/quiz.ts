@@ -1,7 +1,9 @@
 // Quiz tab: hear a clip, pick the bird from four photos, get instant feedback.
 import { isPlaying, onPlaybackChange, playClip, preloadClip, stopClip } from './audio';
 import { asset } from './data';
+import { activeIds, isLearned, isNew, lockedIds, maybeUnlock, recordAnswer, weightOf } from './progress';
 import { QuestionPicker, type Answer, type Question } from './quizEngine';
+import { exportProgress, getProgress, readProgressFile, replaceProgress, requestPersistence, resetProgress, saveProgress } from './storage';
 import { esc, ICON, recordingCredit } from './ui';
 import type { BirdsData, Species } from './types';
 
@@ -16,20 +18,31 @@ interface Session {
   current: Question | null;
   upcoming: Question | null;
   answers: Answer[];
+  /** Species unlocked during this round, in order. */
+  unlocked: Species[];
+  /** Species unlocked by the most recent answer (shown in the reveal panel). */
+  justUnlocked: Species | null;
 }
 
 /** Module-level so a round survives switching to the Study tab and back. */
 let session: Session | null = null;
 
+const allIds = (data: BirdsData) => data.species.map((s) => s.id);
+
 function newSession(data: BirdsData): Session {
-  const picker = new QuestionPicker(data.species, CHOICES);
-  return { phase: 'intro', picker, current: null, upcoming: null, answers: [] };
+  const picker = new QuestionPicker({
+    pool: data.species,
+    active: () => activeIds(getProgress(), allIds(data)),
+    weight: (id) => weightOf(getProgress(), id),
+    choiceCount: CHOICES,
+  });
+  return { phase: 'intro', picker, current: null, upcoming: null, answers: [], unlocked: [], justUnlocked: null };
 }
 
 function advance(s: Session) {
   s.current = s.upcoming ?? s.picker.next();
-  s.upcoming = s.answers.length + 1 < ROUND_LENGTH ? s.picker.next() : null;
-  if (s.upcoming) preloadClip(asset(s.upcoming.recording.src));
+  s.upcoming = null; // picked after answering, so it reflects the updated boxes
+  s.justUnlocked = null;
   s.phase = 'question';
 }
 
@@ -42,15 +55,45 @@ function playCurrent(s: Session) {
 
 // ---------------------------------------------------------------- views
 
-function introView(data: BirdsData): string {
+function introView(data: BirdsData, message = ''): string {
+  const p = getProgress();
+  const ids = allIds(data);
+  const active = activeIds(p, ids);
+  const learned = ids.filter((id) => isLearned(p, id)).length;
+  const { totalAnswered, totalCorrect } = p.stats;
+  const accuracy = totalAnswered ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '–';
+  const locked = lockedIds(p, ids).length;
+
   return `
     <h1 class="view-title">Quiz</h1>
     <div class="quiz-intro">
       <div class="quiz-intro-icon" aria-hidden="true">${ICON.play}</div>
       <p class="quiz-intro-lead">Posłuchaj nagrania i wybierz właściwego ptaka.</p>
-      <p class="quiz-intro-sub">${ROUND_LENGTH} pytań · ${data.species.length} gatunków</p>
-      <button class="btn btn-primary btn-block" type="button" data-action="start">Zaczynamy</button>
-    </div>`;
+      <p class="quiz-intro-sub">${ROUND_LENGTH} pytań · ${active.length} ${active.length === 1 ? 'gatunek' : 'gatunków'} w nauce</p>
+      <button class="btn btn-primary btn-block" type="button" data-action="start">${totalAnswered ? 'Kontynuuj naukę' : 'Zaczynamy'}</button>
+    </div>
+
+    <dl class="stats">
+      <div><dt>W nauce</dt><dd>${active.length}<small> / ${ids.length}</small></dd></div>
+      <div><dt>Opanowane</dt><dd>${learned}</dd></div>
+      <div><dt>Skuteczność</dt><dd>${accuracy}</dd></div>
+    </dl>
+    <p class="stats-hint">${
+      locked
+        ? `Kolejne gatunki odblokują się, gdy dobrze poznasz obecne. Zostało jeszcze ${locked}.`
+        : 'Wszystkie gatunki są już w nauce.'
+    }</p>
+
+    <details class="manage" ${message ? 'open' : ''}>
+      <summary>Zarządzaj postępem</summary>
+      <p>Postęp zapisuje się tylko na tym urządzeniu, w tej przeglądarce. Możesz go zapisać do pliku i wczytać na innym urządzeniu.</p>
+      <div class="manage-actions">
+        <button class="btn btn-ghost" type="button" data-action="export">Zapisz do pliku</button>
+        <label class="btn btn-ghost">Wczytaj z pliku<input type="file" accept="application/json,.json" data-action="import" hidden /></label>
+        <button class="btn btn-ghost btn-danger" type="button" data-action="reset">Zacznij od nowa</button>
+      </div>
+      ${message ? `<p class="manage-message" role="status">${message}</p>` : ''}
+    </details>`;
 }
 
 function progressView(s: Session): string {
@@ -67,7 +110,7 @@ function progressView(s: Session): string {
 
 function choiceView(sp: Species, i: number, answer: Answer | null): string {
   let state = '';
-  let badge = '';
+  let badge = !answer && isNew(getProgress(), sp.id) ? '<span class="choice-new">nowy</span>' : '';
   if (answer) {
     if (sp.id === answer.question.species.id) {
       state = 'is-correct';
@@ -106,6 +149,11 @@ function questionView(s: Session): string {
         <p class="reveal-name"><strong>${esc(q.species.namePl)}</strong> · <i>${esc(q.species.nameLatin)}</i></p>
         <p class="reveal-note">${esc(q.species.note)}</p>
         <p class="credit">Nagranie: ${recordingCredit(q.recording)}</p>
+        ${
+          s.justUnlocked
+            ? `<p class="reveal-unlock">Nowy ptak w quizie: <a href="#/study/${esc(s.justUnlocked.id)}">${esc(s.justUnlocked.namePl)}</a></p>`
+            : ''
+        }
         <div class="reveal-actions">
           <a class="btn btn-ghost" href="#/study/${esc(q.species.id)}">Więcej</a>
           <button class="btn btn-primary" type="button" data-action="next">${last ? 'Wynik' : 'Dalej'}</button>
@@ -156,9 +204,17 @@ function summaryView(s: Session): string {
                .join('')}</ul>`
           : ''
       }
+      ${
+        s.unlocked.length
+          ? `<h2 class="section-title">Nowe w quizie</h2>
+             <p class="summary-unlocked">${s.unlocked
+               .map((sp) => `<a href="#/study/${esc(sp.id)}">${esc(sp.namePl)}</a>`)
+               .join(', ')} — posłuchaj ${s.unlocked.length > 1 ? 'ich' : 'go'} w zakładce Nauka.</p>`
+          : ''
+      }
       <div class="summary-actions">
         <button class="btn btn-primary btn-block" type="button" data-action="restart">Jeszcze raz</button>
-        <a class="btn btn-ghost btn-block" href="#/study">Nauka</a>
+        <button class="btn btn-ghost btn-block" type="button" data-action="intro">Postęp i statystyki</button>
       </div>
     </div>`;
 }
@@ -169,8 +225,8 @@ export function renderQuiz(view: HTMLElement, data: BirdsData): () => void {
   session ??= newSession(data);
   const s = session;
 
-  const paint = () => {
-    if (s.phase === 'intro') view.innerHTML = introView(data);
+  const paint = (message = '') => {
+    if (s.phase === 'intro') view.innerHTML = introView(data, message);
     else if (s.phase === 'summary') view.innerHTML = summaryView(s);
     else view.innerHTML = questionView(s);
   };
@@ -190,6 +246,19 @@ export function renderQuiz(view: HTMLElement, data: BirdsData): () => void {
     const correct = picked.id === s.current.species.id;
     s.answers.push({ question: s.current, picked, correct });
     s.phase = 'answered';
+
+    const p = getProgress();
+    recordAnswer(p, s.current.species.id, correct);
+    const unlockedId = maybeUnlock(p, allIds(data));
+    saveProgress(p);
+    void requestPersistence();
+    s.justUnlocked = unlockedId ? data.species.find((sp) => sp.id === unlockedId) ?? null : null;
+    if (s.justUnlocked) s.unlocked.push(s.justUnlocked);
+
+    if (s.answers.length < ROUND_LENGTH) {
+      s.upcoming = s.picker.next();
+      preloadClip(asset(s.upcoming.recording.src));
+    }
     navigator.vibrate?.(correct ? 20 : [40, 60, 40]);
     paint();
     view.querySelector('.reveal')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -228,6 +297,32 @@ export function renderQuiz(view: HTMLElement, data: BirdsData): () => void {
         return next();
       case 'replay':
         return replay();
+      case 'intro':
+        s.phase = 'intro';
+        paint();
+        window.scrollTo(0, 0);
+        return;
+      case 'export':
+        return exportProgress();
+      case 'reset':
+        if (confirm('Usunąć cały postęp na tym urządzeniu? Tego nie da się cofnąć.')) {
+          resetProgress();
+          paint('Postęp wyczyszczony.');
+        }
+        return;
+    }
+  };
+
+  const onChange = async (ev: Event) => {
+    const input = ev.target as HTMLInputElement;
+    if (input.dataset.action !== 'import' || !input.files?.[0]) return;
+    try {
+      const imported = await readProgressFile(input.files[0]);
+      if (!confirm('Zastąpić obecny postęp tym z pliku?')) return paint();
+      replaceProgress(imported);
+      paint(`Wczytano postęp: ${imported.stats.totalAnswered} odpowiedzi.`);
+    } catch (e) {
+      paint(`<span class="error">${esc(e instanceof Error ? e.message : String(e))}</span>`);
     }
   };
 
@@ -256,12 +351,14 @@ export function renderQuiz(view: HTMLElement, data: BirdsData): () => void {
   });
 
   view.addEventListener('click', onClick);
+  view.addEventListener('change', onChange);
   document.addEventListener('keydown', onKey);
   paint();
   window.scrollTo(0, 0);
 
   return () => {
     view.removeEventListener('click', onClick);
+    view.removeEventListener('change', onChange);
     document.removeEventListener('keydown', onKey);
     unsubscribe();
   };
