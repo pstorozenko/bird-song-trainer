@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f4f6f1" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#121712" media="(prefers-color-scheme: dark)" />
-    <meta name="description" content="Nauka rozpoznawania ptaków Warmii i Mazur po głosie." />
+    <meta name="description" content="Nauka rozpoznawania polskich ptaków po głosie." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ptasie głosy" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Ptasie głosy</title>
   </head>
   <body>
@@ -20,6 +27,10 @@
       <a href="#/quiz" data-tab="quiz">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm-.1 2.5c-1.9 0-3.2 1.1-3.4 2.9h2c.1-.7.6-1.1 1.4-1.1.8 0 1.3.4 1.3 1 0 .5-.3.8-1 1.2-1 .6-1.4 1.2-1.3 2.4v.4h1.9v-.3c0-.7.2-1 1-1.5.9-.6 1.5-1.3 1.5-2.4 0-1.6-1.4-2.6-3.4-2.6zM11 15.5v2h2v-2z"/></svg>
         <span>Quiz</span>
+      </a>
+      <a href="#/info" data-tab="info">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm-1 3.5v2h2v-2zm0 4V17h2v-5.5z"/></svg>
+        <span>Info</span>
       </a>
     </nav>
     <script type="module" src="/src/main.ts"></script>

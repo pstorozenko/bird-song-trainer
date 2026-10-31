@@ -16,6 +16,7 @@ export interface Recording {
   /** Xeno-canto sound type we fetched: 'song', 'call', 'bill clapping', ... */
   type: string;
   durationSec: number;
+  sizeBytes?: number;
   sourceLengthSec?: number;
   quality?: string;
   recordist: string;

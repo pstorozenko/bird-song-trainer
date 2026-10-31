@@ -32,9 +32,8 @@ import numpy as np
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
-SPECIES_FILE = ROOT / "data" / "species.json"
-OVERRIDES_FILE = ROOT / "data" / "overrides.json"
-MANUAL_IMAGES = ROOT / "data" / "images"
+SPECIES_FILE = ROOT / "content" / "species.json"
+OVERRIDES_FILE = ROOT / "content" / "overrides.json"
 CACHE = ROOT / ".cache"
 PUBLIC = ROOT / "public"
 OUT_JSON = PUBLIC / "data" / "birds.json"
@@ -257,24 +256,6 @@ def to_webp(src: Path, dest: Path) -> None:
          "-c:v", "libwebp", "-quality", "78", str(dest)])
 
 
-def manual_image(sp: dict, overrides: dict) -> dict | None:
-    """A photo the owner dropped into data/images/<id>.<ext> wins over Wikimedia."""
-    for ext in (".jpg", ".jpeg", ".png", ".webp"):
-        src = MANUAL_IMAGES / f"{sp['id']}{ext}"
-        if src.exists():
-            dest = PUBLIC / "img" / f"{sp['id']}.webp"
-            to_webp(src, dest)
-            credit = overrides.get("imageCredit", {})
-            return {
-                "src": f"img/{dest.name}",
-                "author": credit.get("author", "własne zdjęcie"),
-                "license": credit.get("license", "all rights reserved"),
-                "licenseUrl": credit.get("licenseUrl", ""),
-                "sourceUrl": credit.get("sourceUrl", ""),
-            }
-    return None
-
-
 def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dict | None:
     dest = PUBLIC / "img" / f"{sp['id']}.webp"
     file_title = overrides.get("image")  # optional "File:....jpg" override
@@ -319,13 +300,10 @@ def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dic
 
 
 def fetch_image(http: Http, sp: dict, refresh: bool, overrides: dict, previous: dict | None) -> dict | None:
-    img = manual_image(sp, overrides)
-    if img:
-        return img
     try:
         return wikimedia_image(http, sp, refresh, overrides)
     except (httpx.HTTPError, KeyError, StopIteration) as e:
-        log(f"  ! photo skipped ({type(e).__name__}: {str(e)[:80]}) — add data/images/{sp['id']}.jpg or re-run later")
+        log(f"  ! photo skipped ({type(e).__name__}: {str(e)[:80]}) — re-run later or set 'image' in overrides.json")
         # keep a photo from an earlier successful build, if any
         if previous and previous.get("image") and (PUBLIC / previous["image"]["src"]).exists():
             return previous["image"]
@@ -372,6 +350,7 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
             "src": f"audio/{dest.name}",
             "type": rtype,
             "durationSec": dur,
+            "sizeBytes": dest.stat().st_size,
             "sourceLengthSec": parse_len(r.get("length", "0:00")),
             "quality": r.get("q"),
             "recordist": r["rec"],
@@ -398,7 +377,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--enabled", action="store_true", help="only species marked enabled (default)")
-    g.add_argument("--all", action="store_true", help="all species in data/species.json")
+    g.add_argument("--all", action="store_true", help="all species in content/species.json")
     g.add_argument("--only", help="comma-separated species ids")
     ap.add_argument("--refresh", action="store_true", help="ignore caches and re-process")
     ap.add_argument("--wiki-delay", type=float, default=5.0, help="seconds between Wikimedia requests (default 5)")

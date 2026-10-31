@@ -15,7 +15,33 @@ export function stopClip(): void {
 
 export function toggleClip(src: string): void {
   if (isPlaying(src)) stopClip();
-  else playClip(src).catch((err) => console.warn('play failed', err));
+  else playClip(src).catch(reportPlayError);
+}
+
+/** Tell the user why nothing plays; the usual cause in the field is a clip that isn't saved offline. */
+export function reportPlayError(err: unknown): void {
+  if (err instanceof DOMException && err.name === 'AbortError') return; // interrupted by another clip
+  console.warn('play failed', err);
+  showToast(
+    navigator.onLine
+      ? 'Nie udało się odtworzyć nagrania.'
+      : 'To nagranie nie jest zapisane offline. Pobierz wszystkie w zakładce Info, gdy będziesz mieć internet.',
+  );
+}
+
+let toastTimer = 0;
+export function showToast(text: string): void {
+  let el = document.querySelector<HTMLDivElement>('.toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.className = 'toast';
+    el.setAttribute('role', 'status');
+    document.body.append(el);
+  }
+  el.textContent = text;
+  el.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => el!.classList.remove('is-visible'), 5000);
 }
 
 export function isPlaying(src: string): boolean {
@@ -28,12 +54,15 @@ export function onPlaybackChange(cb: (src: string | null) => void): () => void {
   return () => listeners.delete(cb);
 }
 
+const notify = (playing: string | null) => listeners.forEach((cb) => cb(playing));
 for (const ev of ['play', 'pause', 'ended'] as const) {
-  player.addEventListener(ev, () => {
-    const playing = player.paused ? null : player.src;
-    listeners.forEach((cb) => cb(playing));
-  });
+  player.addEventListener(ev, () => notify(player.paused ? null : player.src));
 }
+// A clip that fails to load (e.g. offline and not cached) fires 'play' but never 'pause'.
+player.addEventListener('error', () => {
+  player.pause();
+  notify(null);
+});
 
 /** Warm the cache for a clip we'll need soon (next quiz question). */
 const preloader = new Audio();

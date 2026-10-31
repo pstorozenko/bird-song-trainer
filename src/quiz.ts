@@ -1,9 +1,12 @@
 // Quiz tab: hear a clip, pick the bird from four photos, get instant feedback.
-import { isPlaying, onPlaybackChange, playClip, preloadClip, stopClip } from './audio';
+import { isPlaying, onPlaybackChange, playClip, preloadClip, reportPlayError, stopClip } from './audio';
 import { asset } from './data';
 import { activeIds, isLearned, isNew, lockedIds, maybeUnlock, recordAnswer, weightOf } from './progress';
 import { QuestionPicker, type Answer, type Question } from './quizEngine';
-import { exportProgress, getProgress, readProgressFile, replaceProgress, requestPersistence, resetProgress, saveProgress } from './storage';
+import {
+  exportProgress, getProgress, getSettings, readProgressFile, replaceProgress, requestPersistence, resetProgress,
+  saveProgress, updateSettings,
+} from './storage';
 import { esc, ICON, recordingCredit, TYPE_PL } from './ui';
 import type { BirdsData, Species } from './types';
 
@@ -35,6 +38,7 @@ function newSession(data: BirdsData): Session {
     active: () => activeIds(getProgress(), allIds(data)),
     weight: (id) => weightOf(getProgress(), id),
     choiceCount: CHOICES,
+    difficulty: () => getSettings().difficulty,
   });
   return { phase: 'intro', picker, current: null, upcoming: null, answers: [], unlocked: [], justUnlocked: null };
 }
@@ -50,7 +54,7 @@ const clipSrc = (q: Question) => asset(q.recording.src);
 
 function playCurrent(s: Session) {
   if (!s.current) return;
-  playClip(clipSrc(s.current)).catch((err) => console.warn('play failed', err));
+  playClip(clipSrc(s.current)).catch(reportPlayError);
 }
 
 // ---------------------------------------------------------------- views
@@ -70,6 +74,7 @@ function introView(data: BirdsData, message = ''): string {
       <div class="quiz-intro-icon" aria-hidden="true">${ICON.play}</div>
       <p class="quiz-intro-lead">Posłuchaj nagrania i wybierz właściwego ptaka.</p>
       <p class="quiz-intro-sub">${ROUND_LENGTH} pytań · ${active.length} ${active.length === 1 ? 'gatunek' : 'gatunków'} w nauce</p>
+      ${difficultyPicker()}
       <button class="btn btn-primary btn-block" type="button" data-action="start">${totalAnswered ? 'Kontynuuj naukę' : 'Zaczynamy'}</button>
     </div>
 
@@ -96,13 +101,25 @@ function introView(data: BirdsData, message = ''): string {
     </details>`;
 }
 
+function difficultyPicker(): string {
+  const d = getSettings().difficulty;
+  const opt = (value: string, label: string, hint: string) => `
+    <button type="button" class="segment" data-difficulty="${value}" aria-pressed="${d === value}">
+      <strong>${label}</strong><span>${hint}</span></button>`;
+  return `
+    <div class="segments" role="group" aria-label="Poziom trudności">
+      ${opt('easy', 'Łatwy', 'losowe ptaki')}
+      ${opt('hard', 'Trudny', 'podobne głosy')}
+    </div>`;
+}
+
 function progressView(s: Session): string {
   const n = s.answers.length + (s.phase === 'question' ? 1 : 0);
   const correct = s.answers.filter((a) => a.correct).length;
   return `
     <div class="quiz-top">
       <span>Pytanie <strong>${Math.min(n, ROUND_LENGTH)}</strong> z ${ROUND_LENGTH}</span>
-      <span class="quiz-score" aria-label="Poprawne odpowiedzi: ${correct}">✓ ${correct}</span>
+      <span>${getSettings().difficulty === 'hard' ? '<span class="mode-badge">trudny</span> ' : ''}<span class="quiz-score" aria-label="Poprawne odpowiedzi: ${correct}">✓ ${correct}</span></span>
     </div>
     <div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${ROUND_LENGTH}"
       aria-valuenow="${s.answers.length}"><span style="width:${(s.answers.length / ROUND_LENGTH) * 100}%"></span></div>`;
@@ -286,8 +303,15 @@ export function renderQuiz(view: HTMLElement, data: BirdsData): () => void {
   };
 
   const onClick = (ev: Event) => {
-    const el = (ev.target as Element).closest<HTMLElement>('[data-action],[data-choice]');
+    const el = (ev.target as Element).closest<HTMLElement>('[data-action],[data-choice],[data-difficulty]');
     if (!el || !view.contains(el)) return;
+    if (el.dataset.difficulty) {
+      updateSettings({ difficulty: el.dataset.difficulty === 'hard' ? 'hard' : 'easy' });
+      for (const b of view.querySelectorAll<HTMLElement>('[data-difficulty]')) {
+        b.setAttribute('aria-pressed', String(b === el));
+      }
+      return;
+    }
     if (el.dataset.choice) return answer(el.dataset.choice);
     switch (el.dataset.action) {
       case 'start':

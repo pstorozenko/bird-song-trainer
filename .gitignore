@@ -3,4 +3,3 @@ dist/
 .env
 .cache/
 __pycache__/
-manual_download/

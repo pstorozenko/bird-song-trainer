@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#2f6b3a"/>
+  <!-- perched songbird, singing -->
+  <path fill="#f4f6f1" d="M150 300c0-70 52-128 122-128 26 0 48 7 66 19l46-14-26 37c8 15 12 32 12 50 0 64-48 112-118 118l-50 54-6-50c-28-18-46-50-46-86z"/>
+  <circle cx="300" cy="226" r="11" fill="#2f6b3a"/>
+  <path fill="#f4f6f1" d="M120 410h272v18H120z" opacity=".9"/>
+  <!-- sound waves -->
+  <path fill="none" stroke="#a8d5b0" stroke-width="16" stroke-linecap="round" d="M400 150c18 14 28 34 28 56M418 112c30 24 46 58 46 94"/>
+</svg>

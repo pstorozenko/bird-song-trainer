@@ -2,6 +2,7 @@
 import type { Recording, Species } from './types';
 
 export type Rng = () => number;
+export type Difficulty = 'easy' | 'hard';
 
 export interface Question {
   species: Species;
@@ -24,6 +25,8 @@ export interface PickerOptions {
   /** Relative sampling weight per species id; re-read on every question. Defaults to 1. */
   weight?: (id: string) => number;
   choiceCount?: number;
+  /** Re-read on every question so a settings change applies immediately. Defaults to easy. */
+  difficulty?: () => Difficulty;
   rng?: Rng;
 }
 
@@ -58,6 +61,7 @@ export class QuestionPicker {
   private readonly active: () => string[];
   private readonly weight: (id: string) => number;
   private readonly choiceCount: number;
+  private readonly difficulty: () => Difficulty;
   private readonly rng: Rng;
 
   constructor(opts: PickerOptions) {
@@ -65,6 +69,7 @@ export class QuestionPicker {
     this.active = opts.active ?? (() => this.pool.map((s) => s.id));
     this.weight = opts.weight ?? (() => 1);
     this.choiceCount = opts.choiceCount ?? 4;
+    this.difficulty = opts.difficulty ?? (() => 'easy');
     this.rng = opts.rng ?? Math.random;
     if (!this.pool.some((s) => s.recordings.length)) throw new Error('No species with recordings');
   }
@@ -78,12 +83,14 @@ export class QuestionPicker {
     this.lastSpeciesId = species.id;
 
     const recording = this.nextRecording(species);
-    const want = Math.max(0, this.choiceCount - 1);
-    // Distractors come from birds the learner already knows; top up from the rest if needed.
-    const others = this.pool.filter((s) => s.id !== species.id);
-    const known = shuffle(others.filter((s) => activeSet.has(s.id)), this.rng);
-    const rest = shuffle(others.filter((s) => !activeSet.has(s.id)), this.rng);
-    const distractors = [...known, ...rest].slice(0, want);
+    const distractors = pickDistractors(
+      species,
+      this.pool,
+      activeSet,
+      this.difficulty(),
+      Math.max(0, this.choiceCount - 1),
+      this.rng,
+    );
     const choices = shuffle([species, ...distractors], this.rng);
     return { species, recording, choices };
   }
@@ -99,4 +106,44 @@ export class QuestionPicker {
     used.add(rec.id);
     return rec;
   }
+}
+
+/**
+ * Wrong answers for a question.
+ * - easy: birds the learner already knows (active), topped up from the rest.
+ * - hard: look-alikes first (similarTo, both directions), then the same family,
+ *   then the same habitat (known birds first in each tier), then anything else.
+ */
+export function pickDistractors(
+  answer: Species,
+  pool: Species[],
+  activeSet: Set<string>,
+  difficulty: Difficulty,
+  want: number,
+  rng: Rng = Math.random,
+): Species[] {
+  const others = pool.filter((s) => s.id !== answer.id);
+  const knownFirst = (list: Species[]) => [
+    ...shuffle(list.filter((s) => activeSet.has(s.id)), rng),
+    ...shuffle(list.filter((s) => !activeSet.has(s.id)), rng),
+  ];
+
+  let tiers: Species[][];
+  if (difficulty === 'hard') {
+    const similar = others.filter((s) => answer.similarTo.includes(s.id) || s.similarTo.includes(answer.id));
+    const family = others.filter((s) => s.family === answer.family);
+    const habitat = others.filter((s) => s.habitat.some((h) => answer.habitat.includes(h)));
+    tiers = [shuffle(similar, rng), knownFirst(family), knownFirst(habitat), knownFirst(others)];
+  } else {
+    tiers = [knownFirst(others)];
+  }
+
+  const out: Species[] = [];
+  for (const tier of tiers) {
+    for (const s of tier) {
+      if (out.length >= want) return out;
+      if (!out.includes(s)) out.push(s);
+    }
+  }
+  return out;
 }

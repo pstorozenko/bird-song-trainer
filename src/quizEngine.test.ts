@@ -1,12 +1,13 @@
 import { describe, expect, test } from 'bun:test';
-import { QuestionPicker, shuffle, weightedPick } from './quizEngine';
+import { pickDistractors, QuestionPicker, shuffle, weightedPick } from './quizEngine';
 import type { Species } from './types';
 
-const sp = (id: string, clips = 2): Species => ({
-  id, namePl: id, nameEn: id, nameLatin: id, family: 'F', habitat: [], similarTo: [], note: '', image: null,
+const sp = (id: string, clips = 2, extra: Partial<Species> = {}): Species => ({
+  id, namePl: id, nameEn: id, nameLatin: id, family: 'F', habitat: [], similarTo: [], note: '', image: null, ...extra,
   recordings: Array.from({ length: clips }, (_, i) => ({
     id: `${id}-r${i}`, src: '', type: 'song', durationSec: 12, recordist: '', license: '', sourceUrl: '',
   })),
+  ...extra,
 });
 
 // Deterministic PRNG (mulberry32)
@@ -113,4 +114,62 @@ describe('weighting and active set', () => {
 
 test('shuffle keeps all items', () => {
   expect(shuffle([1, 2, 3, 4, 5], rng(7)).sort()).toEqual([1, 2, 3, 4, 5]);
+});
+
+describe('hard mode distractors', () => {
+  const crow = sp('crow', 2, { family: 'Corvidae', habitat: ['city'], similarTo: ['rook'] });
+  const hard = [
+    crow,
+    sp('rook', 2, { family: 'Corvidae', habitat: ['city'] }),
+    sp('jackdaw', 2, { family: 'Corvidae', habitat: ['city'], similarTo: ['crow'] }), // reverse link
+    sp('magpie', 2, { family: 'Corvidae', habitat: ['park'] }),
+    sp('raven', 2, { family: 'Corvidae', habitat: ['forest'] }),
+    sp('sparrow', 2, { family: 'Passeridae', habitat: ['city'] }),
+    sp('robin', 2, { family: 'Muscicapidae', habitat: ['forest'] }),
+    sp('duck', 2, { family: 'Anatidae', habitat: ['wetland'] }),
+  ];
+  const all = new Set(hard.map((s) => s.id));
+
+  test('look-alikes (both directions) come first, then family', () => {
+    for (let seed = 1; seed < 30; seed++) {
+      const d = pickDistractors(crow, hard, all, 'hard', 3, rng(seed)).map((s) => s.id);
+      expect(d.slice(0, 2).sort()).toEqual(['jackdaw', 'rook']);
+      expect(['magpie', 'raven']).toContain(d[2]);
+    }
+  });
+
+  test('then same habitat, then anything', () => {
+    const d = pickDistractors(crow, hard, all, 'hard', 7, rng(3)).map((s) => s.id);
+    expect(d[4]).toBe('sparrow'); // after 4 corvids: the only non-corvid sharing 'city'
+    expect(d.slice(5).sort()).toEqual(['duck', 'robin']);
+    expect(new Set(d).size).toBe(7);
+  });
+
+  test('within a tier, known birds come before locked ones', () => {
+    const active = new Set(['crow', 'raven']);
+    for (let seed = 1; seed < 20; seed++) {
+      const d = pickDistractors(crow, hard, active, 'hard', 3, rng(seed)).map((s) => s.id);
+      expect(d[2]).toBe('raven'); // family tier: raven (known) before magpie (locked)
+    }
+  });
+
+  test('easy mode ignores similarity', () => {
+    const active = new Set(['crow', 'duck', 'robin', 'sparrow']);
+    const d = pickDistractors(crow, hard, active, 'easy', 3, rng(4)).map((s) => s.id);
+    expect(d.sort()).toEqual(['duck', 'robin', 'sparrow']);
+  });
+
+  test('picker uses the difficulty getter on every question', () => {
+    let mode: 'easy' | 'hard' = 'hard';
+    const p = new QuestionPicker({ pool: hard, active: () => ['crow', 'robin', 'duck', 'sparrow'], difficulty: () => mode, rng: rng(5) });
+    for (let i = 0; i < 50; i++) {
+      const q = p.next();
+      if (q.species.id === 'crow') expect(q.choices.map((c) => c.id)).toContain('rook');
+    }
+    mode = 'easy';
+    for (let i = 0; i < 50; i++) {
+      const q = p.next();
+      if (q.species.id === 'crow') expect(q.choices.map((c) => c.id).sort()).toEqual(['crow', 'duck', 'robin', 'sparrow']);
+    }
+  });
 });

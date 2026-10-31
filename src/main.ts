@@ -1,6 +1,8 @@
 import './styles.css';
 import { stopClip } from './audio';
 import { loadBirds } from './data';
+import { renderInfo } from './info';
+import { registerServiceWorker } from './offline';
 import { renderQuiz } from './quiz';
 import { renderStudyDetail, renderStudyList } from './study';
 import { esc } from './ui';
@@ -11,11 +13,12 @@ const tabs = [...document.querySelectorAll<HTMLAnchorElement>('.tabbar a')];
 let cleanup: () => void = () => {};
 let lastTab = '';
 
-type Route = { tab: 'study'; id?: string } | { tab: 'quiz' };
+type Route = { tab: 'study'; id?: string } | { tab: 'quiz' } | { tab: 'info' };
 
 function parseRoute(): Route {
   const [, tab, id] = location.hash.replace(/^#/, '').split('/');
   if (tab === 'quiz') return { tab: 'quiz' };
+  if (tab === 'info') return { tab: 'info' };
   return { tab: 'study', id: id ? decodeURIComponent(id) : undefined };
 }
 
@@ -31,6 +34,7 @@ function render(data: BirdsData) {
   }
 
   if (route.tab === 'quiz') cleanup = renderQuiz(view, data);
+  else if (route.tab === 'info') cleanup = renderInfo(view, data);
   else if (route.id) cleanup = renderStudyDetail(view, data, route.id);
   else cleanup = renderStudyList(view, data);
 
@@ -47,4 +51,5 @@ async function main() {
   }
 }
 
+registerServiceWorker();
 main();

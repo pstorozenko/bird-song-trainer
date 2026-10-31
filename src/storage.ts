@@ -78,3 +78,34 @@ export async function readProgressFile(file: File): Promise<Progress> {
     throw new Error('To nie jest plik z postępem Ptasich głosów.');
   }
 }
+
+// ---------------------------------------------------------------- settings
+
+export interface Settings {
+  difficulty: 'easy' | 'hard';
+}
+
+const SETTINGS_KEY = 'birdTrainer.settings.v1';
+const DEFAULT_SETTINGS: Settings = { difficulty: 'easy' };
+let settings: Settings | null = null;
+
+export function getSettings(): Settings {
+  if (settings) return settings;
+  try {
+    const raw = JSON.parse(localStorage.getItem(SETTINGS_KEY) ?? '{}');
+    settings = { difficulty: raw?.difficulty === 'hard' ? 'hard' : 'easy' };
+  } catch {
+    settings = { ...DEFAULT_SETTINGS };
+  }
+  return settings;
+}
+
+export function updateSettings(patch: Partial<Settings>): Settings {
+  settings = { ...getSettings(), ...patch };
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+  } catch {
+    /* not persisted, still applies for this session */
+  }
+  return settings;
+}
