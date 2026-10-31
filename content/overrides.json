@@ -3,31 +3,41 @@
     "image": "File:Чёрный дрозд (Turdus merula, mas), Битцевский лес.jpg",
     "approved": [
       "xc879871",
-      "xc127998"
+      "xc127998",
+      "xc1133634",
+      "xc809767"
     ]
   },
   "luscinia-luscinia": {
     "image": "File:Thrush Nightingale (Luscinia luscinia), Gugny, Biebrzański Park Narodowy, Polska cropped.jpg",
     "approved": [
       "xc129526",
-      "xc176967"
+      "xc176967",
+      "xc1064306",
+      "xc551918"
     ]
   },
   "anas-platyrhynchos": {
     "imageAuthor": "Richard Bartz",
     "approved": [
       "xc541821",
-      "xc541823"
+      "xc541823",
+      "xc541812",
+      "xc541822"
     ],
     "exclude": [
-      "xc598281"
+      "xc598281",
+      "xc541824",
+      "xc512909"
     ]
   },
   "ardea-cinerea": {
     "imageAuthor": "Giacomo Cimino",
     "approved": [
       "xc113456",
-      "xc494022"
+      "xc494022",
+      "xc591085",
+      "xc591082"
     ],
     "exclude": [
       "xc668169"
@@ -37,7 +47,9 @@
     "imageAuthor": "JJ Harrison",
     "approved": [
       "xc592110",
-      "xc662845"
+      "xc662845",
+      "xc488725",
+      "xc577005"
     ],
     "exclude": [
       "xc1104142"
@@ -46,7 +58,9 @@
   "corvus-cornix": {
     "approved": [
       "xc522501",
-      "xc547018"
+      "xc547018",
+      "xc522500",
+      "xc547012"
     ],
     "exclude": [
       "xc536193"
@@ -55,7 +69,9 @@
   "pica-pica": {
     "approved": [
       "xc545632",
-      "xc620515"
+      "xc620515",
+      "xc620519",
+      "xc620522"
     ],
     "exclude": [
       "xc1025967"
@@ -64,65 +80,88 @@
   "columba-livia": {
     "approved": [
       "xc462611",
-      "xc536371"
+      "xc536371",
+      "xc536370"
     ],
     "exclude": [
       "xc121680",
-      "xc844858"
+      "xc844858",
+      "xc709206"
     ]
   },
   "passer-domesticus": {
     "approved": [
       "xc559610",
-      "xc634437"
+      "xc634437",
+      "xc151155",
+      "xc537768"
     ]
   },
   "chroicocephalus-ridibundus": {
     "approved": [
       "xc591451",
-      "xc1144933"
+      "xc1144933",
+      "xc591461",
+      "xc560441"
     ]
   },
   "parus-major": {
     "approved": [
       "xc123522",
-      "xc160982"
+      "xc160982",
+      "xc150231",
+      "xc712689"
     ]
   },
   "coloeus-monedula": {
     "approved": [
       "xc623278",
-      "xc630212"
+      "xc630212",
+      "xc623276",
+      "xc549069"
     ]
   },
   "sturnus-vulgaris": {
     "approved": [
       "xc327880",
-      "xc129217"
+      "xc129217",
+      "xc327881",
+      "xc328402"
+    ],
+    "exclude": [
+      "xc647166"
     ]
   },
   "corvus-frugilegus": {
     "approved": [
       "xc153799",
-      "xc113543"
+      "xc113543",
+      "xc840007",
+      "xc1107628"
     ]
   },
   "corvus-corax": {
     "approved": [
       "xc627736",
-      "xc1099362"
+      "xc1099362",
+      "xc627789",
+      "xc965041"
     ]
   },
   "apus-apus": {
     "approved": [
       "xc559392",
-      "xc559377"
+      "xc559377",
+      "xc559378",
+      "xc658760"
     ]
   },
   "hirundo-rustica": {
     "approved": [
       "xc559606",
-      "xc609237"
+      "xc609237",
+      "xc652315",
+      "xc1029121"
     ],
     "exclude": [
       "xc1029079"
@@ -131,70 +170,93 @@
   "delichon-urbicum": {
     "approved": [
       "xc344098",
-      "xc492092"
+      "xc492092",
+      "xc492093"
     ],
     "exclude": [
-      "xc483659"
+      "xc483659",
+      "xc652535",
+      "xc652160"
     ]
   },
   "spinus-spinus": {
     "approved": [
       "xc462615",
-      "xc121690"
+      "xc121690",
+      "xc172337",
+      "xc463563"
     ]
   },
   "alcedo-atthis": {
     "approved": [
       "xc591055",
-      "xc598253"
+      "xc598253",
+      "xc591056",
+      "xc591054"
     ]
   },
   "ciconia-ciconia": {
     "approved": [
       "xc181349",
-      "xc169478"
+      "xc169478",
+      "xc500993",
+      "xc663312"
     ],
     "exclude": [
-      "xc340921"
+      "xc340921",
+      "xc25468"
     ]
   },
   "grus-grus": {
     "approved": [
       "xc754499",
-      "xc548679"
+      "xc548679",
+      "xc545489",
+      "xc1105924"
     ]
   },
   "cygnus-olor": {
     "approved": [
       "xc527486",
-      "xc699425"
+      "xc699425",
+      "xc621976",
+      "xc632325"
     ],
     "exclude": [
-      "xc1052052"
+      "xc1052052",
+      "xc840008"
     ]
   },
   "anser-anser": {
     "approved": [
       "xc549740",
-      "xc617055"
+      "xc617055",
+      "xc617056",
+      "xc150418"
     ]
   },
   "phalacrocorax-carbo": {
     "approved": [
       "xc448581",
-      "xc738996"
+      "xc738996",
+      "xc123743",
+      "xc622278"
     ]
   },
   "cyanistes-caeruleus": {
     "approved": [
       "xc405168",
-      "xc466233"
+      "xc466233",
+      "xc592534",
+      "xc635149"
     ]
   },
   "erithacus-rubecula": {
     "approved": [
       "xc635167",
-      "xc820064"
+      "xc820064",
+      "xc617826",
+      "xc820062"
     ],
     "exclude": [
       "xc643331",
@@ -204,7 +266,9 @@
   "fringilla-coelebs": {
     "approved": [
       "xc512402",
-      "xc568013"
+      "xc568013",
+      "xc637055",
+      "xc538731"
     ]
   },
   "turdus-philomelos": {
@@ -213,13 +277,17 @@
     ],
     "approved": [
       "xc363197",
-      "xc477572"
+      "xc477572",
+      "xc1091220",
+      "xc477571"
     ]
   },
   "sitta-europaea": {
     "approved": [
       "xc407887",
-      "xc310154"
+      "xc310154",
+      "xc171592",
+      "xc986790"
     ]
   },
   "troglodytes-troglodytes": {
@@ -229,13 +297,17 @@
     ],
     "approved": [
       "xc632487",
-      "xc796099"
+      "xc796099",
+      "xc639108",
+      "xc415319"
     ]
   },
   "phylloscopus-collybita": {
     "approved": [
       "xc630178",
-      "xc464612"
+      "xc464612",
+      "xc791345",
+      "xc246021"
     ],
     "exclude": [
       "xc129459"
@@ -244,43 +316,57 @@
   "phylloscopus-sibilatrix": {
     "approved": [
       "xc568870",
-      "xc632489"
+      "xc632489",
+      "xc561503",
+      "xc790175"
     ]
   },
   "sylvia-atricapilla": {
     "approved": [
       "xc347351",
-      "xc819251"
+      "xc819251",
+      "xc638963",
+      "xc315056"
     ]
   },
   "sylvia-borin": {
     "approved": [
       "xc1107229",
-      "xc998247"
+      "xc998247",
+      "xc1151593",
+      "xc246024"
     ]
   },
   "ficedula-hypoleuca": {
     "approved": [
       "xc1139219",
-      "xc1104340"
+      "xc1104340",
+      "xc743281",
+      "xc1139211"
     ]
   },
   "oriolus-oriolus": {
     "approved": [
       "xc593684",
-      "xc328396"
+      "xc328396",
+      "xc335313",
+      "xc328394"
     ]
   },
   "cuculus-canorus": {
     "approved": [
       "xc546326",
-      "xc595419"
+      "xc595419",
+      "xc560784",
+      "xc182336"
     ]
   },
   "columba-palumbus": {
     "approved": [
       "xc246655",
-      "xc712671"
+      "xc712671",
+      "xc462990",
+      "xc1086136"
     ],
     "exclude": [
       "xc130072",
@@ -292,7 +378,9 @@
   "pyrrhula-pyrrhula": {
     "approved": [
       "xc113712",
-      "xc217378"
+      "xc217378",
+      "xc303360",
+      "xc113713"
     ],
     "exclude": [
       "xc129200",
@@ -302,19 +390,25 @@
   "emberiza-citrinella": {
     "approved": [
       "xc402005",
-      "xc462588"
+      "xc462588",
+      "xc462159",
+      "xc1133561"
     ]
   },
   "alauda-arvensis": {
     "approved": [
       "xc548685",
-      "xc1151819"
+      "xc1151819",
+      "xc462158",
+      "xc548691"
     ]
   },
   "crex-crex": {
     "approved": [
       "xc662642",
-      "xc184771"
+      "xc184771",
+      "xc477351",
+      "xc1139509"
     ]
   },
   "larus-argentatus": {
@@ -323,19 +417,25 @@
     ],
     "approved": [
       "xc795350",
-      "xc623707"
+      "xc623707",
+      "xc898291",
+      "xc197625"
     ]
   },
   "passer-montanus": {
     "approved": [
       "xc1104910",
-      "xc665124"
+      "xc665124",
+      "xc462606",
+      "xc213537"
     ]
   },
   "bombycilla-garrulus": {
     "approved": [
       "xc113537",
-      "xc113541"
+      "xc113541",
+      "xc121380",
+      "xc123377"
     ],
     "exclude": [
       "xc113540"

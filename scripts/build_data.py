@@ -42,7 +42,7 @@ OUT_JSON = PUBLIC / "data" / "birds.json"
 XC_API = "https://xeno-canto.org/api/3/recordings"
 UA = "BirdSongTrainer/0.1 (personal learning project; data build script)"
 
-RECORDINGS_PER_SPECIES = 2
+RECORDINGS_PER_SPECIES = 4
 META_KEYS = ("id", "namePl", "nameEn", "nameLatin", "family", "habitat", "similarTo", "note")
 COUNTRY = "poland"
 MAX_SOURCE_SEC = 90  # prefer short source recordings (less to sift through)
@@ -334,7 +334,7 @@ def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict
     log(f"• {sp['namePl']} ({sp['nameLatin']})")
     types = sp.get("types") or ["song"]
     n = RECORDINGS_PER_SPECIES
-    # split the clip budget across types, e.g. 2 clips over [call, song] -> 1 + 1
+    # split the clip budget across types, e.g. 4 clips over [call, song] -> 2 + 2
     quotas = [n // len(types) + (1 if i < n % len(types) else 0) for i in range(len(types))]
     pools: dict[str, list[dict]] = {}
     chosen: list[tuple[str, dict]] = []  # newly picked (XC API records)

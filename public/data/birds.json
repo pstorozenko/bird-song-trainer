@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-31T15:23:55Z",
+  "generatedAt": "2026-10-31T15:33:28Z",
   "species": [
     {
       "id": "corvus-cornix",
@@ -54,6 +54,38 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/547018",
+          "country": "Poland",
+          "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
+          "date": "2020-04-17"
+        },
+        {
+          "id": "xc522500",
+          "src": "audio/corvus-cornix-xc522500.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124934,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/522500",
+          "country": "Poland",
+          "location": "Zatoka Gdańska",
+          "date": "2020-01-26"
+        },
+        {
+          "id": "xc547012",
+          "src": "audio/corvus-cornix-xc547012.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123998,
+          "sourceLengthSec": 44,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/547012",
           "country": "Poland",
           "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
           "date": "2020-04-17"
@@ -113,6 +145,38 @@
           "country": "Poland",
           "location": "Gmina Serock (near  Serock), Powiat legionowski, Mazowieckie",
           "date": "2021-02-05"
+        },
+        {
+          "id": "xc620519",
+          "src": "audio/pica-pica-xc620519.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124876,
+          "sourceLengthSec": 20,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/620519",
+          "country": "Poland",
+          "location": "Gmina Serock (near  Serock), Powiat legionowski, Mazowieckie",
+          "date": "2021-02-05"
+        },
+        {
+          "id": "xc620522",
+          "src": "audio/pica-pica-xc620522.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124508,
+          "sourceLengthSec": 14,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/620522",
+          "country": "Poland",
+          "location": "Gmina Serock (near  Serock), Powiat legionowski, Mazowieckie",
+          "date": "2021-02-05"
         }
       ]
     },
@@ -166,6 +230,38 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/541823",
+          "country": "Poland",
+          "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
+          "date": "2020-04-03"
+        },
+        {
+          "id": "xc541812",
+          "src": "audio/anas-platyrhynchos-xc541812.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123981,
+          "sourceLengthSec": 13,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/541812",
+          "country": "Poland",
+          "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
+          "date": "2020-04-03"
+        },
+        {
+          "id": "xc541822",
+          "src": "audio/anas-platyrhynchos-xc541822.m4a",
+          "type": "call",
+          "durationSec": 10.1,
+          "sizeBytes": 103451,
+          "sourceLengthSec": 10,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/541822",
           "country": "Poland",
           "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
           "date": "2020-04-03"
@@ -224,6 +320,22 @@
           "country": "Poland",
           "location": "Tychy, Tychy, śląskie",
           "date": "2020-03-20"
+        },
+        {
+          "id": "xc536370",
+          "src": "audio/columba-livia-xc536370.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123865,
+          "sourceLengthSec": 13,
+          "quality": "B",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/536370",
+          "country": "Poland",
+          "location": "Tychy, Tychy, śląskie",
+          "date": "2020-03-20"
         }
       ]
     },
@@ -265,6 +377,22 @@
           "date": "2020-05-17"
         },
         {
+          "id": "xc151155",
+          "src": "audio/passer-domesticus-xc151155.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124126,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/151155",
+          "country": "Poland",
+          "location": "Gmina Pomiechówek (near  Bronisławka), Nowy Dwór Mazowiecki County, Masovian Voivodeship",
+          "date": "2011-03-26"
+        },
+        {
           "id": "xc634437",
           "src": "audio/passer-domesticus-xc634437.m4a",
           "type": "song",
@@ -279,6 +407,22 @@
           "country": "Poland",
           "location": "Iskierka (near  Kęty), Powiat oświęcimski, Małopolskie",
           "date": "2021-03-30"
+        },
+        {
+          "id": "xc537768",
+          "src": "audio/passer-domesticus-xc537768.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123982,
+          "sourceLengthSec": 19,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/537768",
+          "country": "Poland",
+          "location": "Tychy Hetmańska (near  Tychy), Tychy, śląskie",
+          "date": "2020-03-24"
         }
       ]
     },
@@ -335,6 +479,38 @@
           "country": "Poland",
           "location": "Gmina Stegna (near  Gdańsk), Gdańsk, Pomeranian Voivodeship",
           "date": "2024-09-21"
+        },
+        {
+          "id": "xc591461",
+          "src": "audio/chroicocephalus-ridibundus-xc591461.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123846,
+          "sourceLengthSec": 17,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591461",
+          "country": "Poland",
+          "location": "Gmina Piątek (near  Piątek), Powiat łęczycki, Łódzkie",
+          "date": "2020-05-15"
+        },
+        {
+          "id": "xc560441",
+          "src": "audio/chroicocephalus-ridibundus-xc560441.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124021,
+          "sourceLengthSec": 231,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/560441",
+          "country": "Poland",
+          "location": "Gmina Goczałkowice-Zdrój (near  Goczałkowice-Zdrój), Powiat pszczyński, śląskie",
+          "date": "2020-05-21"
         }
       ]
     },
@@ -392,6 +568,38 @@
           "country": "Poland",
           "location": "Gmina Iłowo-Osada (near  Iłowo-Osada), Działdowo County, Warmian-Masurian Voivodeship",
           "date": "2013-12-27"
+        },
+        {
+          "id": "xc150231",
+          "src": "audio/parus-major-xc150231.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124054,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/150231",
+          "country": "Poland",
+          "location": "Krynica Morska (near  Nowa Karczma), Nowy Dwór Gdański County, Pomeranian Voivodeship",
+          "date": "2013-09-10"
+        },
+        {
+          "id": "xc712689",
+          "src": "audio/parus-major-xc712689.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124069,
+          "sourceLengthSec": 44,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/712689",
+          "country": "Poland",
+          "location": "Gmina Piwniczna-Zdrój (near  Łomnica-Zdrój), nowosądecki, Małopolskie",
+          "date": "2022-03-02"
         }
       ]
     },
@@ -449,6 +657,38 @@
           "country": "Poland",
           "location": "Ostrów Lubelski (near  Gmina Ostrów Lubelski), Lubartów County, Lublin Voivodeship",
           "date": "2013-03-30"
+        },
+        {
+          "id": "xc1133634",
+          "src": "audio/turdus-merula-xc1133634.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124184,
+          "sourceLengthSec": 61,
+          "quality": "A",
+          "recordist": "Franek Owczarek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1133634",
+          "country": "Poland",
+          "location": "Łódź, Łódź, województwo łódzkie",
+          "date": "2026-05-14"
+        },
+        {
+          "id": "xc809767",
+          "src": "audio/turdus-merula-xc809767.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124408,
+          "sourceLengthSec": 61,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/809767",
+          "country": "Poland",
+          "location": "South Park (near  Głogów), Dolnośląskie Voivodeship",
+          "date": "2023-05-14"
         }
       ]
     },
@@ -506,6 +746,38 @@
           "country": "Poland",
           "location": "Chorzów, Chorzów, Śląskie",
           "date": "2021-03-19"
+        },
+        {
+          "id": "xc623276",
+          "src": "audio/coloeus-monedula-xc623276.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123886,
+          "sourceLengthSec": 12,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/623276",
+          "country": "Poland",
+          "location": "Middle Vistula, Łomianki, Warsaw",
+          "date": "2021-02-21"
+        },
+        {
+          "id": "xc549069",
+          "src": "audio/coloeus-monedula-xc549069.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124705,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/549069",
+          "country": "Poland",
+          "location": "Tychy, Tychy, śląskie",
+          "date": "2020-04-22"
         }
       ]
     },
@@ -560,6 +832,38 @@
           "country": "Poland",
           "location": "Łomianki (near  Gmina Łomianki), Warsaw West County, Masovian Voivodeship",
           "date": "2013-04-11"
+        },
+        {
+          "id": "xc327881",
+          "src": "audio/sturnus-vulgaris-xc327881.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124834,
+          "sourceLengthSec": 42,
+          "quality": "A",
+          "recordist": "Patrik Åberg",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/327881",
+          "country": "Poland",
+          "location": "Bialowieza",
+          "date": "2016-05-09"
+        },
+        {
+          "id": "xc328402",
+          "src": "audio/sturnus-vulgaris-xc328402.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 127030,
+          "sourceLengthSec": 89,
+          "quality": "A",
+          "recordist": "Patrik Åberg",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/328402",
+          "country": "Poland",
+          "location": "Biebrza National Park",
+          "date": "2016-05-10"
         }
       ]
     },
@@ -617,6 +921,38 @@
           "country": "Poland",
           "location": "Nieporęt (near  Rynia), Legionowo County, Mazowieckie",
           "date": "2012-11-26"
+        },
+        {
+          "id": "xc840007",
+          "src": "audio/corvus-frugilegus-xc840007.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123634,
+          "sourceLengthSec": 32,
+          "quality": "B",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/840007",
+          "country": "Poland",
+          "location": "Gmina Kęty (near  Kęty), Powiat oświęcimski, Małopolskie",
+          "date": "2023-11-02"
+        },
+        {
+          "id": "xc1107628",
+          "src": "audio/corvus-frugilegus-xc1107628.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123543,
+          "sourceLengthSec": 26,
+          "quality": "B",
+          "recordist": "Franek Owczarek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1107628",
+          "country": "Poland",
+          "location": "Gmina Pabianice (near  Pabianice), Powiat pabianicki, Łódzkie",
+          "date": "2026-05-11"
         }
       ]
     },
@@ -673,6 +1009,38 @@
           "country": "Poland",
           "location": "Karlow, Stolowe Mts. National Park, kłodzki, Województwo dolnośląskie",
           "date": "2025-11-29"
+        },
+        {
+          "id": "xc627789",
+          "src": "audio/corvus-corax-xc627789.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125068,
+          "sourceLengthSec": 28,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/627789",
+          "country": "Poland",
+          "location": "Gmina Leoncin (near  Leoncin), nowodworski, mazowieckie",
+          "date": "2021-03-09"
+        },
+        {
+          "id": "xc965041",
+          "src": "audio/corvus-corax-xc965041.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123768,
+          "sourceLengthSec": 15,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/965041",
+          "country": "Poland",
+          "location": "Gmina Parczew (near  Tyśmienica), Parczew County, Lublin Voivodeship",
+          "date": "2025-01-23"
         }
       ]
     },
@@ -729,6 +1097,38 @@
           "country": "Poland",
           "location": "Gmina Białowieża (near  Białowieża), Hajnówka County, Podlaskie Voivodeship",
           "date": "2020-05-17"
+        },
+        {
+          "id": "xc559378",
+          "src": "audio/apus-apus-xc559378.m4a",
+          "type": "call",
+          "durationSec": 8.3,
+          "sizeBytes": 85585,
+          "sourceLengthSec": 8,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/559378",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Białowieża), Hajnówka County, Podlaskie Voivodeship",
+          "date": "2020-05-17"
+        },
+        {
+          "id": "xc658760",
+          "src": "audio/apus-apus-xc658760.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123950,
+          "sourceLengthSec": 18,
+          "quality": "B",
+          "recordist": "Sławomir Karpicki-Ignatowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/658760",
+          "country": "Poland",
+          "location": "U Joli. Nowacki W. (near  Poznań), Poznań, Wielkopolskie",
+          "date": "2021-06-24"
         }
       ]
     },
@@ -772,6 +1172,22 @@
           "date": "2020-05-17"
         },
         {
+          "id": "xc652315",
+          "src": "audio/hirundo-rustica-xc652315.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125611,
+          "sourceLengthSec": 68,
+          "quality": "A",
+          "recordist": "Grzegorz Kaczorowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/652315",
+          "country": "Poland",
+          "location": "Gmina Żytno (near  Pukarzów), Powiat radomszczański, Łódzkie",
+          "date": "2021-05-27"
+        },
+        {
           "id": "xc609237",
           "src": "audio/hirundo-rustica-xc609237.m4a",
           "type": "call",
@@ -786,6 +1202,22 @@
           "country": "Poland",
           "location": "Gmina Cyców , łęczyński, Lubelskie",
           "date": "2020-05-02"
+        },
+        {
+          "id": "xc1029121",
+          "src": "audio/hirundo-rustica-xc1029121.m4a",
+          "type": "call",
+          "durationSec": 9.5,
+          "sizeBytes": 98642,
+          "sourceLengthSec": 9,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1029121",
+          "country": "Poland",
+          "location": "Odra river near  Glogow, Głogów County, Lower Silesian Voivodeship",
+          "date": "2025-08-14"
         }
       ]
     },
@@ -823,6 +1255,22 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/492092",
+          "country": "Poland",
+          "location": "Bukowina Tatrzańska Wierch Spiski (near  Bukowina Tatrzańska), Powiat tatrzański, małopolskie",
+          "date": "2019-08-11"
+        },
+        {
+          "id": "xc492093",
+          "src": "audio/delichon-urbicum-xc492093.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124318,
+          "sourceLengthSec": 70,
+          "quality": "B",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/492093",
           "country": "Poland",
           "location": "Bukowina Tatrzańska Wierch Spiski (near  Bukowina Tatrzańska), Powiat tatrzański, małopolskie",
           "date": "2019-08-11"
@@ -883,6 +1331,22 @@
           "date": "2019-03-20"
         },
         {
+          "id": "xc172337",
+          "src": "audio/spinus-spinus-xc172337.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124797,
+          "sourceLengthSec": 120,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/172337",
+          "country": "Poland",
+          "location": "Leoncin",
+          "date": "2014-04-03"
+        },
+        {
           "id": "xc121690",
           "src": "audio/spinus-spinus-xc121690.m4a",
           "type": "call",
@@ -897,6 +1361,22 @@
           "country": "Poland",
           "location": "Warszawa (near  Warsaw), Warszawa, Masovian Voivodeship",
           "date": "2013-02-16"
+        },
+        {
+          "id": "xc463563",
+          "src": "audio/spinus-spinus-xc463563.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124646,
+          "sourceLengthSec": 100,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/463563",
+          "country": "Poland",
+          "location": "Włodawa (near  Wlodawa), włodawski, lubelskie",
+          "date": "2019-03-23"
         }
       ]
     },
@@ -951,6 +1431,38 @@
           "country": "Poland",
           "location": "Miszkowice (near  Bukówka), Kamienna Góra County, Lower Silesian Voivodeship",
           "date": "2020-10-09"
+        },
+        {
+          "id": "xc591056",
+          "src": "audio/alcedo-atthis-xc591056.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124791,
+          "sourceLengthSec": 17,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591056",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
+        },
+        {
+          "id": "xc591054",
+          "src": "audio/alcedo-atthis-xc591054.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 128118,
+          "sourceLengthSec": 14,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591054",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
         }
       ]
     },
@@ -1008,6 +1520,38 @@
           "country": "Poland",
           "location": "Biebrza Marshes, Wólka Piaseczna",
           "date": "2011-05-14"
+        },
+        {
+          "id": "xc500993",
+          "src": "audio/ciconia-ciconia-xc500993.m4a",
+          "type": "bill clapping",
+          "durationSec": 12.0,
+          "sizeBytes": 130720,
+          "sourceLengthSec": 20,
+          "quality": "B",
+          "recordist": "Krzysztof Jankowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/500993",
+          "country": "Poland",
+          "location": "Gmina Świątki (near  Kwiecewo), olsztyński, warmińsko-mazurskie",
+          "date": "2019-07-14"
+        },
+        {
+          "id": "xc663312",
+          "src": "audio/ciconia-ciconia-xc663312.m4a",
+          "type": "bill clapping",
+          "durationSec": 12.0,
+          "sizeBytes": 135091,
+          "sourceLengthSec": 233,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/663312",
+          "country": "Poland",
+          "location": "Gmina Goniądz (near  Wroceń), Powiat moniecki, Podlaskie",
+          "date": "2021-07-16"
         }
       ]
     },
@@ -1064,6 +1608,38 @@
           "country": "Poland",
           "location": "Ostrołęka County, Masovian Voivodeship",
           "date": "2020-04-19"
+        },
+        {
+          "id": "xc545489",
+          "src": "audio/grus-grus-xc545489.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125181,
+          "sourceLengthSec": 31,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/545489",
+          "country": "Poland",
+          "location": "Gmina Kampinos (near  Kampinos), warszawski zachodni, mazowieckie",
+          "date": "2020-04-13"
+        },
+        {
+          "id": "xc1105924",
+          "src": "audio/grus-grus-xc1105924.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123853,
+          "sourceLengthSec": 22,
+          "quality": "A",
+          "recordist": "Radek Grochowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1105924",
+          "country": "Poland",
+          "location": "Kąty Wrocławskie (near  Skałka), Wrocław County, Lower Silesian Voivodeship",
+          "date": "2026-05-04"
         }
       ]
     },
@@ -1120,6 +1696,38 @@
           "country": "Poland",
           "location": "Gmina Zduny (near  Piaski), krotoszyński, Wielkopolskie",
           "date": "2021-09-26"
+        },
+        {
+          "id": "xc621976",
+          "src": "audio/cygnus-olor-xc621976.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124381,
+          "sourceLengthSec": 36,
+          "quality": "B",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/621976",
+          "country": "Poland",
+          "location": "Gmina Święciechowa (near  Tarnowałąka), leszczyński, Wielkopolskie",
+          "date": "2021-02-16"
+        },
+        {
+          "id": "xc632325",
+          "src": "audio/cygnus-olor-xc632325.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123901,
+          "sourceLengthSec": 20,
+          "quality": "B",
+          "recordist": "Jacek Betleja",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/632325",
+          "country": "Poland",
+          "location": "Gmina Zator (near  Podolsze), oświęcimski, małopolskie",
+          "date": "2021-03-26"
         }
       ]
     },
@@ -1177,6 +1785,38 @@
           "country": "Poland",
           "location": "Gmina Somianka (near  Somianka-Parcele), Powiat wyszkowski, Mazowieckie",
           "date": "2021-01-24"
+        },
+        {
+          "id": "xc617056",
+          "src": "audio/anser-anser-xc617056.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123979,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/617056",
+          "country": "Poland",
+          "location": "Gmina Somianka (near  Somianka-Parcele), Powiat wyszkowski, Mazowieckie",
+          "date": "2021-01-24"
+        },
+        {
+          "id": "xc150418",
+          "src": "audio/anser-anser-xc150418.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125021,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/150418",
+          "country": "Poland",
+          "location": "Gmina Urszulin (near  Zabrodzie), Włodawa County, Lublin Voivodeship",
+          "date": "2013-10-12"
         }
       ]
     },
@@ -1230,6 +1870,38 @@
           "country": "Poland",
           "location": "Gmina Rydzyna (near  Dąbcze), leszczyński, Wielkopolskie",
           "date": "2021-06-23"
+        },
+        {
+          "id": "xc488725",
+          "src": "audio/podiceps-cristatus-xc488725.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124324,
+          "sourceLengthSec": 22,
+          "quality": "B",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/488725",
+          "country": "Poland",
+          "location": "Dąbrowa Górnicza, Dąbrowa Górnicza, śląskie",
+          "date": "2019-07-23"
+        },
+        {
+          "id": "xc577005",
+          "src": "audio/podiceps-cristatus-xc577005.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123926,
+          "sourceLengthSec": 21,
+          "quality": "B",
+          "recordist": "Sławomir Karpicki-Ignatowski",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/577005",
+          "country": "Poland",
+          "location": "Gmina Kórnik (near  Kórnik), Poznański, Wielkopolskie",
+          "date": "2020-07-18"
         }
       ]
     },
@@ -1286,6 +1958,38 @@
           "country": "Poland",
           "location": "Gmina Rydzyna (near  Dąbcze), leszczyński, wielkopolskie",
           "date": "2019-08-18"
+        },
+        {
+          "id": "xc591085",
+          "src": "audio/ardea-cinerea-xc591085.m4a",
+          "type": "call",
+          "durationSec": 11.0,
+          "sizeBytes": 111868,
+          "sourceLengthSec": 10,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591085",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
+        },
+        {
+          "id": "xc591082",
+          "src": "audio/ardea-cinerea-xc591082.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124003,
+          "sourceLengthSec": 111,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/591082",
+          "country": "Poland",
+          "location": "Powiat bełchatowski, województwo łódzkie",
+          "date": "2020-08-20"
         }
       ]
     },
@@ -1339,6 +2043,38 @@
           "country": "Poland",
           "location": "Krynica Morska, Nowy Dwór Gdański County, Pomeranian Voivodeship",
           "date": "2022-07-20"
+        },
+        {
+          "id": "xc123743",
+          "src": "audio/phalacrocorax-carbo-xc123743.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124087,
+          "sourceLengthSec": 63,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/123743",
+          "country": "Poland",
+          "location": "Łomianki (near  Kępa Kiełpińska), Warsaw West County, Masovian Voivodeship",
+          "date": "2013-03-05"
+        },
+        {
+          "id": "xc622278",
+          "src": "audio/phalacrocorax-carbo-xc622278.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124099,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/622278",
+          "country": "Poland",
+          "location": "Gmina Serock (near  Serock), Powiat legionowski, Mazowieckie",
+          "date": "2021-02-17"
         }
       ]
     },
@@ -1395,6 +2131,38 @@
           "country": "Poland",
           "location": "Gmina Rydzyna, leszczyński, Greater Poland Voivodeship",
           "date": "2019-04-12"
+        },
+        {
+          "id": "xc592534",
+          "src": "audio/cyanistes-caeruleus-xc592534.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 55421,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/592534",
+          "country": "Poland",
+          "location": "Gmina Leoncin (near  Leoncin), nowodworski, mazowieckie",
+          "date": "2020-03-08"
+        },
+        {
+          "id": "xc635149",
+          "src": "audio/cyanistes-caeruleus-xc635149.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124193,
+          "sourceLengthSec": 105,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/635149",
+          "country": "Poland",
+          "location": "Nowy Sącz, Nowy Sącz, Małopolskie",
+          "date": "2021-04-02"
         }
       ]
     },
@@ -1448,6 +2216,38 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/820064",
+          "country": "Poland",
+          "location": "Gmina Czernichów (near  Wilkowice), Powiat bielski, Województwo Śląskie",
+          "date": "2023-04-22"
+        },
+        {
+          "id": "xc617826",
+          "src": "audio/erithacus-rubecula-xc617826.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125411,
+          "sourceLengthSec": 57,
+          "quality": "A",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/617826",
+          "country": "Poland",
+          "location": "Gmina Kęty (near  Kobiernice), Powiat bielski, Śląskie",
+          "date": "2019-04-25"
+        },
+        {
+          "id": "xc820062",
+          "src": "audio/erithacus-rubecula-xc820062.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123757,
+          "sourceLengthSec": 71,
+          "quality": "A",
+          "recordist": "Grzegorz Lorek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/820062",
           "country": "Poland",
           "location": "Gmina Czernichów (near  Wilkowice), Powiat bielski, Województwo Śląskie",
           "date": "2023-04-22"
@@ -1507,6 +2307,38 @@
           "country": "Poland",
           "location": "Gmina Gołdap, gołdapski, Warmińsko-Mazurskie",
           "date": "2020-06-01"
+        },
+        {
+          "id": "xc637055",
+          "src": "audio/fringilla-coelebs-xc637055.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123838,
+          "sourceLengthSec": 25,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/637055",
+          "country": "Poland",
+          "location": "Gmina Łabowa (near  Krynica), nowosądecki, Małopolskie",
+          "date": "2021-04-02"
+        },
+        {
+          "id": "xc538731",
+          "src": "audio/fringilla-coelebs-xc538731.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123934,
+          "sourceLengthSec": 36,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/538731",
+          "country": "Poland",
+          "location": "Gmina Leszno (near  Leszno), Powiat warszawski zachodni, mazowieckie",
+          "date": "2020-03-25"
         }
       ]
     },
@@ -1559,6 +2391,38 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/477572",
+          "country": "Poland",
+          "location": "Gmina Narewka (near  Eliaszuki), hajnowski, podlaskie",
+          "date": "2019-05-04"
+        },
+        {
+          "id": "xc1091220",
+          "src": "audio/turdus-philomelos-xc1091220.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124757,
+          "sourceLengthSec": 36,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1091220",
+          "country": "Poland",
+          "location": "Stolowe Mts. National Park, Powiat kłodzki, Dolnośląskie",
+          "date": "2026-03-24"
+        },
+        {
+          "id": "xc477571",
+          "src": "audio/turdus-philomelos-xc477571.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124524,
+          "sourceLengthSec": 77,
+          "quality": "A",
+          "recordist": "Étienne Leroy",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/477571",
           "country": "Poland",
           "location": "Gmina Narewka (near  Eliaszuki), hajnowski, podlaskie",
           "date": "2019-05-04"
@@ -1616,6 +2480,38 @@
           "country": "Poland",
           "location": "Gdansk",
           "date": "0000-00-00"
+        },
+        {
+          "id": "xc171592",
+          "src": "audio/sitta-europaea-xc171592.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123991,
+          "sourceLengthSec": 70,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/171592",
+          "country": "Poland",
+          "location": "Gmina Somianka (near  Popowo Kościelne), Wyszków County, Masovian Voivodeship",
+          "date": "2014-03-29"
+        },
+        {
+          "id": "xc986790",
+          "src": "audio/sitta-europaea-xc986790.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123940,
+          "sourceLengthSec": 232,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/986790",
+          "country": "Poland",
+          "location": "Gmina Wydminy (near  Łękuk Mały), Giżycko County, Warmian-Masurian Voivodeship",
+          "date": "2025-03-29"
         }
       ]
     },
@@ -1671,6 +2567,38 @@
           "country": "Poland",
           "location": "Stolowe Mts. NP, (near  Szczytna), Powiat kłodzki, Dolnośląskie",
           "date": "2023-03-29"
+        },
+        {
+          "id": "xc639108",
+          "src": "audio/troglodytes-troglodytes-xc639108.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125064,
+          "sourceLengthSec": 65,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/639108",
+          "country": "Poland",
+          "location": "Gmina Łabowa (near  Kotów), nowosądecki, Małopolskie",
+          "date": "2021-04-01"
+        },
+        {
+          "id": "xc415319",
+          "src": "audio/troglodytes-troglodytes-xc415319.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 126237,
+          "sourceLengthSec": 50,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/415319",
+          "country": "Poland",
+          "location": "Gmina Rymanów, krośnieński, Województwo podkarpackie",
+          "date": "2018-05-10"
         }
       ]
     },
@@ -1727,6 +2655,38 @@
           "country": "Poland",
           "location": "Tychy, Tychy, śląskie",
           "date": "2019-04-02"
+        },
+        {
+          "id": "xc791345",
+          "src": "audio/phylloscopus-collybita-xc791345.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 126054,
+          "sourceLengthSec": 66,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/791345",
+          "country": "Poland",
+          "location": "Gmina Łabowa (near  Barnowiec), Nowy Sącz County, Lesser Poland Voivodeship",
+          "date": "2022-06-04"
+        },
+        {
+          "id": "xc246021",
+          "src": "audio/phylloscopus-collybita-xc246021.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125725,
+          "sourceLengthSec": 93,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/246021",
+          "country": "Poland",
+          "location": "Gmina Białowieża (near  Białowieża), hajnowski, podlaskie",
+          "date": "2015-05-22"
         }
       ]
     },
@@ -1782,6 +2742,38 @@
           "country": "Poland",
           "location": "Ustroń, Powiat cieszyński, Śląskie",
           "date": "2020-05-22"
+        },
+        {
+          "id": "xc561503",
+          "src": "audio/phylloscopus-sibilatrix-xc561503.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124942,
+          "sourceLengthSec": 62,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/561503",
+          "country": "Poland",
+          "location": "Białowieża Forest",
+          "date": "2020-05-23"
+        },
+        {
+          "id": "xc790175",
+          "src": "audio/phylloscopus-sibilatrix-xc790175.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124507,
+          "sourceLengthSec": 204,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/790175",
+          "country": "Poland",
+          "location": "Gmina Muszyna (near  Muszyna), Nowy Sącz County, Lesser Poland Voivodeship",
+          "date": "2022-05-22"
         }
       ]
     },
@@ -1838,6 +2830,38 @@
           "country": "Poland",
           "location": "Gmina Góra (near  Radosław), Góra County, Lower Silesian Voivodeship",
           "date": "2023-04-16"
+        },
+        {
+          "id": "xc638963",
+          "src": "audio/sylvia-atricapilla-xc638963.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 125077,
+          "sourceLengthSec": 21,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/638963",
+          "country": "Poland",
+          "location": "Gmina Stary Sącz (near  Stary Sącz), nowosądecki, Małopolskie",
+          "date": "2021-04-11"
+        },
+        {
+          "id": "xc315056",
+          "src": "audio/sylvia-atricapilla-xc315056.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124003,
+          "sourceLengthSec": 21,
+          "quality": "A",
+          "recordist": "Szymon Pławecki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/315056",
+          "country": "Poland",
+          "location": "Gmina Wolbórz, opoczyński, województwo łódzkie",
+          "date": "2016-04-24"
         }
       ]
     },
@@ -1893,6 +2917,38 @@
           "country": "Poland",
           "location": "Gmina Jaworzyna Śląska (near  Świebodzice), Świdnica County, Lower Silesian Voivodeship",
           "date": "2025-05-14"
+        },
+        {
+          "id": "xc1151593",
+          "src": "audio/sylvia-borin-xc1151593.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124580,
+          "sourceLengthSec": 79,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1151593",
+          "country": "Poland",
+          "location": "Polanica-Zdrój, Kłodzko County, Lower Silesian Voivodeship",
+          "date": "2026-05-11"
+        },
+        {
+          "id": "xc246024",
+          "src": "audio/sylvia-borin-xc246024.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124055,
+          "sourceLengthSec": 88,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/246024",
+          "country": "Poland",
+          "location": "Gmina Białowieża, hajnowski, podlaskie",
+          "date": "2015-05-21"
         }
       ]
     },
@@ -1946,6 +3002,38 @@
           "country": "Poland",
           "location": "Gmina Ostrów Lubelski (near  Bójki), Powiat lubartowski, Województwo lubelskie",
           "date": "2026-04-22"
+        },
+        {
+          "id": "xc743281",
+          "src": "audio/ficedula-hypoleuca-xc743281.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124500,
+          "sourceLengthSec": 26,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/743281",
+          "country": "Poland",
+          "location": "Sobibór Forest, Włodawa, włodawski, lubelskie",
+          "date": "2022-05-31"
+        },
+        {
+          "id": "xc1139211",
+          "src": "audio/ficedula-hypoleuca-xc1139211.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124140,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Franek Owczarek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1139211",
+          "country": "Poland",
+          "location": "Łódź, Łódź, Łódź Voivodeship",
+          "date": "2026-05-22"
         }
       ]
     },
@@ -1996,6 +3084,38 @@
           "license": "CC BY-NC-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
           "sourceUrl": "https://xeno-canto.org/328396",
+          "country": "Poland",
+          "location": "Biebrza National Park",
+          "date": "2016-05-11"
+        },
+        {
+          "id": "xc335313",
+          "src": "audio/oriolus-oriolus-xc335313.m4a",
+          "type": "song",
+          "durationSec": 11.3,
+          "sizeBytes": 116107,
+          "sourceLengthSec": 11,
+          "quality": "A",
+          "recordist": "Szymon Pławecki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/335313",
+          "country": "Poland",
+          "location": "Gmina Goczałkowice-Zdrój (near  Łąka), pszczyński, śląskie",
+          "date": "2016-06-02"
+        },
+        {
+          "id": "xc328394",
+          "src": "audio/oriolus-oriolus-xc328394.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124034,
+          "sourceLengthSec": 80,
+          "quality": "A",
+          "recordist": "Patrik Åberg",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/328394",
           "country": "Poland",
           "location": "Biebrza National Park",
           "date": "2016-05-11"
@@ -2053,6 +3173,38 @@
           "country": "Poland",
           "location": "Gmina Stary Brus (near  Kołacze), włodawski, lubelskie",
           "date": "2020-06-07"
+        },
+        {
+          "id": "xc560784",
+          "src": "audio/cuculus-canorus-xc560784.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 107089,
+          "sourceLengthSec": 14,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/560784",
+          "country": "Poland",
+          "location": "Gmina Augustów (near  Augustów), augustowski, podlaskie",
+          "date": "2018-05-01"
+        },
+        {
+          "id": "xc182336",
+          "src": "audio/cuculus-canorus-xc182336.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124509,
+          "sourceLengthSec": 65,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/182336",
+          "country": "Poland",
+          "location": "",
+          "date": "2014-06-17"
         }
       ]
     },
@@ -2110,6 +3262,38 @@
           "country": "Poland",
           "location": "Gmina Łabowa (near  Łomnica-Zdrój), nowosądecki, Lesser Poland Voivodeship",
           "date": "2022-03-26"
+        },
+        {
+          "id": "xc462990",
+          "src": "audio/columba-palumbus-xc462990.m4a",
+          "type": "song",
+          "durationSec": 11.6,
+          "sizeBytes": 119628,
+          "sourceLengthSec": 11,
+          "quality": "B",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462990",
+          "country": "Poland",
+          "location": "Włodawa (near  Żłobek), włodawski, lubelskie",
+          "date": "2019-03-21"
+        },
+        {
+          "id": "xc1086136",
+          "src": "audio/columba-palumbus-xc1086136.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123931,
+          "sourceLengthSec": 64,
+          "quality": "B",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1086136",
+          "country": "Poland",
+          "location": "Stolowe Mts. National Park, Kłodzko County, Lower Silesian Voivodeship, Poland",
+          "date": "2026-03-08"
         }
       ]
     },
@@ -2151,6 +3335,22 @@
           "date": "2010-05-03"
         },
         {
+          "id": "xc303360",
+          "src": "audio/pyrrhula-pyrrhula-xc303360.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125231,
+          "sourceLengthSec": 26,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/303360",
+          "country": "Poland",
+          "location": "Gmina Orneta (near  Orneta), lidzbarski, warmińsko-mazurskie",
+          "date": "2016-02-12"
+        },
+        {
           "id": "xc217378",
           "src": "audio/pyrrhula-pyrrhula-xc217378.m4a",
           "type": "song",
@@ -2165,6 +3365,22 @@
           "country": "Poland",
           "location": "Nature Reserve Colony of Grey Herons in Glinki",
           "date": "2015-03-14"
+        },
+        {
+          "id": "xc113713",
+          "src": "audio/pyrrhula-pyrrhula-xc113713.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123931,
+          "sourceLengthSec": 78,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113713",
+          "country": "Poland",
+          "location": "Lutowiska (near  Stuposiany), Bieszczady County, Podkarpackie",
+          "date": "2012-04-04"
         }
       ]
     },
@@ -2219,6 +3435,38 @@
           "country": "Poland",
           "location": "Gmina Hańsk (near  Wojciechów), włodawski, lubelskie",
           "date": "2019-03-20"
+        },
+        {
+          "id": "xc462159",
+          "src": "audio/emberiza-citrinella-xc462159.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124754,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462159",
+          "country": "Poland",
+          "location": "Masovian Voivodeship",
+          "date": "2019-03-17"
+        },
+        {
+          "id": "xc1133561",
+          "src": "audio/emberiza-citrinella-xc1133561.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 123999,
+          "sourceLengthSec": 40,
+          "quality": "A",
+          "recordist": "Franek Owczarek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1133561",
+          "country": "Poland",
+          "location": "Łódź, Łódź, województwo łódzkie",
+          "date": "2026-05-14"
         }
       ]
     },
@@ -2272,6 +3520,38 @@
           "country": "Poland",
           "location": "Stolowe Mts NP, Lewin Kłodzki (near  Kudowa-Zdrój), Kłodzko County, Lower Silesian Voivodeship",
           "date": "2026-05-18"
+        },
+        {
+          "id": "xc462158",
+          "src": "audio/alauda-arvensis-xc462158.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 137028,
+          "sourceLengthSec": 56,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462158",
+          "country": "Poland",
+          "location": "Masovian Voivodeship",
+          "date": "2019-03-17"
+        },
+        {
+          "id": "xc548691",
+          "src": "audio/alauda-arvensis-xc548691.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 128046,
+          "sourceLengthSec": 69,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/548691",
+          "country": "Poland",
+          "location": "Ostrołęka County, Masovian Voivodeship",
+          "date": "2020-04-20"
         }
       ]
     },
@@ -2326,6 +3606,38 @@
           "country": "Poland",
           "location": "Lublin, Lublin County, Lublin Voivodeship",
           "date": "2014-05-03"
+        },
+        {
+          "id": "xc1064306",
+          "src": "audio/luscinia-luscinia-xc1064306.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 127172,
+          "sourceLengthSec": 66,
+          "quality": "A",
+          "recordist": "Andrzej Gusztyn",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1064306",
+          "country": "Poland",
+          "location": "Gmina Michałowo (near  Brzezina), Białystok County, Podlaskie Voivodeship",
+          "date": "2021-05-20"
+        },
+        {
+          "id": "xc551918",
+          "src": "audio/luscinia-luscinia-xc551918.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 127441,
+          "sourceLengthSec": 77,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/551918",
+          "country": "Poland",
+          "location": "The Biebrza National Park",
+          "date": "2020-04-28"
         }
       ]
     },
@@ -2379,6 +3691,38 @@
           "country": "Poland",
           "location": "Gmina Wyry (near  Gostyn), Mikołów County, Silesian Voivodeship",
           "date": "2014-07-01"
+        },
+        {
+          "id": "xc477351",
+          "src": "audio/crex-crex-xc477351.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 128005,
+          "sourceLengthSec": 25,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/477351",
+          "country": "Poland",
+          "location": "The Biebrza National Park",
+          "date": "2019-05-21"
+        },
+        {
+          "id": "xc1139509",
+          "src": "audio/crex-crex-xc1139509.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 129655,
+          "sourceLengthSec": 39,
+          "quality": "A",
+          "recordist": "Krzysztof J.",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/1139509",
+          "country": "Poland",
+          "location": "Gmina Solec nad Wisłą (near  Solec nad Wisłą), Powiat lipski, Województwo mazowieckie",
+          "date": "2026-06-01"
         }
       ]
     },
@@ -2435,6 +3779,38 @@
           "country": "Poland",
           "location": "Middle Vistula, Łomianki, Warsaw",
           "date": "2021-02-20"
+        },
+        {
+          "id": "xc898291",
+          "src": "audio/larus-argentatus-xc898291.m4a",
+          "type": "call",
+          "durationSec": 12.8,
+          "sizeBytes": 124119,
+          "sourceLengthSec": 18,
+          "quality": "B",
+          "recordist": "Sławomir Karpicki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/898291",
+          "country": "Poland",
+          "location": "Hel, Powiat pucki, Województwo pomorskie",
+          "date": "2024-04-23"
+        },
+        {
+          "id": "xc197625",
+          "src": "audio/larus-argentatus-xc197625.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124602,
+          "sourceLengthSec": 139,
+          "quality": "B",
+          "recordist": "Joe Klaiber",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/197625",
+          "country": "Poland",
+          "location": "Gdańsk, Gdańsk, Pomeranian Voivodeship",
+          "date": "2012-11-12"
         }
       ]
     },
@@ -2477,6 +3853,22 @@
           "date": "2026-04-29"
         },
         {
+          "id": "xc462606",
+          "src": "audio/passer-montanus-xc462606.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 126155,
+          "sourceLengthSec": 44,
+          "quality": "A",
+          "recordist": "Stanislas Wroza",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/462606",
+          "country": "Poland",
+          "location": "Gmina Hańsk (near  Wojciechów), włodawski, lubelskie",
+          "date": "2019-03-20"
+        },
+        {
           "id": "xc665124",
           "src": "audio/passer-montanus-xc665124.m4a",
           "type": "song",
@@ -2491,6 +3883,22 @@
           "country": "Poland",
           "location": "Gmina Narewka (near  Siemianówka), Powiat hajnowski, Podlaskie",
           "date": "2021-07-19"
+        },
+        {
+          "id": "xc213537",
+          "src": "audio/passer-montanus-xc213537.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sizeBytes": 124497,
+          "sourceLengthSec": 64,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/213537",
+          "country": "Poland",
+          "location": "Warszawa, Warszawa, mazowieckie",
+          "date": "2015-02-15"
         }
       ]
     },
@@ -2545,6 +3953,38 @@
           "country": "Poland",
           "location": "Nieporęt (near  Białobrzegi), Legionowo County, Mazowieckie",
           "date": "2012-11-26"
+        },
+        {
+          "id": "xc121380",
+          "src": "audio/bombycilla-garrulus-xc121380.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124840,
+          "sourceLengthSec": 202,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/121380",
+          "country": "Poland",
+          "location": "Łomianki (near  Gmina Łomianki), Warsaw West County, Masovian Voivodeship",
+          "date": "2013-02-10"
+        },
+        {
+          "id": "xc123377",
+          "src": "audio/bombycilla-garrulus-xc123377.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124967,
+          "sourceLengthSec": 228,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/123377",
+          "country": "Poland",
+          "location": "Kruklanki (near  Gmina Kruklanki), Giżycko County, Warminsko-Mazurskie",
+          "date": "2013-03-01"
         }
       ]
     }
