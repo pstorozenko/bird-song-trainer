@@ -86,6 +86,8 @@ export function renderInfo(view: HTMLElement, data: BirdsData): () => void {
       <h2 class="info-h">Autor</h2>
       <p>Piotr Pasza Storożenko<br />
         GitHub: <a href="https://github.com/pstorozenko" target="_blank" rel="noopener">github.com/pstorozenko</a></p>
+      <p>Kod aplikacji: <a href="https://github.com/pstorozenko/bird-song-trainer" target="_blank" rel="noopener">github.com/pstorozenko/bird-song-trainer</a>
+        (licencja MIT). Nagrania i zdjęcia mają własne licencje — patrz niżej.</p>
     </div>
     ${creditsSection(data)}
     <p class="info-foot">Projekt prywatny, niekomercyjny. Dane z ${new Date(data.generatedAt).toLocaleDateString('pl-PL')}.</p>`;

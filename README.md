@@ -58,3 +58,10 @@ Each species has `types`: any Xeno-canto sound type, e.g. `["song"]` (default), 
 - **Learning model.** Leitner boxes 1–4 per species (correct: +1, wrong: back to 1), sampling weights 8/4/2/1. Learners start with the first 6 species; the next unlocks when at most 2 active species are below box 3. "Learned" = box 4. Progress lives in `localStorage` (`birdTrainer.progress.v1`), per device, with export/import.
 - **Hard mode** picks wrong answers from look-alikes (`similarTo`), then the same family, then the same habitat.
 - **Offline.** A service worker precaches the app, data and photos; recordings are cached on first play or all at once from the Info tab.
+
+## License
+- **Code and own content** (everything except the media below, including `content/species.json` notes and the app icon): [MIT](LICENSE) © 2026 Piotr Pasza Storożenko.
+- **Recordings** (`public/audio/`): from [xeno-canto.org](https://xeno-canto.org), each under its own Creative Commons licence (mostly CC BY-NC-SA 3.0/4.0). The files are modified (trimmed to ~12 s, loudness-normalised, re-encoded to AAC) and are redistributed under the same licence as their original, for non-commercial use only. Not covered by the MIT licence.
+- **Photos** (`public/img/`): from Wikimedia Commons, each under its own licence (CC BY, CC BY-SA or public domain), resized and cropped. Not covered by the MIT licence.
+
+Per-file author, licence and source link for every recording and photo are in `public/data/birds.json` and on the app's Info page.
