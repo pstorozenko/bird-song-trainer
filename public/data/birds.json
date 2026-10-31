@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-31T12:17:44Z",
+  "species": [
+    {
+      "id": "parus-major",
+      "namePl": "Sikora bogatka",
+      "nameEn": "Great Tit",
+      "nameLatin": "Parus major",
+      "family": "Paridae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Dwusylabowe „ci-ca, ci-ca” — bardzo pospolita przez cały rok.",
+      "image": {
+        "src": "img/parus-major.webp",
+        "author": "Frank Vassen from Brussels, Belgium",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_tit_(Parus_major),_Parc_du_Rouge-Cloitre,_For%C3%AAt_de_Soignes,_Brussels_(26194636951).jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc123522",
+          "src": "audio/parus-major-xc123522.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/123522",
+          "country": "Poland",
+          "location": "Jabłonna (near  Gmina Jabłonna), Legionowo County, Masovian Voivodeship",
+          "date": "2013-03-03"
+        },
+        {
+          "id": "xc160982",
+          "src": "audio/parus-major-xc160982.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Piotr Szczypinski",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/160982",
+          "country": "Poland",
+          "location": "Gmina Iłowo-Osada (near  Iłowo-Osada), Działdowo County, Warmian-Masurian Voivodeship",
+          "date": "2013-12-27"
+        }
+      ]
+    },
+    {
+      "id": "erithacus-rubecula",
+      "namePl": "Rudzik",
+      "nameEn": "European Robin",
+      "nameLatin": "Erithacus rubecula",
+      "family": "Muscicapidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [
+        "troglodytes-troglodytes"
+      ],
+      "note": "Melancholijny, perlisty śpiew z przerwami, często o zmierzchu.",
+      "image": {
+        "src": "img/erithacus-rubecula.webp",
+        "author": "Francis C. Franklin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erithacus_rubecula_with_cocked_head.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc635167",
+          "src": "audio/erithacus-rubecula-xc635167.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 24,
+          "quality": "A",
+          "recordist": "Marcin Urbański",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/635167",
+          "country": "Poland",
+          "location": "Nowy Sącz (near  Popardowa Niżna), Nowy Sącz, Małopolskie",
+          "date": "2021-04-01"
+        },
+        {
+          "id": "xc643331",
+          "src": "audio/erithacus-rubecula-xc643331.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 23,
+          "quality": "A",
+          "recordist": "Karol Łanocha",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/643331",
+          "country": "Poland",
+          "location": "Gmina Kęty (near  Kęty), Powiat oświęcimski, Małopolskie",
+          "date": "2021-04-27"
+        }
+      ]
+    },
+    {
+      "id": "fringilla-coelebs",
+      "namePl": "Zięba",
+      "nameEn": "Common Chaffinch",
+      "nameLatin": "Fringilla coelebs",
+      "family": "Fringillidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Przyspieszająca strofa zakończona wyraźnym „zakrętasem”.",
+      "image": {
+        "src": "img/fringilla-coelebs.webp",
+        "author": "caroline legg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Chaffinch_-_Fringilla_coelebs.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc512402",
+          "src": "audio/fringilla-coelebs-xc512402.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 29,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/512402",
+          "country": "Poland",
+          "location": "KPN",
+          "date": "2019-05-20"
+        },
+        {
+          "id": "xc568013",
+          "src": "audio/fringilla-coelebs-xc568013.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Karol Kustusch",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/568013",
+          "country": "Poland",
+          "location": "Gmina Gołdap, gołdapski, Warmińsko-Mazurskie",
+          "date": "2020-06-01"
+        }
+      ]
+    },
+    {
+      "id": "turdus-merula",
+      "namePl": "Kos",
+      "nameEn": "Common Blackbird",
+      "nameLatin": "Turdus merula",
+      "family": "Turdidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [],
+      "note": "Niski, fletowy, niespieszny śpiew; frazy bez powtórzeń.",
+      "image": {
+        "src": "img/turdus-merula.webp",
+        "author": "Dion Art",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9_%D0%B4%D1%80%D0%BE%D0%B7%D0%B4_(Turdus_merula,_mas),_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BB%D0%B5%D1%81.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc879871",
+          "src": "audio/turdus-merula-xc879871.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 33,
+          "quality": "A",
+          "recordist": "Łukasz Bożycki",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/879871",
+          "country": "Poland",
+          "location": "Podkowa Leśna, Grodzisk Mazowiecki County, Masovian Voivodeship",
+          "date": "2024-03-07"
+        },
+        {
+          "id": "xc127998",
+          "src": "audio/turdus-merula-xc127998.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 51,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/127998",
+          "country": "Poland",
+          "location": "Ostrów Lubelski (near  Gmina Ostrów Lubelski), Lubartów County, Lublin Voivodeship",
+          "date": "2013-03-30"
+        }
+      ]
+    },
+    {
+      "id": "troglodytes-troglodytes",
+      "namePl": "Strzyżyk",
+      "nameEn": "Eurasian Wren",
+      "nameLatin": "Troglodytes troglodytes",
+      "family": "Troglodytidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [
+        "erithacus-rubecula"
+      ],
+      "note": "Zaskakująco głośny jak na swój rozmiar, z terkoczącymi trylami.",
+      "image": {
+        "src": "img/troglodytes-troglodytes.webp",
+        "author": "Alexis Lours",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_wren_2023_12_31_02.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc113586",
+          "src": "audio/troglodytes-troglodytes-xc113586.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/113586",
+          "country": "Poland",
+          "location": "Nieporęt (near  Rynia), Legionowo County, Mazowieckie",
+          "date": "2012-11-27"
+        },
+        {
+          "id": "xc632487",
+          "src": "audio/troglodytes-troglodytes-xc632487.m4a",
+          "type": "song",
+          "durationSec": 12.0,
+          "sourceLengthSec": 38,
+          "quality": "A",
+          "recordist": "Jacek Betleja",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/632487",
+          "country": "Poland",
+          "location": "Ustroń, Powiat cieszyński, Śląskie",
+          "date": "2020-05-22"
+        }
+      ]
+    }
+  ]
+}

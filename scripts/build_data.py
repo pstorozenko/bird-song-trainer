@@ -1,0 +1,440 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["httpx>=0.27", "numpy>=1.26", "python-dotenv>=1.0"]
+# ///
+"""Build static bird data for the app.
+
+Queries Xeno-canto (API v3) and Wikimedia once on the dev machine, downloads and
+processes audio/images, and writes public/data/birds.json. The web app only ever
+reads these local static files — the API key never leaves this script.
+
+Usage:
+  uv run scripts/build_data.py --mvp
+  uv run scripts/build_data.py --only parus-major,turdus-merula
+  uv run scripts/build_data.py --all [--refresh]
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import html
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+import httpx
+import numpy as np
+from dotenv import load_dotenv
+
+ROOT = Path(__file__).resolve().parent.parent
+SPECIES_FILE = ROOT / "data" / "species.json"
+OVERRIDES_FILE = ROOT / "data" / "overrides.json"
+MANUAL_IMAGES = ROOT / "data" / "images"
+CACHE = ROOT / ".cache"
+PUBLIC = ROOT / "public"
+OUT_JSON = PUBLIC / "data" / "birds.json"
+
+XC_API = "https://xeno-canto.org/api/3/recordings"
+UA = "BirdSongTrainer/0.1 (personal learning project; data build script)"
+
+RECORDINGS_PER_SPECIES = 2
+COUNTRY = "poland"
+MAX_SOURCE_SEC = 90  # prefer short source recordings (less to sift through)
+CLIP_SEC = 12.0
+SAMPLE_RATE = 32000
+
+
+# ---------------------------------------------------------------- helpers
+
+def log(msg: str) -> None:
+    print(msg, flush=True)
+
+
+def parse_len(s: str) -> int:
+    secs = 0
+    for part in s.split(":"):
+        secs = secs * 60 + int(part)
+    return secs
+
+
+def license_name(url: str) -> str:
+    """'//creativecommons.org/licenses/by-nc-sa/4.0/' -> 'CC BY-NC-SA 4.0'"""
+    m = re.search(r"licenses/([a-z-]+)/([\d.]+)", url)
+    if not m:
+        return url
+    return f"CC {m.group(1).upper()} {m.group(2)}"
+
+
+def license_ok(url: str) -> bool:
+    # ND forbids derivatives; we trim + re-encode, so exclude it.
+    return "creativecommons.org/licenses/" in url and "-nd" not in url
+
+
+def strip_html(s: str) -> str:
+    return html.unescape(re.sub(r"<[^>]+>", "", s or "")).strip()
+
+
+def run(cmd: list[str], **kw) -> subprocess.CompletedProcess:
+    return subprocess.run(cmd, check=True, capture_output=True, **kw)
+
+
+class Http:
+    def __init__(self) -> None:
+        self.client = httpx.Client(headers={"User-Agent": UA, "Accept": "application/json, */*", "Accept-Encoding": "gzip"}, timeout=60, follow_redirects=True)
+        self._last: dict[str, float] = {}
+
+    def _throttle(self, url: str, min_gap: float = 1.5) -> None:
+        """Be polite: at most one request per host every `min_gap` seconds."""
+        host = httpx.URL(url).host
+        wait = min_gap - (time.monotonic() - self._last.get(host, 0.0))
+        if wait > 0:
+            time.sleep(wait)
+        self._last[host] = time.monotonic()
+
+    def get(self, url: str, params: dict | None = None, retries: int = 4) -> httpx.Response:
+        for attempt in range(retries):
+            self._throttle(url)
+            r = self.client.get(url, params=params)
+            if r.status_code not in (429, 503) and not (r.status_code == 403 and "robot policy" in r.text):
+                r.raise_for_status()
+                return r
+            delay = float(r.headers.get("Retry-After", 0) or 0) or 5 * 2 ** attempt
+            delay = min(delay, 60)
+            if attempt == retries - 1:
+                break
+            log(f"  … {r.status_code} from {httpx.URL(url).host}, retrying in {delay:.0f}s")
+            time.sleep(delay)
+        r.raise_for_status()
+        return r
+
+    def json_cached(self, cache_name: str, url: str, params: dict, refresh: bool, retries: int = 4) -> dict:
+        path = CACHE / "api" / cache_name
+        if path.exists() and not refresh:
+            return json.loads(path.read_text())
+        data = self.get(url, params, retries).json()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=1))
+        return data
+
+    def download(self, url: str, dest: Path, retries: int = 4) -> Path:
+        if dest.exists() and dest.stat().st_size > 0:
+            return dest
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        tmp = dest.with_suffix(dest.suffix + ".part")
+        tmp.write_bytes(self.get(url, retries=retries).content)
+        tmp.rename(dest)
+        return dest
+
+
+# ---------------------------------------------------------------- xeno-canto
+
+def xc_candidates(http: Http, key: str, sp: dict, quality: str, refresh: bool) -> list[dict]:
+    gen, spec = sp["nameLatin"].split()[:2]
+    query = f"gen:{gen} sp:{spec} cnt:{COUNTRY} type:song q:{quality}"
+    recs: list[dict] = []
+    page = 1
+    while True:
+        data = http.json_cached(
+            f"xc-{sp['id']}-{quality}-p{page}.json",
+            XC_API,
+            {"query": query, "key": key, "per_page": 500, "page": page},
+            refresh,
+        )
+        if "error" in data:
+            raise RuntimeError(f"Xeno-canto error for {sp['id']}: {data}")
+        recs += data.get("recordings", [])
+        if page >= int(data.get("numPages", 1)):
+            break
+        page += 1
+    return recs
+
+
+def pick_recordings(recs: list[dict], n: int, overrides: dict) -> list[dict]:
+    exclude = {x.removeprefix("xc") for x in overrides.get("exclude", [])}
+    pins = [x.removeprefix("xc") for x in overrides.get("pin", [])]
+    by_id = {r["id"]: r for r in recs}
+
+    usable = [
+        r for r in recs
+        if license_ok(r.get("lic", "")) and r["id"] not in exclude and r.get("file")
+    ]
+
+    def score(r: dict) -> tuple:
+        length = parse_len(r.get("length", "0:00"))
+        return (
+            length > MAX_SOURCE_SEC,          # short ones first
+            len(r.get("also") or []) > 0,     # no background species first
+            r.get("q") != "A",
+            abs(length - 30),                 # ~30 s sources are a sweet spot
+        )
+
+    chosen: list[dict] = [by_id[p] for p in pins if p in by_id][:n]
+    recordists = {r["rec"] for r in chosen}
+    ranked = sorted(usable, key=score)
+    # first pass: distinct recordists; second pass: fill up
+    for distinct in (True, False):
+        for r in ranked:
+            if len(chosen) >= n:
+                break
+            if r in chosen or (distinct and r["rec"] in recordists):
+                continue
+            chosen.append(r)
+            recordists.add(r["rec"])
+    return chosen
+
+
+# ---------------------------------------------------------------- audio
+
+def loudest_window_start(src: Path, clip_sec: float) -> float:
+    pcm = run([
+        "ffmpeg", "-v", "error", "-i", str(src), "-ac", "1", "-ar", str(SAMPLE_RATE),
+        "-f", "f32le", "-",
+    ]).stdout
+    x = np.frombuffer(pcm, dtype=np.float32)
+    duration = len(x) / SAMPLE_RATE
+    if duration <= clip_sec:
+        return 0.0
+    # high-pass-ish: remove DC / low rumble with first difference, then energy per 100 ms
+    hop = SAMPLE_RATE // 10
+    frames = len(x) // hop
+    e = np.square(np.diff(x[: frames * hop], prepend=0)).reshape(frames, hop).mean(axis=1)
+    win = int(clip_sec * 10)
+    sums = np.convolve(e, np.ones(win), mode="valid")
+    return float(np.argmax(sums)) / 10.0
+
+
+def process_audio(src: Path, dest: Path, refresh: bool) -> float:
+    if dest.exists() and not refresh:
+        return probe_duration(dest)
+    start = loudest_window_start(src, CLIP_SEC)
+    fade_out_start = max(CLIP_SEC - 0.4, 0)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    run([
+        "ffmpeg", "-v", "error", "-y", "-ss", f"{start:.2f}", "-t", f"{CLIP_SEC}", "-i", str(src),
+        "-ac", "1", "-ar", "44100",
+        "-af", f"highpass=f=150,loudnorm=I=-16:TP=-1.5:LRA=11,afade=t=in:d=0.2,afade=t=out:st={fade_out_start}:d=0.4",
+        "-c:a", "aac", "-b:a", "80k", "-movflags", "+faststart", str(dest),
+    ])
+    return probe_duration(dest)
+
+
+def probe_duration(path: Path) -> float:
+    out = run([
+        "ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path),
+    ]).stdout.decode().strip()
+    return round(float(out), 1)
+
+
+# ---------------------------------------------------------------- images
+
+def to_webp(src: Path, dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-vf", "scale='min(640,iw)':-2",
+         "-c:v", "libwebp", "-quality", "78", str(dest)])
+
+
+def manual_image(sp: dict, overrides: dict) -> dict | None:
+    """A photo the owner dropped into data/images/<id>.<ext> wins over Wikimedia."""
+    for ext in (".jpg", ".jpeg", ".png", ".webp"):
+        src = MANUAL_IMAGES / f"{sp['id']}{ext}"
+        if src.exists():
+            dest = PUBLIC / "img" / f"{sp['id']}.webp"
+            to_webp(src, dest)
+            credit = overrides.get("imageCredit", {})
+            return {
+                "src": f"img/{dest.name}",
+                "author": credit.get("author", "własne zdjęcie"),
+                "license": credit.get("license", "all rights reserved"),
+                "licenseUrl": credit.get("licenseUrl", ""),
+                "sourceUrl": credit.get("sourceUrl", ""),
+            }
+    return None
+
+
+def wikimedia_image(http: Http, sp: dict, refresh: bool, overrides: dict) -> dict | None:
+    dest = PUBLIC / "img" / f"{sp['id']}.webp"
+    file_title = overrides.get("image")  # optional "File:....jpg" override
+    if not file_title:
+        wp = http.json_cached(
+            f"wp-{sp['id']}.json",
+            "https://en.wikipedia.org/w/api.php",
+            {"action": "query", "format": "json", "prop": "pageimages", "piprop": "name",
+             "redirects": 1, "titles": sp["nameLatin"]},
+            refresh, retries=1,
+        )
+        page = next(iter(wp["query"]["pages"].values()))
+        if "pageimage" not in page:
+            log(f"  ! no Wikipedia page image for {sp['nameLatin']}")
+            return None
+        file_title = "File:" + page["pageimage"]
+    info = http.json_cached(
+        f"commons-{sp['id']}.json",
+        "https://commons.wikimedia.org/w/api.php",
+        {"action": "query", "format": "json", "prop": "imageinfo",
+         "iiprop": "url|extmetadata", "iiurlwidth": 800, "titles": file_title},
+        refresh, retries=1,
+    )
+    ii = next(iter(info["query"]["pages"].values()))["imageinfo"][0]
+    meta = ii.get("extmetadata", {})
+    lic = meta.get("LicenseShortName", {}).get("value", "")
+    if not lic or "ND" in lic.upper().split("-"):
+        log(f"  ! image licence not usable: {lic!r}")
+        return None
+
+    if refresh or not dest.exists():
+        raw = http.download(ii["thumburl"], CACHE / "img" / f"{sp['id']}{Path(ii['thumburl'].split('?')[0]).suffix}", retries=1)
+        to_webp(raw, dest)
+
+    return {
+        "src": f"img/{dest.name}",
+        "author": strip_html(meta.get("Artist", {}).get("value", "")) or "unknown",
+        "license": lic,
+        "licenseUrl": meta.get("LicenseUrl", {}).get("value", ""),
+        "sourceUrl": ii["descriptionurl"],
+    }
+
+
+def fetch_image(http: Http, sp: dict, refresh: bool, overrides: dict, previous: dict | None) -> dict | None:
+    img = manual_image(sp, overrides)
+    if img:
+        return img
+    try:
+        return wikimedia_image(http, sp, refresh, overrides)
+    except (httpx.HTTPError, KeyError, StopIteration) as e:
+        log(f"  ! photo skipped ({type(e).__name__}: {str(e)[:80]}) — add data/images/{sp['id']}.jpg or re-run later")
+        # keep a photo from an earlier successful build, if any
+        if previous and previous.get("image") and (PUBLIC / previous["image"]["src"]).exists():
+            return previous["image"]
+        return None
+
+
+# ---------------------------------------------------------------- main
+
+def build_species(http: Http, key: str, sp: dict, refresh: bool, overrides: dict, previous: dict | None) -> dict:
+    log(f"• {sp['namePl']} ({sp['nameLatin']})")
+    recs = xc_candidates(http, key, sp, "A", refresh)
+    chosen = pick_recordings(recs, RECORDINGS_PER_SPECIES, overrides)
+    if len(chosen) < RECORDINGS_PER_SPECIES:
+        recs += xc_candidates(http, key, sp, "B", refresh)
+        chosen = pick_recordings(recs, RECORDINGS_PER_SPECIES, overrides)
+    if len(chosen) < RECORDINGS_PER_SPECIES:
+        log(f"  ! only {len(chosen)} usable Polish recordings")
+
+    recordings = []
+    for r in chosen:
+        ext = Path(r.get("file-name") or "x.mp3").suffix or ".mp3"
+        raw = http.download(r["file"], CACHE / "xc" / f"{r['id']}{ext}")
+        dest = PUBLIC / "audio" / f"{sp['id']}-xc{r['id']}.m4a"
+        dur = process_audio(raw, dest, refresh)
+        recordings.append({
+            "id": f"xc{r['id']}",
+            "src": f"audio/{dest.name}",
+            "type": "song",
+            "durationSec": dur,
+            "sourceLengthSec": parse_len(r.get("length", "0:00")),
+            "quality": r.get("q"),
+            "recordist": r["rec"],
+            "license": license_name(r["lic"]),
+            "licenseUrl": "https:" + r["lic"] if r["lic"].startswith("//") else r["lic"],
+            "sourceUrl": r.get("url") or f"https://xeno-canto.org/{r['id']}",
+            "country": r.get("cnt"),
+            "location": r.get("loc"),
+            "date": r.get("date"),
+        })
+        log(f"  ♪ XC{r['id']} q:{r.get('q')} {r.get('length')} {license_name(r['lic'])} — {r['rec']} ({r.get('loc')})")
+
+    image = fetch_image(http, sp, refresh, overrides, previous)
+    if image:
+        log(f"  ▣ {image['license']} — {image['author']}")
+
+    out = {k: sp[k] for k in ("id", "namePl", "nameEn", "nameLatin", "family", "habitat", "similarTo", "note")}
+    out["image"] = image
+    out["recordings"] = recordings
+    return out
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--mvp", action="store_true", help="only species marked mvp (default)")
+    g.add_argument("--all", action="store_true", help="all species in data/species.json")
+    g.add_argument("--only", help="comma-separated species ids")
+    ap.add_argument("--refresh", action="store_true", help="ignore caches and re-process")
+    args = ap.parse_args()
+
+    load_dotenv(ROOT / ".env")
+    key = os.environ.get("XENO_CANTO_API_KEY", "").strip()
+    if not key:
+        log("XENO_CANTO_API_KEY missing — put it in .env (see .env.example)")
+        return 1
+
+    for tool in ("ffmpeg", "ffprobe"):
+        try:
+            run([tool, "-version"])
+        except (OSError, subprocess.CalledProcessError):
+            log(f"{tool} not found on PATH")
+            return 1
+
+    seed = json.loads(SPECIES_FILE.read_text())["species"]
+    overrides_all = json.loads(OVERRIDES_FILE.read_text()) if OVERRIDES_FILE.exists() else {}
+
+    if args.only:
+        ids = set(args.only.split(","))
+        selected = [s for s in seed if s["id"] in ids]
+        missing = ids - {s["id"] for s in selected}
+        if missing:
+            log(f"unknown ids: {', '.join(sorted(missing))}")
+            return 1
+    elif args.all:
+        selected = seed
+    else:
+        selected = [s for s in seed if s.get("mvp")]
+
+    http = Http()
+    previous = {s["id"]: s for s in json.loads(OUT_JSON.read_text())["species"]} if OUT_JSON.exists() else {}
+    built = {
+        sp["id"]: build_species(http, key, sp, args.refresh, overrides_all.get(sp["id"], {}), previous.get(sp["id"]))
+        for sp in selected
+    }
+
+    # --only merges into the existing build instead of replacing it.
+    if args.only:
+        for sid, s in previous.items():
+            built.setdefault(sid, s)
+    seed_by_id = {s["id"]: s for s in seed}
+    species = [built[s["id"]] for s in seed if s["id"] in built]  # seed order
+
+    # Keep similarTo pointing only at species that are actually in the build.
+    present = set(built)
+    for s in species:
+        s["similarTo"] = [x for x in seed_by_id[s["id"]]["similarTo"] if x in present]
+
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    OUT_JSON.write_text(json.dumps({
+        "version": 1,
+        "generatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "species": species,
+    }, ensure_ascii=False, indent=2) + "\n")
+
+    # Remove generated assets no longer referenced (e.g. after an override).
+    referenced = {r["src"] for s in species for r in s["recordings"]} | {s["image"]["src"] for s in species if s["image"]}
+    if not args.only:
+        for sub in ("audio", "img"):
+            for f in (PUBLIC / sub).glob("*"):
+                if f"{sub}/{f.name}" not in referenced:
+                    f.unlink()
+                    log(f"removed stale {sub}/{f.name}")
+
+    total = sum((PUBLIC / p).stat().st_size for p in referenced)
+    log(f"\nWrote {OUT_JSON.relative_to(ROOT)}: {len(species)} species, "
+        f"{sum(len(s['recordings']) for s in species)} clips, {total / 1024:.0f} KB of assets")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
