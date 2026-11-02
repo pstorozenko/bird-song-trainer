@@ -90,7 +90,7 @@
 <script>
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const TYPE = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot' };
+const TYPE = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot', drumming: 'werbel' };
 
 let state = { birds: { species: [] }, overrides: {}, pending: [] };
 let focusKey = null; // "speciesId/clipId"

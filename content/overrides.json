@@ -468,5 +468,36 @@
       "xc577810",
       "xc577813"
     ]
+  },
+  "aegithalos-caudatus": {
+    "exclude": [
+      "xc463556"
+    ],
+    "approved": [
+      "xc612747",
+      "xc524302",
+      "xc406841",
+      "xc612746"
+    ]
+  },
+  "dendrocopos-major": {
+    "approved": [
+      "xc129489",
+      "xc723936",
+      "xc413691",
+      "xc321168"
+    ]
+  },
+  "dryocopus-martius": {
+    "approved": [
+      "xc742946",
+      "xc626109",
+      "xc304009",
+      "xc697938"
+    ],
+    "exclude": [
+      "xc170815",
+      "xc801052"
+    ]
   }
 }

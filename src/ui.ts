@@ -20,7 +20,12 @@ export const HABITAT_PL: Record<string, string> = {
   village: 'wieś',
 };
 
-export const TYPE_PL: Record<string, string> = { song: 'śpiew', call: 'głos', 'bill clapping': 'klekot' };
+export const TYPE_PL: Record<string, string> = {
+  song: 'śpiew',
+  call: 'głos',
+  'bill clapping': 'klekot',
+  drumming: 'werbel',
+};
 
 /** Round play/stop button for one clip. Wire it up once per container with bindPlayButtons(). */
 export function playButton(src: string, label: string, extraClass = ''): string {

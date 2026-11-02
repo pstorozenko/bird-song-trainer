@@ -183,7 +183,7 @@ function questionView(s: Session): string {
     <div class="listen">
       <button class="listen-btn" type="button" data-action="replay" aria-pressed="${playing}"
         aria-label="${playing ? 'Zatrzymaj nagranie' : 'Odtwórz nagranie'}">${playing ? ICON.stop : ICON.play}</button>
-      <p class="listen-hint">${answer ? 'Posłuchaj jeszcze raz' : q.recording.type === 'song' ? 'Kto tak śpiewa?' : 'Czyj to głos?'}</p>
+      <p class="listen-hint">${answer ? 'Posłuchaj jeszcze raz' : q.recording.type === 'song' ? 'Kto tak śpiewa?' : q.recording.type === 'drumming' ? 'Kto tak bębni?' : 'Czyj to głos?'}</p>
     </div>
     <div class="choices" role="group" aria-label="Odpowiedzi">
       ${q.choices.map((c, i) => choiceView(c, i, answer)).join('')}

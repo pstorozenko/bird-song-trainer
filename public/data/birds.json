@@ -1,7 +1,7 @@
 {
   "version": 1,
   "clipsPerSpecies": 4,
-  "generatedAt": "2026-10-31T15:48:07Z",
+  "generatedAt": "2026-11-02T20:31:56Z",
   "species": [
     {
       "id": "corvus-cornix",
@@ -2374,6 +2374,94 @@
       ]
     },
     {
+      "id": "aegithalos-caudatus",
+      "namePl": "Raniuszek",
+      "nameEn": "Long-tailed Tit",
+      "nameLatin": "Aegithalos caudatus",
+      "family": "Aegithalidae",
+      "habitat": [
+        "forest",
+        "park"
+      ],
+      "similarTo": [
+        "cyanistes-caeruleus"
+      ],
+      "note": "Wysokie, cienkie „srii-srii-srii” i suche „trr” — ruchliwe stadka przemieszczają się przez krzewy i korony drzew.",
+      "image": {
+        "src": "img/aegithalos-caudatus.webp",
+        "author": "Ігор Червоненко",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%94%D0%BE%D0%B2%D0%B3%D0%BE%D1%85%D0%B2%D0%BE%D1%81%D1%82%D0%B0_2.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc406841",
+          "src": "audio/aegithalos-caudatus-xc406841.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 129416,
+          "sourceLengthSec": 30,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/406841",
+          "country": "Poland",
+          "location": "Secymin, Middle Vistula River",
+          "date": "2018-03-22"
+        },
+        {
+          "id": "xc612747",
+          "src": "audio/aegithalos-caudatus-xc612747.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 126971,
+          "sourceLengthSec": 28,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/612747",
+          "country": "Poland",
+          "location": "Gmina Stary Brus (near  Kołacze), włodawski, lubelskie",
+          "date": "2021-01-01"
+        },
+        {
+          "id": "xc524302",
+          "src": "audio/aegithalos-caudatus-xc524302.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124796,
+          "sourceLengthSec": 20,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/524302",
+          "country": "Poland",
+          "location": "Gmina Olsztynek (near  Swaderki), olsztyński, warmińsko-mazurskie",
+          "date": "2020-02-01"
+        },
+        {
+          "id": "xc612746",
+          "src": "audio/aegithalos-caudatus-xc612746.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125829,
+          "sourceLengthSec": 19,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/612746",
+          "country": "Poland",
+          "location": "Gmina Stary Brus (near  Kołacze), włodawski, lubelskie",
+          "date": "2021-01-01"
+        }
+      ]
+    },
+    {
       "id": "erithacus-rubecula",
       "namePl": "Rudzik",
       "nameEn": "European Robin",
@@ -3326,6 +3414,182 @@
           "country": "Poland",
           "location": "Biebrza National Park",
           "date": "2016-05-11"
+        }
+      ]
+    },
+    {
+      "id": "dendrocopos-major",
+      "namePl": "Dzięcioł duży",
+      "nameEn": "Great Spotted Woodpecker",
+      "nameLatin": "Dendrocopos major",
+      "family": "Picidae",
+      "habitat": [
+        "forest",
+        "park",
+        "city"
+      ],
+      "similarTo": [
+        "dryocopus-martius"
+      ],
+      "note": "Ostre, metaliczne „kik” i krótkie, szybkie werble (ok. 0,5 s) — najczęstszy dzięcioł, także w parkach.",
+      "image": {
+        "src": "img/dendrocopos-major.webp",
+        "author": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_spotted_woodpecker_(Dendrocopos_major)_male_Drenthe.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc321168",
+          "src": "audio/dendrocopos-major-xc321168.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 124057,
+          "sourceLengthSec": 26,
+          "quality": "A",
+          "recordist": "Szymon Czernek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/321168",
+          "country": "Poland",
+          "location": "Gmina Kaliska, starogardzki, pomorskie",
+          "date": "2016-06-11"
+        },
+        {
+          "id": "xc129489",
+          "src": "audio/dendrocopos-major-xc129489.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 125024,
+          "sourceLengthSec": 36,
+          "quality": "A",
+          "recordist": "Mathias Ritschard",
+          "license": "CC BY-NC-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+          "sourceUrl": "https://xeno-canto.org/129489",
+          "country": "Poland",
+          "location": "Bialowieza",
+          "date": "2012-05-18"
+        },
+        {
+          "id": "xc723936",
+          "src": "audio/dendrocopos-major-xc723936.m4a",
+          "type": "drumming",
+          "durationSec": 12.0,
+          "sizeBytes": 126984,
+          "sourceLengthSec": 34,
+          "quality": "A",
+          "recordist": "Ireneusz Oleksik",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/723936",
+          "country": "Poland",
+          "location": "Tychy, Mikołów County, śląskie",
+          "date": "2022-05-14"
+        },
+        {
+          "id": "xc413691",
+          "src": "audio/dendrocopos-major-xc413691.m4a",
+          "type": "drumming",
+          "durationSec": 12.0,
+          "sizeBytes": 124067,
+          "sourceLengthSec": 35,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/413691",
+          "country": "Poland",
+          "location": "Warszawa, Warszawa, mazowieckie",
+          "date": "2018-04-26"
+        }
+      ]
+    },
+    {
+      "id": "dryocopus-martius",
+      "namePl": "Dzięcioł czarny",
+      "nameEn": "Black Woodpecker",
+      "nameLatin": "Dryocopus martius",
+      "family": "Picidae",
+      "habitat": [
+        "forest"
+      ],
+      "similarTo": [
+        "dendrocopos-major"
+      ],
+      "note": "Głośne „krü-krü-krü” w locie, zawodzące „kliee” i długie, potężne werble — największy nasz dzięcioł.",
+      "image": {
+        "src": "img/dryocopus-martius.webp",
+        "author": "Dion Art",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%96%D0%B5%D0%BB%D0%BD%D0%B0_(Dryocopus_martius,_fem),_%C2%AB%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F_%D1%88%D1%83%D0%BC%D0%B0%D1%88%D0%B5%D1%88%D0%B0%D1%8F%C2%BB.jpg"
+      },
+      "recordings": [
+        {
+          "id": "xc742946",
+          "src": "audio/dryocopus-martius-xc742946.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 126233,
+          "sourceLengthSec": 32,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/742946",
+          "country": "Poland",
+          "location": "Stolowe Mts. NP, Kudowa-Zdrój, kłodzki, Województwo dolnośląskie",
+          "date": "2022-05-07"
+        },
+        {
+          "id": "xc626109",
+          "src": "audio/dryocopus-martius-xc626109.m4a",
+          "type": "call",
+          "durationSec": 12.0,
+          "sizeBytes": 123824,
+          "sourceLengthSec": 18,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/626109",
+          "country": "Poland",
+          "location": "Gmina Leoncin (near  Leoncin), nowodworski, mazowieckie",
+          "date": "2021-03-03"
+        },
+        {
+          "id": "xc304009",
+          "src": "audio/dryocopus-martius-xc304009.m4a",
+          "type": "drumming",
+          "durationSec": 12.0,
+          "sizeBytes": 126284,
+          "sourceLengthSec": 13,
+          "quality": "A",
+          "recordist": "Jarek Matusiak",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/304009",
+          "country": "Poland",
+          "location": "Gmina Piecki (near  Krutyń), mrągowski, warmińsko-mazurskie",
+          "date": "2016-02-15"
+        },
+        {
+          "id": "xc697938",
+          "src": "audio/dryocopus-martius-xc697938.m4a",
+          "type": "drumming",
+          "durationSec": 12.0,
+          "sizeBytes": 124550,
+          "sourceLengthSec": 37,
+          "quality": "A",
+          "recordist": "Romuald Mikusek",
+          "license": "CC BY-NC-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+          "sourceUrl": "https://xeno-canto.org/697938",
+          "country": "Poland",
+          "location": "Stolowe Mts. NP, Kudowa-Zdrój, kłodzki, Województwo dolnośląskie",
+          "date": "2021-06-10"
         }
       ]
     },
